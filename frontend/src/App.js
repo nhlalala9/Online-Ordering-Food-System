@@ -9,6 +9,7 @@ import Home from './Pages/Home/home';
 import Products from './Pages/Products/Products';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
+import { children } from 'react';
 
 const Layout = () =>{
   return (
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div>
-        <RouterProvider router = {router}/>
+        <RouterProvider router= {router}/>
     </div>
   );
 }
