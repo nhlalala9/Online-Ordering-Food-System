@@ -17,6 +17,7 @@ import {
   import useScreenSize from "../../hooks/useScreenSize";
   import { API } from "../../constant";
   import { setToken } from "../../helpers";
+  import './signup.css';
   
   const SignUp = () => {
     const { isDesktopView } = useScreenSize();
@@ -62,7 +63,7 @@ import {
     };
   
     return (
-      <Fragment>
+      <Fragment className="fm">
         <Row align="middle">
           <Col span={isDesktopView ? 8 : 24} offset={isDesktopView ? 8 : 0}>
             <Card title="Register your account">
@@ -75,7 +76,7 @@ import {
                   afterClose={() => setError("")}
                 />
               ) : null}
-              <Form
+              <Form 
                 name="basic"
                 layout="vertical"
                 onFinish={onFinish}
@@ -125,7 +126,7 @@ import {
                 </Form.Item>
               </Form>
               <Typography.Paragraph className="form_help_text">
-                Already have an account? <Link to="/signin">Login</Link>
+                Already have an account? <Link to="/signin" style={{ color: 'blue'}}>Login</Link>
               </Typography.Paragraph>
             </Card>
           </Col>
