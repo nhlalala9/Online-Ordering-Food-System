@@ -19,7 +19,7 @@ import {
   import useScreenSize from "../../hooks/useScreenSize";
   import { API } from "../../constant";
   import { setToken } from "../../helpers";
-  import ForgotPassword from "../../Models/forgotPassword";
+//   import ForgotPassword from "../../Models/forgotPassword";
   
   const SignIn = () => {
     const { isDesktopView } = useScreenSize();

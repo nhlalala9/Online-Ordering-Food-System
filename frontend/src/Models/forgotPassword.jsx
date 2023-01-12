@@ -2,6 +2,7 @@ import { RxReset} from 'react-icons/rx';
 import React from 'react';
 
 
+
 //Forgot Password Modal
 function ForgotPassword() {
     return(
