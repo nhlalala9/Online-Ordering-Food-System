@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import "./login.css"
 import axios from 'axios';
 
-const login = () => {
+const Login = () => {
     const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [username, setUsername] = useState();
@@ -94,4 +94,4 @@ const login = () => {
   )
 }
 
-export default login
+export default Login
