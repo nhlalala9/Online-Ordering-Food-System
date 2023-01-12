@@ -71,7 +71,7 @@ input[type="submit"] {
     margin:0;
     padding:0;
     font-family: sans-serif;
-    /* background: linear-gradient(#141e30, #243b55); */
+    
   }
   
   .login-box {
@@ -166,16 +166,13 @@ input[type="submit"] {
     animation: btn-anim1 1s linear infinite;
   }
   
- 
   
   .login-box a span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
     height: 100%;
-    /* background: linear-gradient(180deg, transparent, #03e9f4); */
-    /* animation: btn-anim2 1s linear infinite;
-    animation-delay: .25s */
+   
   }
   
   
