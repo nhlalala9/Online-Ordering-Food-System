@@ -63,10 +63,10 @@ import {
     };
   
     return (
-      <Fragment className="fm">
+      <Fragment >
         <Row align="middle">
           <Col span={isDesktopView ? 8 : 24} offset={isDesktopView ? 8 : 0}>
-            <Card title="Register your account">
+            <Card title="Register your account" className="fm">
               {error ? (
                 <Alert
                   className="alert_error"
