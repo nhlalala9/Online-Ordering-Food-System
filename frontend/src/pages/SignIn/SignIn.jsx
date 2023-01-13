@@ -107,11 +107,11 @@ import {
                   rules={[{ required: true }]}
                 >
                   <Input.Password placeholder="Password" />
-                  <div className="text-right">
+                  {/* <div className="text-right">
               <Link to="/forgotpassword" style={{ color: 'blue', margin: 100 }}>
                 Forgot Password?
               </Link>
-            </div>
+            </div> */}
                 </Form.Item>
   
                 <Form.Item>
