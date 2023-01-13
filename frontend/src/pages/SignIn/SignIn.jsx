@@ -107,11 +107,7 @@ import {
                   rules={[{ required: true }]}
                 >
                   <Input.Password placeholder="Password" />
-                  <div className="text-right">
-              <Link to="/forgotpassword" style={{ color: 'blue', margin: 100 }}>
-                Forgot Password?
-              </Link>
-            </div>
+             
                 </Form.Item>
   
                 <Form.Item>
@@ -127,6 +123,11 @@ import {
               <Typography.Paragraph className="form_help_text">
                 Don't have an account? <Link to="/signup" style={{ color: 'blue'}}>Register</Link>
               </Typography.Paragraph>
+              <div className="text-right">
+              <Link to="/forgotpassword" style={{ color: 'blue', margin: 100 }}>
+                Forgot Password?
+              </Link>
+            </div>
             </Card>
           </Col>
         </Row>

@@ -11,7 +11,7 @@ const Products = () => {
   const [sort] = useState(null);
   const [selectedSubCats, setSelectedSubCats] = useState([]);
 
-  const { data, loading, error } = useFetch(
+  const { data } = useFetch(
     `/sub-categories?[filters][categories][id][$eq]=${catId}`
   );
 
@@ -47,7 +47,7 @@ const Products = () => {
       <div className="right">
         <img
           className="catImg"
-          src="https://media.istockphoto.com/id/1224640603/photo/owners-of-local-restaurant-taking-orders-on-the-phone-and-boxing-food-for-delivery-during.jpg?b=1&s=170667a&w=0&k=20&c=pJuSTHP2t0yeaGoJB1RWTUK3ZYhd4XvPJcfsWH1_oGQ=1600"
+          src="https://images.unsplash.com/photo-1529270296466-b09d5f5c2bab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=1600"
           alt=""
         />
         <List catId={catId} maxPrice={maxPrice} sort={sort} subCats={selectedSubCats}/>

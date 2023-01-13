@@ -62,7 +62,7 @@ const Categories = () => {
             <div className="row">
               {" "}
               <img
-                src="https://media.istockphoto.com/id/1377372234/photo/pizza-with-salami-bell-pepper-tomatoes-and-cheese-pickles-bacon-and-sausages-on-a-light.jpg?s=612x612&w=0&k=20&c=Cw2GlLY474sFLmBm4IFsSoSXV4wHZM-ub691aaDqLlw=60"
+                src="https://images.unsplash.com/photo-1613564834361-9436948817d1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHBpenphfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
                 alt=""
               />
               <button>
@@ -75,7 +75,7 @@ const Categories = () => {
         </div>
         <div className="row">
           <img
-            src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=728&q=80"
+            src="https://images.unsplash.com/photo-1564436872-f6d81182df12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bWVhbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
           />
           <button>
             <Link to="/products/1" className="link">
