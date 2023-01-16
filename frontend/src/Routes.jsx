@@ -4,12 +4,14 @@ import { getToken } from "./helpers";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import ForgotPassword from "./Models/forgotPassword";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/forgotPassword" element={<ForgotPassword/>}/>
       
       <Route

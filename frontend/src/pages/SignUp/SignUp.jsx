@@ -52,7 +52,7 @@ import {
   
           message.success(`Welcome to Online Ordering Food System ${data.user.username}!`);
   
-          navigate("/profile", { replace: true });
+          navigate("/dashboard", { replace: true });
         }
       } catch (error) {
         console.error(error);

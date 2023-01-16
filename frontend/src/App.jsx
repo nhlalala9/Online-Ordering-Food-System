@@ -11,9 +11,9 @@ const App = () => {
     <Layout>
       <Row gutter={[0, 32]}>
         <Col span={24}>
-          <Header>
+          {/* <Header>
             <AppHeader />
-          </Header>
+          </Header> */}
         </Col>
         <Col span={22} offset={1}>
           <Content>
