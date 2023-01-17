@@ -1,0 +1,11 @@
+.mini-icon {
+    color: #514a7b;
+  }
+  .input-search-icon {
+    transform: translate(0, -50%);
+    position: absolute;
+    justify-content: center;
+  }
+ 
+  
+  

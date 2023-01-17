@@ -1,5 +1,5 @@
 
-    
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import { Col, Layout, Row } from "antd";
 import AppHeader from "./components/AppHeader/Appheader"
