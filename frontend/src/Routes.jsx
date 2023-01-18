@@ -8,6 +8,7 @@ import ForgotPassword from "./components/Forgot/forgotPassword"
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Crud from "./components/Crud/Crud";
 
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -16,6 +17,7 @@ const AppRoutes = () => {
       <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/forgotPassword" element={<ForgotPassword/>}/>
       <Route path="crud" element={<Crud/>}/>
+     
       
       <Route
         

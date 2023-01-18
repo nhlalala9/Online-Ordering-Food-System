@@ -5,16 +5,26 @@ function CRUD() {
     const list = [
         {
             id: 1, 
-            name: "HP",
-            price: "2222",
-            description: "dfghjkl"
+            name: "Burger",
+            price: "20",
+            description: "A hamburger, or simply burger, is a food consisting of fillings—usually a patty of ground meat, typically beef—placed inside a sliced bun or bread roll.",
+            picture:"https://static.fanpage.it/wp-content/uploads/sites/22/2021/09/beef-burger.jpg"
         },
         {
             id: 2, 
-            name: "Dell",
-            price: "2445",
-            description:"sdfghjk"
+            name: "pizza",
+            price: "30",
+            description:"A hamburger, or simply burger, is a food consisting of fillings—usually a patty of ground meat, typically beef—placed inside a sliced bun or bread roll.",
+            picture:"https://static.toiimg.com/thumb/56933159.cms?imgsize=686279&width=800&height=800"
         },
+        {
+            id: 3, 
+            name: "chicken",
+            price: "30",
+            description:"A hamburger, or simply burger, is a food consisting of fillings—usually a patty of ground meat, typically beef—placed inside a sliced bun or bread roll.",
+            picture:"https://static.toiimg.com/thumb/56933159.cms?imgsize=686279&width=800&height=800"
+        },
+        
     ]
     const [lists, setList] = useState(list)
     const [updateState, setUpdateState] = useState(-1)
@@ -31,7 +41,7 @@ function CRUD() {
                             <td>{current.name}</td>
                             <td>{current.price}</td>
                             <td>{current.description}</td>
-                            <td>{current.category}</td>
+                            <td><img src={current.picture} alt="" className='image'></img></td>
                             <td>
                                 <button className='edit' onClick={() => handleEdit(current.id)}>Edit</button>
                                 <button className='delete' type='button' onClick={() => handleDelete(current.id)}>Delete</button>
