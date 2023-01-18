@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp/SignUp";
 import ForgotPassword from "./components/Forgot/forgotPassword"
 
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Crud from "./components/Crud/Crud";
 
 const AppRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const AppRoutes = () => {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/forgotPassword" element={<ForgotPassword/>}/>
+      <Route path="crud" element={<Crud/>}/>
       
       <Route
         

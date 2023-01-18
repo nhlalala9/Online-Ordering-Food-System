@@ -94,7 +94,7 @@ import {
                 >
                   <Input placeholder="Username" />
                 </Form.Item>
-                <Form.Item
+                <Form.Item 
                   label="Email"
                   name="email"
                   rules={[
