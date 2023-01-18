@@ -1,3 +1,7 @@
+h1 {
+    text-align: center;
+}
+
 .MuiTableRow-root > * {
     padding: 10px;
   }
@@ -19,13 +23,14 @@
     border-radius: 9px;
   }
   
-  .Details {
+  /* .Details {
     color: #00b5ff !important;
-  }
+  } */
 
   .Table{
-      margin-top: 40%;
-      margin-left: 5%;
+      margin-top: 5%;
+      /* margin-left: 5%; */
+      /* background-color: red; */
 
   }
   

@@ -36,12 +36,12 @@ import {
       heading: "Products",
     },
     {
-      path: "/dash",
+      path: "/",
       icon: UilPackage,
       heading: 'Ratings'
     },
     {
-      path: "/dash",
+      path: "/",
       icon: UilChart,
       heading: 'Analytics'
     },

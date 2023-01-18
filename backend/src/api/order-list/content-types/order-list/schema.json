@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_lists",
+  "info": {
+    "singularName": "order-list",
+    "pluralName": "order-lists",
+    "displayName": "OrderList",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "DishName": {
+      "type": "string"
+    },
+    "Picture": {
+      "type": "text"
+    },
+    "Price": {
+      "type": "decimal"
+    },
+    "Date": {
+      "type": "datetime"
+    },
+    "CustomerName": {
+      "type": "text"
+    },
+    "Address": {
+      "type": "text"
+    },
+    "Quantity": {
+      "type": "integer"
+    },
+    "PaymentMethod": {
+      "type": "enumeration",
+      "enum": [
+        "Card Payment",
+        "EFT",
+        "Cash",
+        "Voucher"
+      ]
+    },
+    "Acquire": {
+      "type": "enumeration",
+      "enum": [
+        "Delivery",
+        "Pickup",
+        "Sit-in"
+      ]
+    }
+  }
+}

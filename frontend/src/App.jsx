@@ -1,9 +1,10 @@
 
-    
+    import './App.css'
 import React from "react";
 import { Col, Layout, Row } from "antd";
 import AppHeader from "./components/AppHeader/Appheader"
 import AppRoutes from "./Routes";
+import Admin from './components/Admin/Admin';
 const { Header, Content } = Layout;
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         </Col>
       </Row>
     </Layout>
+   
   );
 };
 
