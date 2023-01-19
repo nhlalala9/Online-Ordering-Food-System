@@ -36,7 +36,7 @@ h1 {
   }
   
   @media screen and (max-width: 1200px) {
-    .Table {
+    .table {
       width: 170%;
       margin-top: 2rem;
       
@@ -45,7 +45,7 @@ h1 {
   
   
   @media screen and (max-width: 768px) {
-    .Table{
+    .table{
       position: relative;
       display: flex;
       flex-direction: column;

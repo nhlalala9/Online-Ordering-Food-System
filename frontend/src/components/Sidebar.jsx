@@ -11,7 +11,7 @@ import { removeToken } from "../helpers";
 
 
 const Sidebar = () => {
-  const navigate = useNavigate();
+const navigate = useNavigate();
   const handleLogout = () => {
     removeToken();
     navigate("/signin", { replace: true });
@@ -32,9 +32,9 @@ const Sidebar = () => {
   console.log(window.innerWidth)
   return (
     <>
-      <div className="bars" style={expanded?{left: '60%'}:{left: '5%'}} onClick={()=>setExpaned(!expanded)}>
+      {/* <div className="bars" style={expanded?{left: '60%'}:{left: '5%'}} onClick={()=>setExpaned(!expanded)}>
         <UilBars />
-      </div>
+      </div> */}
     <motion.div className='sidebar'
     variants={sidebarVariants}
     animate={window.innerWidth<=768?`${expanded}`:''}

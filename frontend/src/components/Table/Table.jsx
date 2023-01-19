@@ -25,7 +25,7 @@ const Tables = () => {
         createData("Cupcake", 18908421, "2 January 2023", "Delivered"),
         createData("Cupcake", 18908421, "2 January 2023", "Delivered"),
         createData("Cupcake", 18908421, "2 January 2023", "Delivered"),
-        
+        createData("Cupcake", 18908421, "2 January 2023", "Delivered"),
       ];
       const makeStyle=(status)=>{
         if(status === 'Approved')
