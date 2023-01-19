@@ -1,6 +1,76 @@
-/* .card{
-  margin: 0;
-  background: rgba(0,0,0,.5);
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
-  font-family: "Noto Sans JP", sans-serif;
+.container{
+  background: linear-gradient(135deg,#850c62, #f80759);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-wrapper{
+  background-color: #ffff;
+  min-width: 350px;
+  min-height: 400px;
+  padding: 30px;
+  /* box-sizing: border-box; */
+  border-radius: 5px;
+}
+
+.title{
+  color: #f80759;
+  text-align: center;
+  margin: 40px 0px 40px 0px;
+}
+
+.name,
+.email,
+.password{
+  margin: 20px;
+  color: #969292;
+  font-size: 16px;
+}
+
+.password{
+  margin-bottom: 30px;
+}
+
+/* .input{
+  height: 32px;
+  font-size: 20px;
+  outline: none;
+  width: 100%;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom-style: 2px solid black;
+  margin-bottom: 10px;
 } */
+
+/* .input{
+  width: 300px;
+  height: 50px;
+  border-radius: 60px;
+  box-shadow: inset 0px 0px 25px 0px #888;
+  border: none;
+  outline: none;
+  background-color: #fff;
+} */
+
+.log-btn {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.login_submit_btn{
+  background: linear-gradient(to right, #ab1dcf, #f80759);
+  text-transform: uppercase;
+  padding: 10px 50px 30px;
+  cursor: pointer;
+   font-size: 15px;
+   
+}
+
+.error{
+  color: red;
+}

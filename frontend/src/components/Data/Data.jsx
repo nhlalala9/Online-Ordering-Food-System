@@ -26,7 +26,7 @@ import {
       heading: "Dashboard",
     },
     {
-      path: "/signin",
+      path: "/orderlist",
       icon: UilClipboardAlt,
       heading: "Orders",
     },

@@ -20,6 +20,7 @@ import {
   import { API } from "../../constant";
   import { setToken } from "../../helpers";
 //   import ForgotPassword from "../../Models/forgotPassword";
+import "./SignIn.css"
   
   const SignIn = () => {
     const { isDesktopView } = useScreenSize();
@@ -69,10 +70,15 @@ import {
     };
   
     return (
-      <Fragment>
-        <Row align="middle">
-          <Col span={isDesktopView ? 8 : 24} offset={isDesktopView ? 8 : 0}>
-            <Card title="Login to your account" className="fm">
+      <div className="container">
+           <div className="app-wrapper">
+           <div>
+          <h2 className="title">Login to your Account</h2>
+        </div>
+      {/* <Fragment> */}
+        {/* <Row align="middle"> */}
+          {/* <Col span={isDesktopView ? 8 : 24} offset={isDesktopView ? 8 : 0}> */}
+            {/* <Card title="Login to your account" className="fm"> */}
               {error ? (
                 <Alert
                   className="alert_error"
@@ -87,8 +93,10 @@ import {
                 layout="vertical"
                 onFinish={onFinish}
                 autoComplete="off"
-              >
-                <Form.Item
+                >
+
+                 <div className="email">
+                <Form.Item 
                   label="Email"
                   name="email"
                   rules={[
@@ -100,7 +108,9 @@ import {
                 >
                   <Input placeholder="Email address" />
                 </Form.Item>
+                </div>
   
+                <div className="password">
                 <Form.Item
                   label="Password"
                   name="password"
@@ -113,7 +123,9 @@ import {
               </Link>
             </div> */}
                 </Form.Item>
-  
+                </div>
+
+                <div className="log-btn">
                 <Form.Item>
                   <Button
                     type="primary"
@@ -123,14 +135,18 @@ import {
                     Login {isLoading && <Spin size="small" />}
                   </Button>
                 </Form.Item>
+                </div>
+
               </Form>
               <Typography.Paragraph className="form_help_text">
                 Don't have an account? <Link to="/signup" style={{ color: 'blue'}}>Register</Link>
               </Typography.Paragraph>
-            </Card>
-          </Col>
+            {/* </Card> */}
+          {/* </Col>
         </Row>
-      </Fragment>
+      </Fragment> */}
+      </div>
+      </div>
     );
   };
   

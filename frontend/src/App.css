@@ -3,43 +3,43 @@
   padding: 0;
 }
 
-.container{
+/* .container{
   background: linear-gradient(135deg,#850c62, #f80759);
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.app-wrapper{
+/* .app-wrapper{
   background-color: #ffff;
   min-width: 350px;
-  min-height: 650px;
+  min-height: 400px;
   padding: 30px;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
   border-radius: 5px;
-}
+} */
 
-.title{
+/* .title{
   color: #f80759;
   text-align: center;
-  margin: 80px 0px 40px 0px;
-}
+  margin: 40px 0px 40px 0px;
+} */
 
-.name,
+/* .name,
 .email,
 .password{
   margin: 20px;
   color: #969292;
   font-size: 16px;
-}
+} */
 
-.password{
-  margin-bottom: 40px;
-}
+/* .password{
+  margin-bottom: 30px;
+} */
 
-.input{
+/* .input{
   height: 32px;
   font-size: 20px;
   outline: none;
@@ -49,22 +49,42 @@
   border-right-style: none;
   border-bottom-style: 2px solid black;
   margin-bottom: 10px;
-}
+} */
 
-.log-btn {
+/* .input{
+  width: 300px;
+  height: 50px;
+  border-radius: 60px;
+  box-shadow: inset 0px 0px 25px 0px #888;
+  border: none;
+  outline: none;
+  background-color: #fff;
+} */
+
+/* .log-btn {
   margin-top: 2rem;
   margin-bottom: 2rem;
-}
+  text-align: center;
+} */
 
-.reg-btn {
+/* .login_submit_btn{
+  background: linear-gradient(to right, #ab1dcf, #f80759);
+  text-transform: uppercase;
+  padding: 10px 50px 30px;
+  cursor: pointer;
+   font-size: 15px;
+   
+} */
+
+/* .reg-btn {
   margin-bottom: 2rem;
 }
 
 .error{
   color: red;
-}
+} */
 
-.submit{
+/* .submit{
   display: flex;
   text-transform: uppercase;
   font-size: 20px;
@@ -78,9 +98,9 @@
   border: none;
   cursor: pointer;
   transition: all 0.1ms;
-}
+} */
 
-button:active{
+/* button:active{
   transform: translateY(2px);
 }
 
@@ -90,7 +110,7 @@ button:active{
   margin-top: 250px;
   min-width: 370px;
   color: #f80759;
-}
+} */
 
 :root {
   --yellow: linear-gradient(180deg, #F8D49A -146.42%, #FAD79D -46.42%);
@@ -121,7 +141,7 @@ button:active{
   font-family: 'Inter', sans-serif;
 } */
 
-.AppGlass {
+/* .AppGlass {
   display: grid;
   height: 100%;
   width: 97%;
@@ -130,7 +150,7 @@ button:active{
   gap: 16px;
   grid-template-columns: 11rem auto 20rem;
   overflow: hidden;
-}
+} */
 
 @media screen and (max-width: 1200px) {
   .AppGlass{
