@@ -17,7 +17,7 @@ import {
   import useScreenSize from "../../hooks/useScreenSize";
   import { API } from "../../constant";
   import { setToken } from "../../helpers";
-  import './Signup.css';
+  // import './Signup.css';
   
   const SignUp = () => {
     const { isDesktopView } = useScreenSize();
