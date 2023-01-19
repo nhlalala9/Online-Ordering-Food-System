@@ -30,6 +30,7 @@ function CRUD() {
     const [updateState, setUpdateState] = useState(-1)
     return(
         <div className='crud'>
+            
             <div>
             <AddList setList = {setList }/>
             <form onSubmit={handleSubmit}>

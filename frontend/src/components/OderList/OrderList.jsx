@@ -11,6 +11,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "../Table/Table.css"
+import NaviBar from '../NaviBar/NaviBar';
 
 const OrderManagement = () => {
   const [orders, setOrders] = useState([]);
@@ -156,8 +157,10 @@ const OrderManagement = () => {
   }
 
   return (
-
+<div className='toka' >
+  <NaviBar />
     <div className="table">
+
         <h1 className='my'>Order List</h1>
         <TableContainer
           component={Paper}
@@ -210,6 +213,7 @@ const OrderManagement = () => {
           </Table>
         </TableContainer>
          
+    </div>
     </div>
   )
 }

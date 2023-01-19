@@ -1,14 +1,11 @@
 .card {
-    /* display: flex;
-    flex-direction: column; */
+    
     gap: 10px;
   }
 
   .k{
     display: flex;
-    /* flex-wrap: wrap; */
-    /* justify-content:space-evenly; */
-    /* justify-content: space-between; */
+  
     gap: 10px;
-    /* background-color: aquamarine; */
+  
   }

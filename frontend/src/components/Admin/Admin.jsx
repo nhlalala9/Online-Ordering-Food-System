@@ -1,6 +1,5 @@
 import React from 'react'
 import MainDash from '../MainDash/MainDash'
-import RightSide from '../RigtSide/RightSide'
 import Sidebar from '../Sidebar'
 import "./Admin.css"
 
