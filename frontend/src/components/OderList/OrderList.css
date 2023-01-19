@@ -27,10 +27,11 @@ h1 {
     color: #00b5ff !important;
   } */
 
-  .Table{
-      margin-top: 5%;
-      /* margin-left: 5%; */
-      /* background-color: red; */
+  .table{
+      /* margin-top: 0;
+      margin-left: 9%; */
+      width: 97%;
+      height: 97%;
 
   }
   

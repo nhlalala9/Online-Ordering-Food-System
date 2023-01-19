@@ -1,6 +1,12 @@
 .container{
-  background: linear-gradient(135deg,#850c62, #f80759);
+  /* background: linear-gradient(135deg,#850c62, #f80759); */
   width: 100%;
+  background: linear-gradient(
+    106.37deg,
+    #ffe1bc 29.63%,
+    #ffcfd1 51.55%,
+    #f3c6f1 90.85%
+  );
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -64,6 +70,7 @@
 
 .login_submit_btn{
   background: linear-gradient(to right, #ab1dcf, #f80759);
+ 
   text-transform: uppercase;
   padding: 10px 50px 30px;
   cursor: pointer;

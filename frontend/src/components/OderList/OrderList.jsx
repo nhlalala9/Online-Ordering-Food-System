@@ -157,8 +157,8 @@ const OrderManagement = () => {
 
   return (
 
-    <div className="Table">
-        <h1>Order List</h1>
+    <div className="table">
+        <h1 className='my'>Order List</h1>
         <TableContainer
           component={Paper}
           style={{ boxShadow: "0px 13px 20px 0px #80808029" }}

@@ -2,9 +2,18 @@
    /* background-color: red; */
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    /* margin-top:20%; */
+    height:auto;
+    justify-content:safe;
+    margin-top: 3%;
 }
+
+.my{
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+    font-weight: 50;
+    font-family: 'Alfa Slab One';
+}
+
 
 
 @media screen and (max-width: 1200px) {

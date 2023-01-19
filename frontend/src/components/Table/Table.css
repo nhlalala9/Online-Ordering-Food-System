@@ -1,5 +1,5 @@
 .MuiTableRow-root > * {
-    /* padding: 10px; */
+    padding: 10px;
   }
   
   .MuiTableRow-root.MuiTableRow-head > * {
@@ -23,12 +23,16 @@
     color: #00b5ff !important;
   }
 
-   /* .Table{
-      margin-top: 40%;
-      margin-left: 5%;
+  .Table{
+      margin-top: 3%;
+      margin-left: 0%;
 
-  }  */
+  }  
   
+  .mm{
+margin-bottom: 1rem;
+  }
+
   @media screen and (max-width: 1200px) {
     .Table {
       width: 170%;

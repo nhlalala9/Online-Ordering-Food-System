@@ -25,6 +25,7 @@ const App = () => {
     // </Layout>
     <div className='App'>
       <AppRoutes />
+      
     </div>
    
   );

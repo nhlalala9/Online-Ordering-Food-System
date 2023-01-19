@@ -2,16 +2,17 @@ import React from 'react'
 import MainDash from '../MainDash/MainDash'
 import RightSide from '../RigtSide/RightSide'
 import Sidebar from '../Sidebar'
+import "./Admin.css"
 
 function Admin() {
   return (
-    <div className="ora">
+   
       <div className="AppGlass">
         <Sidebar/>
         <MainDash/>
-        <RightSide/>
+        {/* <RightSide/> */}
       </div>
-    </div>
+  
   )
 }
 

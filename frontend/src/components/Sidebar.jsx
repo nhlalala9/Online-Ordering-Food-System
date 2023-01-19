@@ -6,9 +6,17 @@ import { SidebarData } from "./Data/Data";
 import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { removeToken } from "../helpers";
 
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    removeToken();
+    navigate("/signin", { replace: true });
+    console.log("token");
+  };
   const [selected, setSelected] = useState(0);
 
   const [expanded, setExpaned] = useState(true)
@@ -57,7 +65,8 @@ const Sidebar = () => {
         })}
         {/* signoutIcon */}
         <div className="menuItem">
-          {/* <UilSignOutAlt /> */}
+          <UilSignOutAlt />
+          <span  onClick={handleLogout}>Logout</span>
         </div>
       </div>
     </motion.div>

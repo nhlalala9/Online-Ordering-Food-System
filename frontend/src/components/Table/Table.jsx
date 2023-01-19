@@ -19,6 +19,13 @@ const Tables = () => {
         createData("Big Baza Bang ", 18908424, "2 March 2022", "Pending"),
         createData("Mouth Freshner", 18908424, "2 March 2022", "Approved"),
         createData("Cupcake", 18908421, "2 January 2023", "Delivered"),
+        createData("Cupcake", 18908421, "2 January 2023", "Delivered"),
+        createData("Cupcake", 18908421, "2 January 2023", "Delivered"),
+        createData("Cupcake", 18908421, "2 January 2023", "Delivered"),
+        createData("Cupcake", 18908421, "2 January 2023", "Delivered"),
+        createData("Cupcake", 18908421, "2 January 2023", "Delivered"),
+        createData("Cupcake", 18908421, "2 January 2023", "Delivered"),
+        
       ];
       const makeStyle=(status)=>{
         if(status === 'Approved')
@@ -45,7 +52,7 @@ const Tables = () => {
   return (
 
     <div className="Table">
-        <h3>Recent Orders</h3>
+        <h3 className='mm'>Recent Orders</h3>
         <TableContainer
           component={Paper}
           style={{ boxShadow: "0px 13px 20px 0px #80808029" }}

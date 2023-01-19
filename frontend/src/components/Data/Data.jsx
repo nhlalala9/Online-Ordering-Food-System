@@ -99,6 +99,23 @@ import {
         },
       ],
     },
+    {
+      title: "Expenses",
+      color: {
+        backGround:
+          "linear-gradient(rgb(248, 212, 154) -146.42%, rgb(255 202 113) -46.42%)",
+        boxShadow: "0px 10px 20px 0px #F9D59B",
+      },
+      barValue: 60,
+      value: "4,270",
+      png: UilClipboardAlt,
+      series: [
+        {
+          name: "Expenses",
+          data: [10, 25, 15, 30, 12, 15, 20],
+        },
+      ],
+    },
   ];
   
   // Recent Update Card Data
