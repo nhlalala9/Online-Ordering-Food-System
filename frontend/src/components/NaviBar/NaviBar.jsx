@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import "./NaviBar.css"
+import { FaBell } from 'react-icons/fa'; 
 
 const NaviBar = () => {
   return (
@@ -27,6 +28,7 @@ const NaviBar = () => {
             />
           
           </Form>
+          < FaBell  className="bell"/>
       </Container>
     </Navbar>
   
