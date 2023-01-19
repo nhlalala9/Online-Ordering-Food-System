@@ -26,19 +26,19 @@ import {
       heading: "Dashboard",
     },
     {
-      path: "/signin",
+      path: "/orderlist",
       icon: UilClipboardAlt,
       heading: "Orders",
     },
     {
-      path: "/",
+      path: "/crud",
       icon: UilUsersAlt,
       heading: "Products",
     },
     {
-      path: "/",
+      path: "/ratings",
       icon: UilPackage,
-      heading: 'Ratings'
+      heading: 'Ratings & Reviews'
     },
     {
       path: "/",

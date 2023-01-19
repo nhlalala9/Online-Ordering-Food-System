@@ -1,5 +1,4 @@
 import React from "react";
-import { Routes, Route} from "react-router-dom";
 // import { getToken } from "./helpers";
 import './App.css'
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -14,6 +13,9 @@ import Crud from "./components/Crud/Crud";
 // import MainDash from "./components/MainDash/MainDash"
 import OrderList from "./components/OderList/OrderList";
 import Admin from "./components/Admin/Admin";
+import Ratings from "./components/Ratings/Ratings";
+import NaviBar from "./components/NaviBar/NaviBar";
+
 
 const AppRoutes = () => {
   return (
@@ -29,6 +31,8 @@ const AppRoutes = () => {
       
       <Route path="/dash" element={<Admin/>}/>
       <Route path="/orderlist" element={<OrderList/>}/>
+      <Route path="/ratings" element={<Ratings/>}/>
+      <Route path="/navibar" element={<NaviBar/>}/>
       <Route
         
       />
