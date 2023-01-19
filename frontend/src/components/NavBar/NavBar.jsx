@@ -40,6 +40,7 @@ function NavBar() {
                 <li><Link to="main" smooth={true} duration={2000}>Header</Link></li>
                 <li><Link to="products" smooth={true} duration={2000}>Products</Link></li>
                 <li><Link to="contact" smooth={true} duration={2000}>Notifications</Link></li>
+                <li><Link to="booking" smooth={true} duration={2000}>booking</Link></li>
                 <li><Link to="logout" smooth={true} duration={2000}  className="auth_button_signUp"
               type="primary"
               onClick={handleLogout} >logout</Link></li>
