@@ -8,7 +8,7 @@ import NaviBar from "../NaviBar/NaviBar";
 const Ratings = () => {
     return (
         <div className='toka' >
-            <NaviBar />
+            {/* <NaviBar /> */}
             <div className="card">
 
                 <div className="k">

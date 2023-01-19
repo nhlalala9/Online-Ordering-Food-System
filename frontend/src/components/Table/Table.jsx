@@ -49,8 +49,8 @@ const Tables = () => {
     }
   }
   return (
-    <div className='toka' >
-      <NaviBar />
+    <div className="toka" >
+      {/* <NaviBar /> */}
       <div className="Table">
 
         <h3 className='mm'>Recent Orders</h3>
