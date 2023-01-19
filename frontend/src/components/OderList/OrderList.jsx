@@ -190,11 +190,11 @@ const OrderManagement = () => {
                     {row.attributes.id}
                   </TableCell>
                   <TableCell align="left">{row.attributes.CustomerName}</TableCell>
-                  <TableCell align="left">{row.attributes.DishName}</TableCell>
-                  <TableCell align="left">{row.attributes.Picture}</TableCell>
-                  <TableCell align="left">{row.attributes.Date}</TableCell>
-                  <TableCell align="left">{row.attributes.Price}</TableCell>
                   <TableCell align="left">{row.attributes.Address}</TableCell>
+                  <TableCell align="left">{row.attributes.DishName}</TableCell>
+                  <TableCell align="left">{row.attributes.Date}</TableCell>
+                  <TableCell align="left"> <img src={row.attributes.Picture}alt="" className='image'></img></TableCell>
+                  <TableCell align="left">{row.attributes.Price}</TableCell>
                   <TableCell align="left">{row.attributes.Quantity}</TableCell>
                   <TableCell align="left">{row.attributes.PaymentMethod}</TableCell>
                   <TableCell align="left">{row.attributes.Acquire}</TableCell>

@@ -57,9 +57,9 @@ import "./SignIn.css"
           // set the user
           setUser(data.user);
   
-          message.success(`Welcome back ${data.user.username}!`);
+          // message.success(`Welcome back ${data.user.username}!`);
   
-          navigate("/dashboard", { replace: true });
+          navigate("/dash", { replace: true });
         }
       } catch (error) {
         console.error(error);
@@ -118,13 +118,13 @@ import "./SignIn.css"
                 >
                   <Input.Password placeholder="Password" />
                   {/* <div className="text-right">
-              <Link to="/forgotpassword" style={{ color: 'blue', margin: 100 }}>
-                Forgot Password?
-              </Link>
+             
             </div> */}
                 </Form.Item>
                 </div>
-
+                <Link to="/forgotpassword" style={{ color: 'blue', margin: 100 }}>
+                Forgot Password?
+              </Link>
                 <div className="log-btn">
                 <Form.Item>
                   <Button
