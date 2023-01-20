@@ -3,14 +3,15 @@ import "./Ratings.css";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import NaviBar from "../NaviBar/NaviBar";
+import Sidebar from "../Sidebar";
 
 
 const Ratings = () => {
     return (
         <div className='toka' >
-            {/* <NaviBar /> */}
+            <NaviBar />
             <div className="card">
-
+<Sidebar />
                 <div className="k">
                     <Card style={{ width: '18rem' }}>
                         <Card.Body>

@@ -4,5 +4,6 @@
    
 }
 .navbar{
-    margin-top: 0;
+    margin-top: 4px;
+    position: fixed;
 }

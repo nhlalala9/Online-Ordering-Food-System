@@ -9,7 +9,7 @@ import { FaBell } from 'react-icons/fa';
 const NaviBar = () => {
   return (
     
-      <Navbar className='navbar' bg="light" expand="lg">
+      <Navbar className='navbar'  expand="lg">
       <Container fluid>
     
           <Nav

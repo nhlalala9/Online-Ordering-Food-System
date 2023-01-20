@@ -12,6 +12,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "../Table/Table.css"
 import NaviBar from '../NaviBar/NaviBar';
+import Sidebar from '../Sidebar';
 
 const OrderManagement = () => {
   const [orders, setOrders] = useState([]);
@@ -118,13 +119,13 @@ const OrderManagement = () => {
   }
 
   return (
-    <div> 
+    <div className=''> 
       <NaviBar />
-  
-
-    <div className="table">
-
+  <div className='AppGlass'>
+    <Sidebar />
+    </div>
         <h1 className='my'>Order List</h1>
+        <div className="table">
         <TableContainer
           component={Paper}
           style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
