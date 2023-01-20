@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './OrderList.css'
-import NaviBar from '../NaviBar/NaviBar';
+
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -11,6 +11,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "../Table/Table.css"
+import NaviBar from '../NaviBar/NaviBar';
 
 const OrderManagement = () => {
   const [orders, setOrders] = useState([]);
@@ -122,6 +123,7 @@ const OrderManagement = () => {
   
 
     <div className="table">
+
         <h1 className='my'>Order List</h1>
         <TableContainer
           component={Paper}
@@ -154,11 +156,11 @@ const OrderManagement = () => {
                     {row.attributes.id}
                   </TableCell>
                   <TableCell align="left">{row.attributes.CustomerName}</TableCell>
-                  <TableCell align="left">{row.attributes.DishName}</TableCell>
-                  <TableCell align="left">{row.attributes.Picture}</TableCell>
-                  <TableCell align="left">{row.attributes.Date}</TableCell>
-                  <TableCell align="left">{row.attributes.Price}</TableCell>
                   <TableCell align="left">{row.attributes.Address}</TableCell>
+                  <TableCell align="left">{row.attributes.DishName}</TableCell>
+                  <TableCell align="left">{row.attributes.Date}</TableCell>
+                  <TableCell align="left"> <img src={row.attributes.Picture}alt="" className='image'></img></TableCell>
+                  <TableCell align="left">{row.attributes.Price}</TableCell>
                   <TableCell align="left">{row.attributes.Quantity}</TableCell>
                   <TableCell align="left">{row.attributes.PaymentMethod}</TableCell>
                   <TableCell align="left">{row.attributes.Acquire}</TableCell>

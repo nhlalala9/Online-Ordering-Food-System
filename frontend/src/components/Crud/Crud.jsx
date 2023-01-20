@@ -31,6 +31,7 @@ function CRUD() {
     
     return(
         <div className='crud'>
+            
             <div>
             <AddList setList = {setList }/>
             <form onSubmit={handleSubmit}>
