@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './OrderList.css'
-// import Table from 'react-bootstrap/Table';
+import NaviBar from '../NaviBar/NaviBar';
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -14,7 +14,7 @@ import "../Table/Table.css"
 
 const OrderManagement = () => {
   const [orders, setOrders] = useState([]);
-  const [selectedOrder, setSelectedOrder] = useState(null);
+  // const [selectedOrder, setSelectedOrder] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -24,23 +24,31 @@ const OrderManagement = () => {
       .then(response => {
         setIsLoading(true);
         setOrders(response.data.data)
-        console.log(orders)
+        // §§console.log(orders)
       })
       .catch(err => console.log(err));
   }, []);
-//   useEffect(() => {
-//     setIsLoading(true);
-//     fetch('http://localhost:1337/api/order-lists')
-//       .then(response => response.json())
-//       .then(data => {
-//         setOrders(data);
-//         setIsLoading(false);
-//       })
-//       .catch(error => {
-//         setError(error);
-//         setIsLoading(false);
-//       });
-//   }, []);
+
+  //Post method
+  axios.post('http://localhost:1337/api/order-lists/id', {
+    field1: 'value1',
+    field2: 'value2'
+  })
+  .then(response => {
+    console.log(response);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+  //delete method
+  axios.delete('http://localhost:1337/content-type-name/id')
+  .then(response => {
+    console.log(response);
+  })
+  .catch(error => {
+    console.log(error);
+  });
 
 
 //   const handleViewOrder = id => {
@@ -85,53 +93,6 @@ const OrderManagement = () => {
     return <p>An error occurred: {error.message}</p>;
   }
 
-//   if (isLoading) {
-//     return <p>Loading...</p>;
-//   }
-//   console.log(orders.data[0].attributes);
-
-  // return (
-  //   <>
-  //   <h1 className='heading'>Order List</h1>
-  //     <Table striped bordered hover variant="dark" >
-  //       <thead>
-  //         <tr>
-  //           <th>Customer Name</th>
-  //           <th>Address</th>
-  //           <th>Picture</th>
-  //           <th>Dish Name</th>
-  //           <th>Quantity</th>
-  //           <th>Price</th>
-  //           <th>Payment Method</th>
-  //           <th>Acquire</th>
-  //           <th>Status</th>
-  //           <th>Actions</th>
-  //         </tr>
-  //       </thead>
-
-  //       <tbody>
-
-  //         {isLoading && orders.map((order) => (
-  //           <tr key={order.id}>
-  //             <td>{order.attributes.CustomerName}</td>
-  //             <td>{order.attributes.DishName}</td>
-  //             {/* <td><img src={order.attributes.Picture} /></td>  */}
-  //              <td>{order.attributes.Price}</td>
-  //             <td>{order.attributes.Date}</td>
-  //             <td>{order.attributes.Address}</td>
-  //             <td>{order.attributes.Quantity}</td>
-  //             <td>{order.attributes.PaymentMethod}</td>
-  //             <td>{order.attributes.Acquire}</td>
-          
-  //           </tr>
-  //           ))}
-  //           </tbody>
-  //           </Table>
-  //           </>
-  // )
-
-
-
   const makeStyle=(status)=>{
     if(status === 'Approved')
     {
@@ -156,6 +117,9 @@ const OrderManagement = () => {
   }
 
   return (
+    <div> 
+      <NaviBar />
+  
 
     <div className="table">
         <h1 className='my'>Order List</h1>
@@ -198,7 +162,8 @@ const OrderManagement = () => {
                   <TableCell align="left">{row.attributes.Quantity}</TableCell>
                   <TableCell align="left">{row.attributes.PaymentMethod}</TableCell>
                   <TableCell align="left">{row.attributes.Acquire}</TableCell>
-                  {/* <TableCell align="left">{row.attributes.Picture}</TableCell> */}
+                  <TableCell align="left"><button className='edit'>Edit</button>
+                                <button className='delete' type='button' > Delete</button></TableCell>
                   {/* <TableCell align="left">{row.attributes.Picture}</TableCell> */}
                   {/* <TableCell align="left">
                     <span className="status" style={makeStyle(row.status)}>{row.status}</span>
@@ -210,6 +175,7 @@ const OrderManagement = () => {
           </Table>
         </TableContainer>
          
+    </div>
     </div>
   )
 }

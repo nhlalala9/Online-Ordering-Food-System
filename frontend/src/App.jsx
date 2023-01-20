@@ -24,7 +24,7 @@ const App = () => {
     //     </Col>
     //   </Row>
     // </Layout>
-    <div className='App'>
+    <div className=''>
       <AppRoutes />
       
     </div>
