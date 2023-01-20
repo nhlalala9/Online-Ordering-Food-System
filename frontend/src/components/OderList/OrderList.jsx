@@ -157,8 +157,10 @@ const OrderManagement = () => {
   }
 
   return (
+    
 <div className='toka' >
   <NaviBar />
+  
     <div className="table">
 
         <h1 className='my'>Order List</h1>

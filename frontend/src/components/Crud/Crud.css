@@ -61,3 +61,8 @@ table td button.delete:hover {
     margin-right: 10px;
     object-fit: cover;
   }
+
+  .cud{
+      margin-right: 10%;
+
+  }

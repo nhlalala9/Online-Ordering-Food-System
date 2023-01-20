@@ -9,6 +9,7 @@ const Ratings = () => {
     return (
         <div className='toka' >
             {/* <NaviBar /> */}
+
             <div className="card">
 
                 <div className="k">

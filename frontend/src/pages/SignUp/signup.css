@@ -81,3 +81,13 @@
 .error{
   color: red;
 }
+
+@media screen and (max-width:1200px){
+  .container{
+    
+    width: 170%;
+    margin-top: 2rem;
+  }
+  
+}
+
