@@ -28,6 +28,7 @@ function CRUD() {
     ]
     const [lists, setList] = useState(list)
     const [updateState, setUpdateState] = useState(-1)
+    
     return(
         <div className='crud'>
             

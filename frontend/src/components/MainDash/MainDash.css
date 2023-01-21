@@ -13,8 +13,9 @@
     font-weight: 50;
     font-family: 'Alfa Slab One';
 }
-
-
+.nava{
+    margin-top: 2px;
+}
 
 @media screen and (max-width: 1200px) {
     .MainDash{

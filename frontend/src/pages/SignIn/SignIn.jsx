@@ -117,14 +117,14 @@ import "./SignIn.css"
                   rules={[{ required: true }]}
                 >
                   <Input.Password placeholder="Password" />
-                  {/* <div className="text-right">
-             
-            </div> */}
+              
                 </Form.Item>
                 </div>
-                <Link to="/forgotpassword" style={{ color: 'blue', margin: 100 }}>
+    <div className="text-right">
+              <Link to="/forgotpassword" style={{ color: 'blue', margin: 100 }}>
                 Forgot Password?
               </Link>
+            </div>
                 <div className="log-btn">
                 <Form.Item>
                   <Button
