@@ -2,7 +2,6 @@ h1 {
     text-align: center;
 }
 
-
 .MuiTableRow-root > * {
     padding: 10px;
   }
@@ -30,6 +29,7 @@ h1 {
 
   .table{
       /* margin: 0; */
+      margin-top: 50px;
       margin-left: 30px;
       display: flex;
       flex-direction: column;
