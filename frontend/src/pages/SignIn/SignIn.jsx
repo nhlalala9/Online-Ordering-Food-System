@@ -1,29 +1,21 @@
-
-
 import {
   Alert,
   Button,
-  Card,
-  Col,
   Form,
   Input,
-  message,
-  Row,
   Spin,
   Typography,
 } from "antd";
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/authContext";
-import useScreenSize from "../../hooks/useScreenSize";
 import { API } from "../../constant";
 import { setToken } from "../../helpers";
 //   import ForgotPassword from "../../Models/forgotPassword";
 import "./SignIn.css"
   
   const SignIn = () => {
-    const { isDesktopView } = useScreenSize();
     const navigate = useNavigate();
   
     const { setUser } = useAuthContext();
@@ -75,10 +67,6 @@ import "./SignIn.css"
            <div>
           <h2 className="title">Login to your Account</h2>
         </div>
-      {/* <Fragment> */}
-        {/* <Row align="middle"> */}
-          {/* <Col span={isDesktopView ? 8 : 24} offset={isDesktopView ? 8 : 0}> */}
-            {/* <Card title="Login to your account" className="fm"> */}
               {error ? (
                 <Alert
                   className="alert_error"

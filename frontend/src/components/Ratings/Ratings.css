@@ -1,11 +1,30 @@
-.card {
+
+.Glass {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  background: var(--glass);
+  /* border-radius: 2rem; */
+  /* gap: 16px; */
+  grid-template-columns: 11rem auto;
+  overflow: hidden;
+  }
+  .move{
+    margin-left: 25px;
+    /* background-color: blue; */
     
-    gap: 10px;
+  }
+  
+  .image{
+width:50px;
   }
 
   .k{
+    /* background-color: red; */
+  }
+
+  .cards{
+    /* background-color: green; */
     display: flex;
-  
-    gap: 10px;
-  
+    margin-top: 70px;
   }

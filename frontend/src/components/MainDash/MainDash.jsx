@@ -7,11 +7,7 @@ import "./MainDash.css";
 
 const MainDash = () => {
   return (
-    <div className="nava">
-      <NaviBar />
-    <div className="MainDash">
-      <h1 className="my">Dashboard</h1>
-      </div>
+<div className="MainDash">
       <Cards />
       <Table />
     </div>

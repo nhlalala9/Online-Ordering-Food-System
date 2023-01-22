@@ -1,64 +1,57 @@
 .crud {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 5px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
    
+    width: 97%;
 }
 
-table td {
-    width: 200px;
-    height: 30px;
-    /* background-color: rgb(54, 135, 211); */
-    text-align: center;
-    color: black;
-    border: 2px solid white;
-}
-
-table td button {
-    padding: 5px 10px;
-    border-radius: 5%;
-    cursor: pointer;
-}
-table td button.edit {
-    border: 1px solid green;
-    background-color: rgb(7, 168, 7);
-    color: white;
-}
-table td button.edit:hover {
-    background-color: rgb(3, 71, 3);
-}
-table td button.delete {
-    border: 1px solid red;
-    background-color: rgb(219, 19, 19);
-    color: white;
-}
-table td button.delete:hover {
-    background-color: rgb(92, 5, 5);
-}
-
-
-.addForm {
-    margin-bottom: 30px;
-}
-.addForm input {
-    width: 230px;
+.btn_add{
+    background-color: green;
+    width: 100px;
     height: 30px;
 }
-.addForm button {
-    width: 135px;
-    color: white;
-    height: 35px;
-    background-color: rgb(31, 171, 31);
-}
-.addForm button:hover {
-    background-color: rgb(5, 86, 5);
-}
-.image {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+.add{
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
     margin-right: 10px;
-    object-fit: cover;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+    
+}
+.btn{
+    width: 55px;
+    background-color: red;
+}
+.btn_t{
+    background-color: yellow;
+    width: 55px;
+}
+.card {
+    margin-left: 30PX;
+    border: 0.5px solid;
+    padding: 5px;
+    width: 200px;
   }
+
+.move{
+    margin-left: 25px;
+  }
+
+.img {
+    width: 100%;
+}
+
+.modal-overlay{
+    background-color: red;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
