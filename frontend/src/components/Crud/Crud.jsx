@@ -4,6 +4,7 @@ import NaviBar from "../NaviBar/NaviBar";
 import "./Crud.css";
 import Sidebar from "../Sidebar";
 import Modal from "../modal/Modal";
+import Search from "../search/search"
 
 function CRUD() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -51,8 +52,11 @@ function CRUD() {
       <Sidebar />
       <div className="move">
         <NaviBar />
+      
+        
         {modalOpen && <Modal setOpenModal={setModalOpen} />}
         <div className="add">
+        
         <button
         className="btn_add"
         onClick={() => {
@@ -61,7 +65,9 @@ function CRUD() {
       >
         Add to list
       </button>
-
+      {/* <div className="search"> */}
+          <Search/>
+          {/* </div> */}
       
       </div>
         {cards.map((cards) => (

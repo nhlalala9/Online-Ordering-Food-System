@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "./OrderList.css";
-
+import Search from "../search/search";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -84,6 +84,9 @@ const OrderManagement = () => {
 
         <div className='move'>
           <NaviBar />
+          <div className="search">
+          <Search/>
+          </div>
         <div className="table">
         <div className="t">
         <TableContainer 

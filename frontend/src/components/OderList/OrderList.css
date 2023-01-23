@@ -25,7 +25,15 @@ th {
   border-radius: 9px;
 }
 
-
+.search{
+  display: flex;
+  /* background-color: red; */
+  /* align-items: flex-end; */
+  justify-content: center;
+  margin-top: 10px;
+  margin-right: 10px;
+  /* padding: 10px; */
+}
 .t{
   margin-top: 50px;
   margin-left :30px;

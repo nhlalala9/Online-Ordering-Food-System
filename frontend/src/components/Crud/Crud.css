@@ -15,9 +15,12 @@
 .add{
     margin-top: 15px;
     display: flex;
-    justify-content: flex-end;
-    margin-right: 10px;
+    justify-content:flex-start;
+    margin-left: 10px;
+    gap: 30%;
 }
+
+
 .buttons{
     display: flex;
     flex-direction: row;
@@ -32,6 +35,12 @@
 .btn_t{
     background-color: yellow;
     width: 55px;
+}
+.sear {
+    display: flex;
+    justify-content: right ;
+    
+    background-color: yellow;
 }
 .card {
     margin-left: 30PX;
