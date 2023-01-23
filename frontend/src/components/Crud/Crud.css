@@ -1,23 +1,30 @@
 .crud {
-    gap: 5px;
-    margin-top: 40px;
+    /* gap: 5px; */
+    /* margin-top: 40px; */
     display: flex;
-    flex-direction: row;
-   
-    width: 97%;
+    /* flex-direction: row; */
+    width: 20%;
+    /* background-color: red; */
+}
+
+.cards {
+    /* display: flex; */
 }
 
 .btn_add{
     background-color: green;
     width: 100px;
     height: 30px;
+    
 }
+
 .add{
     margin-top: 15px;
     display: flex;
     justify-content:flex-start;
     margin-left: 10px;
     gap: 30%;
+    
 }
 
 
@@ -35,13 +42,9 @@
 .btn_t{
     background-color: yellow;
     width: 55px;
-}
-.sear {
-    display: flex;
-    justify-content: right ;
     
-    background-color: yellow;
 }
+
 .card {
     margin-left: 30PX;
     border: 0.5px solid;

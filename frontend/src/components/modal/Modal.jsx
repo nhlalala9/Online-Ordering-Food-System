@@ -1,28 +1,34 @@
-import React ,{useState} from "react";
+import React, { useState } from "react";
 import "./Modal.css";
 import axios from "axios";
 
 function Modal({ setOpenModal }) {
+  const [formData, setFormData] = useState({
+    name: "",
+    description: "",
+    price: "",
+    Picture: "",
+  });
 
-    const [formData, setFormData] = useState({ name: '', description: '' , price: '', picture:''});
+  const handleChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+    console.log(formData);
+  };
 
-    const handleChange = (event) => {
-      setFormData({
-        ...formData,
-        [event.target.name]: event.target.value
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .post("http://localhost:1337/api/products", {"data": formData})
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    }
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        axios.post('http://localhost:1337/api/products', formData)
-          .then(response => {
-              console.log(response);
-          })
-          .catch(error => {
-              console.log(error);
-          });
-      }
+  };
 
   return (
     <div className="modalBackground">
@@ -41,37 +47,56 @@ function Modal({ setOpenModal }) {
           <h5>Add new item to your menu</h5>
         </div>
         <div className="modal_body">
-        <form onSubmit={handleSubmit}>
-  <label>
-    Name:
-    <input className="modal_input" type="text" name="name" value={formData.name} onChange={handleChange} />
-  </label>
-  <label>
-    Description:
-    <input className="modal_input" type="text" name="description" value={formData.description} onChange={handleChange} />
-  </label>
-  <label>
-    Price:
-    <input className="modal_input" type="text" name="price" value={formData.price} onChange={handleChange} />
-  </label>
-  <label>
-    Picture:
-    <input className="modal_input" type="text" name="picture" value={formData.picture} onChange={handleChange} />
-  </label>
+          <form onSubmit={handleSubmit}>
+            <label>Name:</label>
+            <input
+              className="modal_input"
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
 
-</form>
-        </div>
+            <label>Description:</label>
+            <input
+              className="modal_input"
+              type="text"
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+            />
 
-        <div className="modal_footer">
-          <button
-            onClick={() => {
-              setOpenModal(false);
-            }}
-            id="cancelBtn"
-          >
-            Cancel
-          </button>
-          <button type="submit" onClick={handleSubmit}>Continue</button>
+            <label>Price:</label>
+            <input
+              className="modal_input"
+              type="text"
+              name="price"
+              value={formData.price}
+              onChange={handleChange}
+            />
+
+            <label>Picture:</label>
+            <input
+              className="modal_input"
+              type="text"
+              name="Picture"
+              value={formData.Picture}
+              onChange={handleChange}
+            />
+            <div className="modal_footer">
+              <button
+                onClick={() => {
+                  setOpenModal(false);
+                }}
+                id="cancelBtn"
+              >
+                Cancel
+              </button>
+              <button type="submit">
+                Continue
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

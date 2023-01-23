@@ -9,28 +9,25 @@ import Search from "../search/search"
 function CRUD() {
   const [modalOpen, setModalOpen] = useState(false);
 
-  //edit function
-  // const Modal = ({ title, onSubmit, onClose }) => {
-  //   const [formData, setFormData] = useState({});
 
-  //   const handleChange = (event) => {
-  //     const { name, value } = event.target;
-  //     setFormData({ ...formData, [name]: value });
-  //   };
-
-  //   const handleSubmit = (event) => {
-  //     event.preventDefault();
-  //     onSubmit(formData);
-  //     onClose();
-  //   };
-  // }
-
-
-
-
-  const handleFormSubmit = (formData) => {
-    // Do something with the form data, such as adding it to the state
+  const handleDelete = (event) => {
+    
+    event.preventDefault();
+    axios
+      .delete("http://localhost:1337/api/products/${id}")
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
+  
+
+
+
+
+ 
 
   //get all from strapi
   const [cards, setCards] = useState([]);
@@ -65,28 +62,32 @@ function CRUD() {
       >
         Add to list
       </button>
-      {/* <div className="search"> */}
           <Search/>
-          {/* </div> */}
+          
       
       </div>
-        {cards.map((cards) => (
-          
+      <div className="cards">
+        {cards.map((card) => (
+            // key={card.id}
           <div className="crud">
             
             <div className="card">
-              <img src={cards.attributes.image} className="img" alt="..." />
+              <p key={card.id}></p>
+              <img src={card.attributes.Picture} className="img" alt="..." />
               <div className="card-body">
-                <h5 className="card-title">{cards.attributes.name}</h5>
-                <p className="card-text">{cards.attributes.description}</p>
+                <h5 className="card-title">{card.attributes.name}</h5>
+                <p className="card-text">{card.attributes.description}</p>
+                <p className="card-text">R {card.attributes.price}.00</p>
                 <div className="buttons">
                   <button className="btn_t">Edit</button>
-                  <button className="btn ">Delete</button>
+                  <button className="btn " onClick={handleDelete}>Delete</button>
                 </div>
               </div>
             </div>
           </div>
         ))}
+
+      </div>
         
       </div>
     </div>
