@@ -1,0 +1,39 @@
+.myMenu{
+    /* background-color: red; */
+   padding: 20px;
+}
+
+/* .picture {
+  
+   height: 11rem;
+   width: 10rem;
+  border-radius: 50%;
+} */
+
+.btn{
+     background-color: blanchedalmond !important;
+    width: 95px;
+    height: 30px;
+}
+
+a{
+    color: black;
+}
+
+.menu_items{
+    margin-top: 5rem;
+    margin-left: 5rem;
+   
+}
+
+.searc{
+    margin-top: 10rem;
+    margin-left: 35rem;
+ 
+}
+
+.sea{
+    width: 50%;
+    height: 35px;
+    padding: 5px;
+}

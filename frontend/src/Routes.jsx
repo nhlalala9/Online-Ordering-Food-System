@@ -14,8 +14,8 @@ import Crud from "./components/Crud/Crud";
 import OrderList from "./components/OderList/OrderList";
 import Admin from "./components/Admin/Admin";
 import Ratings from "./components/Ratings/Ratings";
-
-
+import Book from "./pages/book";
+import Menu from "./pages/Menu/Menu";
 
 
 const AppRoutes = () => {
@@ -33,7 +33,8 @@ const AppRoutes = () => {
       <Route path="/dash" element={<Admin/>}/>
       <Route path="/orderlist" element={<OrderList/>}/>
       <Route path="/ratings" element={<Ratings/>}/>
-    
+      <Route path="/book" element={<Book/>}/>
+      <Route path="/menu" element={<Menu/>}/>
       <Route
         
       />

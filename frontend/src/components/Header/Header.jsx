@@ -25,7 +25,7 @@ function Header() {
             <h1><span>BURGER</span> FOR <br/>WEEK</h1>
             <p className='details'>Enjoy your meals with us</p>
             <div className="header-btns">
-                <a href="#" className="header-btn">See all foods</a>
+                <a href="/menu" className="header-btn">See all foods</a>
                 
             </div>
         </div>
