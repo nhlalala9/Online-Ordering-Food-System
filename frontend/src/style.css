@@ -9,9 +9,9 @@
     font-family: 'Bebas Neue', 'Lato', sans-serif;
 } */
 
-/* * {
+*{
     box-sizing: border-box;
-} */
+} 
 
 ul {
     list-style: none;

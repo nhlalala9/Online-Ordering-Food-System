@@ -1,8 +1,8 @@
 import React from "react";
-
+import "./Products.css";
 import ProductBox from './ProductBox'
 import pimage1 from '../../images/s1.png';
-import "../../style.css";
+
 
 // import "../../style.css"
 
@@ -16,6 +16,8 @@ function Products() {
              accusamus consectetur exercitationem eius vitae.
         </p>
         <div className="a-container">
+            <ProductBox image={pimage1} title="Luger Burger"/>
+            <ProductBox image={pimage1} title="Luger Burger"/>
             <ProductBox image={pimage1} title="Luger Burger"/>
             <ProductBox image={pimage1} title="Luger Burger"/>
         </div>

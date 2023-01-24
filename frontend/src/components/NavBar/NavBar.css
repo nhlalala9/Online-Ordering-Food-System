@@ -3,8 +3,8 @@ nav {
     justify-content: space-around;
     align-items: center;
     position: fixed;
-    left: 0;
-    top: 0;
+    left: 0; 
+    top: 0; 
     width: 100%;
     z-index: 1;
     background-color: transparent;
@@ -16,8 +16,10 @@ nav {
     background-color: #ffffff;
 }
 
+
 nav ul {
     display: flex;
+    
 }
 
 nav ul li a {
@@ -47,3 +49,7 @@ nav .menu-btn,
 .menu-icon {
     display: none;
 }
+
+
+
+

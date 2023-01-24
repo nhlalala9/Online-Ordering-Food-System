@@ -14,7 +14,7 @@ import Crud from "./components/Crud/Crud";
 import OrderList from "./components/OderList/OrderList";
 import Admin from "./components/Admin/Admin";
 import Ratings from "./components/Ratings/Ratings";
-import Modal from "./components/modal/Modal";
+
 
 
 
@@ -28,9 +28,8 @@ const AppRoutes = () => {
       <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/forgotPassword" element={<ForgotPassword/>}/>
       <Route path="/crud" element={<Crud/>}/>
-      <Route path="/mo" element={<Modal/>}/>
      
-
+    
       <Route path="/dash" element={<Admin/>}/>
       <Route path="/orderlist" element={<OrderList/>}/>
       <Route path="/ratings" element={<Ratings/>}/>
