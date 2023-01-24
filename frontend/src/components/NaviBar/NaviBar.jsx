@@ -28,7 +28,9 @@ const NaviBar = () => {
             />
           
           </Form>
-          < FaBell  className="bell"/>
+          < FaBell  className="bell"
+          
+          />
       </Container>
     </Navbar>
   

@@ -35,7 +35,7 @@ function CRUD() {
           });
       }
       useEffect(() => {
-        axios.delete(`http://localhost:1337/api/products/${1}`)
+        axios.delete(`http://localhost:1337/api/products/${3}`)
           .then(response => {
             setIsLoading(true);
             setList(response.data.data)

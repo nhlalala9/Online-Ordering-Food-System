@@ -17,6 +17,7 @@ import Ratings from "./components/Ratings/Ratings";
 import NaviBar from "./components/NaviBar/NaviBar";
 
 
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -33,9 +34,8 @@ const AppRoutes = () => {
       <Route path="/orderlist" element={<OrderList/>}/>
       <Route path="/ratings" element={<Ratings/>}/>
       <Route path="/navibar" element={<NaviBar/>}/>
-      <Route
+    
         
-      />
       
     </Routes>
   );

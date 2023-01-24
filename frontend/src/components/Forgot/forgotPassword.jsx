@@ -48,7 +48,8 @@ const Forgot = () => {
     console.log('my ', data);
     if (isValid) {
 
-
+    
+    
       await axios
         .post(
           "http://localhost:1337/api/auth/forgot-password",
@@ -60,6 +61,7 @@ const Forgot = () => {
             },
           }
         )
+        
         .then((response) => {
           // Handle success.
           alert("Message Sent with reset link sent to your email.");
@@ -80,7 +82,7 @@ const Forgot = () => {
     
     // <div className="outer">
     // <div className="inner">
-        <Form ref={forms} onSubmit={tries}>
+        <Form ref={forms} onSubmit={tries} >
 
           <div className="card  mt-5 mx-5 sss ">
             <FontAwesomeIcon icon="fa-solid fa-lock" />

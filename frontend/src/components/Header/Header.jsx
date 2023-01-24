@@ -6,7 +6,7 @@ import "./Header.css";
 function Header() {
   return (
     <>
-    <div className="h-24 flex items-center justify-between pr-8">
+    {/* <div className="h-24 flex items-center justify-between pr-8">
       <div className="relative mini-icon">
         <form action="#">
           <input
@@ -18,7 +18,7 @@ function Header() {
         
       </div>
      
-    </div>
+    </div> */}
     <div id="main">
       <div className="header-heading">
             <h3>It's Great Time For A Good Taste Of Burger</h3>
