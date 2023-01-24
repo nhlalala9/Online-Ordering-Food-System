@@ -7,7 +7,6 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "./Table.css"
-import NaviBar from "../NaviBar/NaviBar";
 
 const Tables = () => {
 
@@ -49,12 +48,12 @@ const Tables = () => {
     }
   }
   return (
-    <div className="toka" >
-      {/* <NaviBar /> */}
-      <div className="Table">
-
-        <h3 className='mm'>Recent Orders</h3>
+    <div className="Table">
+      <h3>Recent Orders</h3>
+      <div className="t">
+        {" "}
         <TableContainer
+          className="gh"
           component={Paper}
           style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
         >
@@ -80,15 +79,18 @@ const Tables = () => {
                   <TableCell align="left">{row.trackingId}</TableCell>
                   <TableCell align="left">{row.date}</TableCell>
                   <TableCell align="left">
-                    <span className="status" style={makeStyle(row.status)}>{row.status}</span>
+                    <span className="status" style={makeStyle(row.status)}>
+                      {row.status}
+                    </span>
                   </TableCell>
-                  <TableCell align="left" className="Details">Details</TableCell>
+                  <TableCell align="left" className="Details">
+                    Details
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
-
       </div>
     </div>
   )

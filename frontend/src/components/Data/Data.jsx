@@ -40,12 +40,7 @@ import {
       icon: UilPackage,
       heading: 'Ratings & Reviews'
     },
-    {
-      path: "/",
-      icon: UilChart,
-      heading: 'Analytics'
-    },
-   
+  
   ];
   
   // Analytics Cards Data

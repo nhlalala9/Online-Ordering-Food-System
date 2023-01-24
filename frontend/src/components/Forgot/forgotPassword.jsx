@@ -82,9 +82,11 @@ const Forgot = () => {
     
     // <div className="outer">
     // <div className="inner">
-        <Form ref={forms} onSubmit={tries} >
+      
+    <div className="inner">
+        <Form ref={forms} onSubmit={tries}>
 
-          <div className="card  mt-5 mx-5 sss ">
+          <div >
             <FontAwesomeIcon icon="fa-solid fa-lock" />
             <h1 className="b py-3">Forgot password</h1>
             <i class="fa-solid fa-lock"></i>
@@ -105,15 +107,17 @@ const Forgot = () => {
                   </label>
                 </Form.Text>
               </Form.Group>
-              <Button  variant="primary" type="submit" size="md" >
+              <div className="log-btn">
+              <Button className="submit_btn" variant="primary" type="submit" size="md" >
                 Submit
               </Button>
+              </div>
 
             </div>
           </div>
         </Form>
-        // </div>
-        // </div>
+        </div>
+        
       
    
   );

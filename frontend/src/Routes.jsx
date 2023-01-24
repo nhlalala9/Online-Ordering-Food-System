@@ -18,6 +18,8 @@ import NaviBar from "./components/NaviBar/NaviBar";
 
 
 
+
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -27,14 +29,16 @@ const AppRoutes = () => {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/forgotPassword" element={<ForgotPassword/>}/>
-      <Route path="crud" element={<Crud/>}/>
+      <Route path="/crud" element={<Crud/>}/>
      
-      
+    
       <Route path="/dash" element={<Admin/>}/>
       <Route path="/orderlist" element={<OrderList/>}/>
       <Route path="/ratings" element={<Ratings/>}/>
       <Route path="/navibar" element={<NaviBar/>}/>
     
+    
+   
         
       
     </Routes>

@@ -1,4 +1,6 @@
 import React from "react";
+import "./Products.css"
+import NavBar from "../NavBar/NavBar";
 
 function ProductBox(props) {
     return (
