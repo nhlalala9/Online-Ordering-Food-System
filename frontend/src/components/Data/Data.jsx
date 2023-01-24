@@ -33,7 +33,7 @@ import {
     {
       path: "/crud",
       icon: UilUsersAlt,
-      heading: "Products",
+      heading: "Menu",
     },
     {
       path: "/ratings",

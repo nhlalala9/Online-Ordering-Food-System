@@ -1,6 +1,7 @@
 .myMenu{
     /* background-color: red; */
    padding: 20px;
+ 
 }
 
 /* .picture {
@@ -23,7 +24,8 @@ a{
 .menu_items{
     margin-top: 5rem;
     margin-left: 5rem;
-   
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .searc{

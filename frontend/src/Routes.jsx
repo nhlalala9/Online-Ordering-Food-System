@@ -16,6 +16,9 @@ import Admin from "./components/Admin/Admin";
 import Ratings from "./components/Ratings/Ratings";
 import Book from "./pages/book";
 import Menu from "./pages/Menu/Menu";
+import Header from "./components/Header/Header";
+import Booking from "./components/Booking/Booking";
+// import Products from "./components/Products/Products";
 
 
 const AppRoutes = () => {
@@ -23,18 +26,20 @@ const AppRoutes = () => {
     <Routes>
       
       <Route path="/" element={<SignIn />} />
-      <Route path="/signin" element={<SignIn />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/dashboard" element={<Dashboard/>}/>
-      <Route path="/forgotPassword" element={<ForgotPassword/>}/>
-      <Route path="/crud" element={<Crud/>}/>
+      <Route path="signin" element={<SignIn />} />
+      <Route path="signup" element={<SignUp />} />
+      <Route path="dashboard" element={<Dashboard/>}/>
+      <Route path="forgotPassword" element={<ForgotPassword/>}/>
+      <Route path="crud" element={<Crud/>}/>
      
     
-      <Route path="/dash" element={<Admin/>}/>
-      <Route path="/orderlist" element={<OrderList/>}/>
-      <Route path="/ratings" element={<Ratings/>}/>
-      <Route path="/book" element={<Book/>}/>
-      <Route path="/menu" element={<Menu/>}/>
+      <Route path="dash" element={<Admin/>}/>
+      <Route path="orderlist" element={<OrderList/>}/>
+      <Route path="ratings" element={<Ratings/>}/>
+      <Route path="book" element={<Book/>}/>
+      <Route path="menu" element={<Menu/>}/>
+      <Route path="booking" element={<Booking/>}/>
+      <Route path="header" element={<Header/>}/>
       <Route
         
       />
