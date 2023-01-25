@@ -4,6 +4,9 @@ import "./Menu.css";
 import NavBar from "../../components/NavBar/NavBar"
 import axios from "axios";
 import { Link, useParams  } from 'react-router-dom';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 
 function Menu() {
@@ -11,19 +14,28 @@ function Menu() {
   let { id } = useParams();
   // const card = cards.find(card => card.id === id);
     const [cards, setCards] = useState([]);
+    const [loading, setLoading] = useState();
     const card = cards.find(card => card.id === id);
   useEffect(() => {
     axios
       .get("http://localhost:1337/api/products")
       .then((response) => {
-        // setIsLoading(true);
+        setLoading(true);
         setCards(response.data.data);
         console.log(response.data.data);
         //   console.log(cards)
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
+  console.log(loading,"loading...");
 
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    setOpen(!open);
+  };
     const [searchTerm, setSearchTerm] = useState("");
 
     // const searchedProduct = products.filter((item) => {
@@ -36,10 +48,9 @@ function Menu() {
     //     return console.log("not found");
     //   }
     // });
-  
-
   return (
-      <>
+      <>{loading?
+<Box>
     <NavBar />
     <div className="myMenu">
        
@@ -55,26 +66,36 @@ function Menu() {
                   <i className="ri-search-line"></i>
                 </span>
                 </div>
+
+
      <div className='menu_items'>
      {cards.map((card) => (
-         <div className='see'>
-              <p key={card.id}></p>
+         <div key={card.id} className='see'>
      <CCard style={{ width: '20rem' }}>
-     <Link key={card.id} to={`/view/${card.id}`}>{card.attributes.name}</Link>
   <Link key={card.id} to={`/view/${card.id}`}> <CCardImage src= {card.attributes.Picture}/> </Link>
    <CCardBody> 
     <CCardTitle>{card.attributes.name}</CCardTitle>
-    <CCardText>
-      {/* Some quick example text to build on the card title and make up the bulk of the card's content. */}
-      {card.attributes.price}
-    </CCardText>
+    <CCardText> {card.attributes.price}</CCardText>
     <CButton ><a href="#">Add to cart </a> </CButton> 
   </CCardBody>
 </CCard>
 </div>
 ))}
         </div>
+
+
     </div>
+    </Box>
+    :<>
+  <Backdrop
+        sx={{ color: '#red', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+        onClick={handleClose}
+      >
+        <CircularProgress color="blue" />
+      </Backdrop>
+      Loading...
+</>}
     </>
   )
 }

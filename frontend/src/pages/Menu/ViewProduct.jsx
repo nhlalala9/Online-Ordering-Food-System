@@ -54,8 +54,7 @@ export default function ViewProduct() {
     <>
       <NavBar />
       <div>
-        <div className="see">
-          <p key={cards.id}></p>
+        <div key={cards.id} className="see">
           <CCard style={{ width: "20rem" }}>
             <CCardImage src={cards?.attributes?.Picture} />
             <CCardBody>
