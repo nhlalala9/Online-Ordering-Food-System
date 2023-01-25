@@ -43,15 +43,38 @@ import "./SignIn.css"
         if (data?.error) {
           throw data?.error;
         } else {
-          // set the token
-          setToken(data.jwt);
-  
-          // set the user
-          setUser(data.user);
-  
-          // message.success(`Welcome back ${data.user.username}!`);
-  
-          navigate("/dash", { replace: true });
+          console.log(data.user.userType === "restuarant");
+          if(data.user.userType === "restuarant"){
+            // set the token
+            setToken(data.jwt);
+              
+            // set the user
+            setUser(data.user);
+
+            // message.success(`Welcome back ${data.user.username}!`);
+
+            navigate("/dash", { replace: true });
+          }else if(data.user.userType === "customer"){
+            // set the token
+            setToken(data.jwt);
+    
+            // set the user
+            setUser(data.user);
+    
+            //message.success(`Welcome back ${data.user.username}!`);
+    
+            navigate("/dashboard", { replace: true });
+          }else if(data.user.userType === "driver"){
+            // set the token
+            setToken(data.jwt);
+    
+            // set the user
+            setUser(data.user);
+    
+           // message.success(`Welcome back ${data.user.username}!`);
+    
+           // navigate("/dash", { replace: true });
+          }
         }
       } catch (error) {
         console.error(error);

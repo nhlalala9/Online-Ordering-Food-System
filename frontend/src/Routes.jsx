@@ -15,7 +15,10 @@ import OrderList from "./components/OderList/OrderList";
 import Admin from "./components/Admin/Admin";
 import Ratings from "./components/Ratings/Ratings";
 import NaviBar from "./components/NaviBar/NaviBar";
-
+import Cart from "./components/Cart/cart";
+// import Checkout from "./pages/Checkout/Checkout";
+import Payment from "./pages/Checkout/Payment";
+import Checkout from "./pages/Checkout/CheckoutForm";
 
 
 
@@ -36,7 +39,9 @@ const AppRoutes = () => {
       <Route path="/orderlist" element={<OrderList/>}/>
       <Route path="/ratings" element={<Ratings/>}/>
       <Route path="/navibar" element={<NaviBar/>}/>
-    
+      <Route path="/cart" element={<Cart/>}/>
+      <Route path="/payment" element={<Payment/>}/>
+      <Route path="checkout" element={<Checkout/>}/>
     
    
         
