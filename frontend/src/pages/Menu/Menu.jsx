@@ -3,11 +3,15 @@ import {CCard,CButton,CCardText,CCardTitle,CCardBody,CCardImage} from '@coreui/r
 import "./Menu.css";
 import NavBar from "../../components/NavBar/NavBar"
 import axios from "axios";
+import { Link, useParams  } from 'react-router-dom';
+
 
 function Menu() {
 
+  let { id } = useParams();
+  // const card = cards.find(card => card.id === id);
     const [cards, setCards] = useState([]);
-
+    const card = cards.find(card => card.id === id);
   useEffect(() => {
     axios
       .get("http://localhost:1337/api/products")
@@ -20,9 +24,18 @@ function Menu() {
       .catch((err) => console.log(err));
   }, []);
 
-
     const [searchTerm, setSearchTerm] = useState("");
 
+    // const searchedProduct = products.filter((item) => {
+    //   if (searchTerm.value === "") {
+    //     return item;
+    //   }
+    //   if (item.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+    //     return item;
+    //   } else {
+    //     return console.log("not found");
+    //   }
+    // });
   
 
   return (
@@ -39,7 +52,7 @@ function Menu() {
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <span>
-                  <i class="ri-search-line"></i>
+                  <i className="ri-search-line"></i>
                 </span>
                 </div>
      <div className='menu_items'>
@@ -47,7 +60,8 @@ function Menu() {
          <div className='see'>
               <p key={card.id}></p>
      <CCard style={{ width: '20rem' }}>
-   <CCardImage src= {card.attributes.Picture}/>
+     <Link key={card.id} to={`/view/${card.id}`}>{card.attributes.name}</Link>
+  <Link key={card.id} to={`/view/${card.id}`}> <CCardImage src= {card.attributes.Picture}/> </Link>
    <CCardBody> 
     <CCardTitle>{card.attributes.name}</CCardTitle>
     <CCardText>

@@ -4,12 +4,10 @@
  
 }
 
-/* .picture {
-  
-   height: 11rem;
-   width: 10rem;
-  border-radius: 50%;
-} */
+.reviewForm{
+    background-color: aqua;
+    margin-top: 15rem;
+}
 
 .btn{
      background-color: blanchedalmond !important;

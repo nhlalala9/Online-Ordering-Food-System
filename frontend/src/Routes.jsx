@@ -18,7 +18,7 @@ import Book from "./pages/book";
 import Menu from "./pages/Menu/Menu";
 import Header from "./components/Header/Header";
 import Booking from "./components/Booking/Booking";
-// import Products from "./components/Products/Products";
+import ViewProduct from "./pages/Menu/ViewProduct";
 
 
 const AppRoutes = () => {
@@ -40,6 +40,7 @@ const AppRoutes = () => {
       <Route path="menu" element={<Menu/>}/>
       <Route path="booking" element={<Booking/>}/>
       <Route path="header" element={<Header/>}/>
+      <Route path="view/:id" element={<ViewProduct/>}/>
       <Route
         
       />
