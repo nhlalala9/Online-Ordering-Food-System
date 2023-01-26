@@ -9,6 +9,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
 
+
 function Menu() {
 
   let { id } = useParams();
@@ -87,14 +88,16 @@ function Menu() {
     </div>
     </Box>
     :<>
-  <Backdrop
+  {/* <Backdrop
         sx={{ color: '#red', zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={open}
         onClick={handleClose}
+
       >
-        <CircularProgress color="blue" />
-      </Backdrop>
+      
+      </Backdrop> */}
       Loading...
+      {/* <CircularProgress color="blue" /> */}
 </>}
     </>
   )

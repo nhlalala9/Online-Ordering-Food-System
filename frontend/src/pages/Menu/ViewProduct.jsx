@@ -53,40 +53,65 @@ export default function ViewProduct() {
   return (
     <>
       <NavBar />
-      <div>
-        <div key={cards.id} className="see">
-          <CCard style={{ width: "20rem" }}>
-            <CCardImage src={cards?.attributes?.Picture} />
-            <CCardBody>
-              <CCardTitle>{cards?.attributes?.name}</CCardTitle>
-              <CCardText>
-              {cards?.attributes?.description}
-                {cards?.attributes?.price}
-              </CCardText>
-              <CButton>
-                <a href="#">Add to cart </a>{" "}
-              </CButton>
-            </CCardBody>
-          </CCard>
+
+      <div key={cards.id} className="menu-details">
+        <div className="picture">
+          <img src={cards?.attributes?.Picture} className="img" />
+        </div>
+
+        <div className="details">
+          <h1>{cards?.attributes?.name}</h1>
+          <h4> {cards?.attributes?.description}</h4>
+          <h3>R {cards?.attributes?.price}</h3>
+          <button className="add_btn">
+            <a href="#">Add to cart </a>
+          </button>
         </div>
       </div>
 
-       <div className='reviewForm'>
-             <h1>Reviews</h1>
+      <h1 className="heading">Reviews</h1>
+      <div className="reviewForm">
         <form onSubmit={handleSubmit}>
+          <div className="password">
             <label>Name</label>
-            <input type="text" placeholder='Enter your name' name='CustomerName'value={formData.CustomerName}
-              onChange={handleChange}/>
+            <input
+              className="input"
+              type="text"
+              placeholder="Enter your name"
+              name="CustomerName"
+              value={formData.CustomerName}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="password">
             <label>Rating</label>
-            <input type="text" placeholder='Enter your rate: 1-5' name='Rate' value={formData.Rate}
-              onChange={handleChange}/>
+            <input
+              className="input"
+              type="text"
+              placeholder="Enter your rate: 1-5"
+              name="Rate"
+              value={formData.Rate}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="password">
             <label>Comment</label>
-            <input type="text" placeholder='Enter your name' name='Comment' value={formData.Comment}
-              onChange={handleChange}/>
-
-            <button type='submit'>Submit</button>
+            <input
+              className="input"
+              type="text"
+              placeholder="Enter your name"
+              name="Comment"
+              value={formData.Comment}
+              onChange={handleChange}
+            />
+          </div>
+          <button className="submit_btn" type="submit">
+            Submit
+          </button>
         </form>
-    </div> 
+
+        
+      </div>
     </>
   );
 }

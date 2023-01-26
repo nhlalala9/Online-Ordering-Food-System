@@ -5,16 +5,47 @@
 }
 
 .reviewForm{
-    background-color: aqua;
-    margin-top: 15rem;
+  display: flex;
+  justify-content: center;
+  /* border: solid 2px red; */
 }
-
+.heading{
+    text-align: center;
+    font-family: 'Alfa Slab One';
+    margin-bottom: 20px;
+}
 .btn{
      background-color: blanchedalmond !important;
     width: 95px;
     height: 30px;
 }
+.menu-details{
+   margin: 15rem 30rem;
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    /* padding: 20px;
+    border: solid 2px red; */
+    
+}
 
+
+.add_btn{
+    background-color: red;
+    height: 30px;
+    width: 80px;
+    border-radius: 10px;
+}
+h3{
+    color: red;
+    font-weight: bold;
+}
+.img{
+    width: 50%;
+}
+.details{
+    margin-right: 15rem;
+}
 a{
     color: black;
 }
