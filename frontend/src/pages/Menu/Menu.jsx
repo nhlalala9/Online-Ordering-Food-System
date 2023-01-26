@@ -73,7 +73,7 @@ function Menu() {
      {cards.map((card) => (
          <div key={card.id} className='see'>
      <CCard style={{ width: '20rem' }}>
-  <Link key={card.id} to={`/view/${card.id}`}> <CCardImage src= {card.attributes.Picture}/> </Link>
+  <Link key={card.id} to={`/view/${card.id}`}> <CCardImage style={{ height: '15rem' }} src= {card.attributes.Picture}/> </Link>
    <CCardBody> 
     <CCardTitle>{card.attributes.name}</CCardTitle>
     <CCardText> {card.attributes.price}</CCardText>
