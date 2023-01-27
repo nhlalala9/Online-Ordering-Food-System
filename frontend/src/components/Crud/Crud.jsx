@@ -4,6 +4,8 @@ import NaviBar from "../NaviBar/NaviBar";
 import "./Crud.css";
 import Sidebar from "../Sidebar";
 import Modal from "../modal/Modal";
+import EditForm from "./EditForm";
+import { Link, useParams } from "react-router-dom";
 
 
 function CRUD() {
@@ -88,8 +90,8 @@ function CRUD() {
         </div>
         <div className="cards">
           {cards.map((card) => (
-            <div className="crud">
-              <div key={card.id} className="card">
+            <div key={card.id} className="crud">
+              <div className="card">
                 <img
                   src={card.attributes.Picture}
                   className="image"
@@ -100,7 +102,7 @@ function CRUD() {
                   <p className="card-text">{card.attributes.description}</p>
                   <p className="card-text">R {card.attributes.price}.00</p>
                   <div className="buttons">
-                    <button className="btn_t">Edit</button>
+                  <Link key={card.id} to={`/edit/${card.id}`}> <button className="btn_t">Edit</button> </Link>
                     <button className="btn " onClick={() => getId(card.id)}>
                       Delete
                     </button>
