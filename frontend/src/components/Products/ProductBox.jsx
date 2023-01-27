@@ -64,7 +64,7 @@ function ProductBox() {
             <NavBar setShow={setShow} size={cart.length} />
             {show ? (<><div className="prod">
                 {orders.map((row) => (
-                    <Link to={"/cart"} >
+                    
                     <div className="a-box" key={row.id}>
 
                         <div className="a-b-img">
@@ -80,7 +80,6 @@ function ProductBox() {
                         </div>
 
                     </div>
-                    </Link>
                 ))}
             </div></>) : (<></>)}
 

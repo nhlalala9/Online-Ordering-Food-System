@@ -63,8 +63,8 @@ export default function ViewProduct() {
           <h1>{cards?.attributes?.name}</h1>
           <h4> {cards?.attributes?.description}</h4>
           <h3>R {cards?.attributes?.price}</h3>
-          <button className="add_btn">
-            <a href="#">Add to cart </a>
+          <button className="productbox-button">
+            Add to cart 
           </button>
         </div>
       </div>
@@ -110,7 +110,7 @@ export default function ViewProduct() {
           </button>
         </form>
 
-        
+
       </div>
     </>
   );
