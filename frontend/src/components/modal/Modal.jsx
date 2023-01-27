@@ -47,6 +47,7 @@ function Modal({ setOpenModal }) {
           <h5>Add new item to your menu</h5>
         </div>
         <div className="modal_body">
+          
           <form onSubmit={handleSubmit}>
             <label>Name:</label>
             <input

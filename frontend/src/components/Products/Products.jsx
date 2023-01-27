@@ -29,6 +29,7 @@ function Products() {
   return (
     <div id='products' >
         <h1>CHOOSE & ENJOY</h1>
+        
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
              Quo quae error accusantium harum a ratione modi, excepturi beatae.
              Voluptatem officiis nostrum ex labore veniam eum 

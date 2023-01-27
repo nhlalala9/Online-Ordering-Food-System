@@ -22,6 +22,11 @@ import Checkout from "./pages/Checkout/CheckoutForm";
 import ProductsCart from "./components/productCart";
 
 
+import Book from "./pages/book";
+import Menu from "./pages/Menu/Menu";
+import Header from "./components/Header/Header";
+import Booking from "./components/Booking/Booking";
+import ViewProduct from "./pages/Menu/ViewProduct";
 
 
 const AppRoutes = () => {
@@ -29,11 +34,11 @@ const AppRoutes = () => {
     <Routes>
       
       <Route path="/" element={<SignIn />} />
-      <Route path="/signin" element={<SignIn />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/dashboard" element={<Dashboard/>}/>
-      <Route path="/forgotPassword" element={<ForgotPassword/>}/>
-      <Route path="/crud" element={<Crud/>}/>
+      <Route path="signin" element={<SignIn />} />
+      <Route path="signup" element={<SignUp />} />
+      <Route path="dashboard" element={<Dashboard/>}/>
+      <Route path="forgotPassword" element={<ForgotPassword/>}/>
+      <Route path="crud" element={<Crud/>}/>
      
     
       <Route path="/dash" element={<Admin/>}/>
@@ -46,6 +51,15 @@ const AppRoutes = () => {
       <Route path="/productsCart" element={<ProductsCart/>}/>
     
    
+      <Route path="dash" element={<Admin/>}/>
+      <Route path="orderlist" element={<OrderList/>}/>
+      <Route path="ratings" element={<Ratings/>}/>
+      <Route path="book" element={<Book/>}/>
+      <Route path="menu" element={<Menu/>}/>
+      <Route path="booking" element={<Booking/>}/>
+      <Route path="header" element={<Header/>}/>
+      <Route path="view/:id" element={<ViewProduct/>}/>
+    
         
       
     </Routes>
