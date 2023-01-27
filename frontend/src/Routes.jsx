@@ -45,16 +45,11 @@ const AppRoutes = () => {
       <Route path="/orderlist" element={<OrderList/>}/>
       <Route path="/ratings" element={<Ratings/>}/>
       <Route path="/navibar" element={<NaviBar/>}/>
-      <Route path="/cart" element={<Cart/>}/>
+      <Route path="cart" element={<Cart/>}/>
       <Route path="/payment" element={<Payment/>}/>
       <Route path="checkout" element={<Checkout/>}/>
       <Route path="/productsCart" element={<ProductsCart/>}/>
     
-   
-      <Route path="dash" element={<Admin/>}/>
-      <Route path="orderlist" element={<OrderList/>}/>
-      <Route path="ratings" element={<Ratings/>}/>
-      <Route path="book" element={<Book/>}/>
       <Route path="menu" element={<Menu/>}/>
       <Route path="booking" element={<Booking/>}/>
       <Route path="header" element={<Header/>}/>

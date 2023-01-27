@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import "./cart.css";
+import axios from 'axios';
 
 
 const Cart = ({ cart, setCart }) => {
     const [orders, setOrders] = useState([]);
     const [price, setPrice] = useState(0);
-
-
 
     const handleRemove = (id) => {
         const arr = cart.filter((orders) => orders.id !== id);
@@ -31,7 +30,17 @@ const Cart = ({ cart, setCart }) => {
     };
 
     useEffect(() => {
+        axios.get('http://localhost:1337/api/products')
+            .then(response => {
+                setOrders(response.data.data)
+                console.log(response.data.data)
+            })
+            .catch(err => console.log(err));
+    }, []);
+
+    useEffect(() => {
         handlePrice();
+
     });
 
     return (
@@ -58,56 +67,57 @@ const Cart = ({ cart, setCart }) => {
                 <span>Total Price of your Cart</span>
                 <span>R - {price}</span>
             </div> */}
-            {orders.map((orders) => (
 
-                <div title='Cart' key={orders.id}>
-                    <div className="cart_img">
-                        <img src={orders.Picture} alt="" />
-                        <p>{orders.name}</p>
-                    </div>
-                    <Container>
-                        <Row>
-                            <Col lg="12">
-
-                                <h5 className="text-center">Your cart is empty</h5>
-
-                                <table className="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Image</th>
-                                            <th>Product Title</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                    </thead>
-
-                                </table>
-                                <div>
-                                    <span>{orders.price}</span>
-                                    <button onClick={() => handleRemove(orders.id)}>Delete</button>
-                                </div>
-
-                                <div className="mt-4">
-                                    <h6>
-                                        Subtotal: R
-                                        <span className="cart__subtotal"></span>
-                                    </h6>
-                                    <p>Taxes and shipping will calculate at checkout</p>
-                                    <div className="cart__page-btn">
-                                        <button className="addTOCart__btn me-4">
-                                            <Link to="/dashboard">Continue Shopping</Link>
-                                        </button>
-                                        <button className="addTOCart__btn">
-                                            <Link to="/payment">Proceed to checkout</Link>
-                                        </button>
-                                    </div>
-                                </div>
-                            </Col>
-                        </Row>
-                    </Container>
+            <div title='Cart'>
+                <div className="cart_img">
                 </div>
-            ))}
+                <Container>
+                    <Row>
+                        <Col lg="12">
+                            <h5 className="text-center">Your cart is empty</h5>
+                            <table className="table table-bordered" style={{ width: "700px" }}>
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {orders.map((orders) => (
+                                        <tr key={orders.attributes.id}>
+                                            <td> <img src={orders.attributes.Picture} alt="" style={{ width: "2rem", height: "2rem" }} /></td>
+                                            <td>{orders.attributes.name}</td>
+                                            <td>{orders.attributes.price}</td>
+                                            <td><button onClick={() => handleRemove(orders.attributes.id)}>Delete</button></td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+
+
+                            <div className="mt-4">
+                                <h6>
+                                    Subtotal: R
+                                    <span className="cart__subtotal"></span>
+                                </h6>
+                                <p>Taxes and shipping will calculate at checkout</p>
+                                <div className="cart__page-btn">
+                                    <button className="addTOCart__btn me-4">
+                                        <Link to="/dashboard">Continue Shopping</Link>
+                                    </button>
+                                    <button className="addTOCart__btn">
+                                        <Link to="/payment">Proceed to checkout</Link>
+                                    </button>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+
 
         </div>
     )
