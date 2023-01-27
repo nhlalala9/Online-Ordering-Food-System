@@ -12,7 +12,7 @@ function Dashboard() {
 
     return (
         <>
-            <NavBar />
+            {/* <NavBar /> */}
             <Header />
             <Products />
             <Booking />

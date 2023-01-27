@@ -4,7 +4,7 @@ import NaviBar from "../NaviBar/NaviBar";
 import "./Crud.css";
 import Sidebar from "../Sidebar";
 import Modal from "../modal/Modal";
-import Search from "../search/search"
+
 
 function CRUD() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -62,7 +62,7 @@ function CRUD() {
       >
         Add to list
       </button>
-          <Search/>
+      
           
       
       </div>

@@ -19,6 +19,7 @@ import Cart from "./components/Cart/cart";
 // import Checkout from "./pages/Checkout/Checkout";
 import Payment from "./pages/Checkout/Payment";
 import Checkout from "./pages/Checkout/CheckoutForm";
+import ProductsCart from "./components/productCart";
 
 
 
@@ -42,6 +43,7 @@ const AppRoutes = () => {
       <Route path="/cart" element={<Cart/>}/>
       <Route path="/payment" element={<Payment/>}/>
       <Route path="checkout" element={<Checkout/>}/>
+      <Route path="/productsCart" element={<ProductsCart/>}/>
     
    
         

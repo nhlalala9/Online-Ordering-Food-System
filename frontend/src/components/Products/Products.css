@@ -26,28 +26,34 @@
     margin-bottom: 35px;
 }
 
+.prod {
+    display: flex;}
 .a-container {
     display: flex;
     justify-content: center;
     align-content: center;
+
 }
 
 .a-box {
     background-color: #ffffff;
-    width: 300px;
+    width: 200px;
     /* height: 435px; */
     margin: 20px;
     border-radius: 10px;
     overflow: hidden;
     transition: 0.4s ease-in-out;
     position: relative;
+    
 } */
 
 .a-b-img {
     width: 100%;
-    height: 60%;
+    height: 40%;
+
 
 }
+
 
 .a-b-img img {
     padding: 15px;
