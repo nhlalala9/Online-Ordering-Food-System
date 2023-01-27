@@ -1,6 +1,6 @@
 .myMenu{
     /* background-color: red; */
-   padding: 20px;
+   padding: 30px;
  
 }
 .photo{
@@ -12,15 +12,31 @@
   justify-content: center;
   /* border: solid 2px red; */
 }
+.form_input{
+padding: 5px;
+width: 100rem;
+height: 40px;
+}
 .heading{
     text-align: center;
     font-family: 'Alfa Slab One';
     margin-bottom: 20px;
 }
+.label{
+    font-weight: bold;
+    color: black;
+}
+.sub_btn{
+    background-color: red;
+    width: 10%;
+    height: 15%;
+    margin-left: 45%;
+}
 .btn{
      background-color: blanchedalmond !important;
     width: 95px;
     height: 30px;
+
 }
 .menu-details{
    margin: 15rem 30rem;
@@ -30,14 +46,15 @@
   
 }
 .picture{
-    width: 50%;
+    width: 50%;                     
 }
 
 .add_btn{
     background-color: red;
-    height: 30px;
-    width: 80px;
-    border-radius: 10px;
+    height: 40px;
+    width: 90px;
+    /* border-radius: 10px; */
+  
 }
 h3{
     color: red;
@@ -55,9 +72,10 @@ a{
 
 .menu_items{
     margin-top: 5rem;
-    margin-left: 5rem;
+    /* margin-left: 1rem; */
     display: flex;
     flex-wrap: wrap;
+    /* gap: 10px; */
 }
 
 .searc{
@@ -70,4 +88,9 @@ a{
     width: 50%;
     height: 35px;
     padding: 5px;
+}
+
+.img{
+    border: solid 2px red;
+    width: 40rem;
 }

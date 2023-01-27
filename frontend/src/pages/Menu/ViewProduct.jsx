@@ -3,14 +3,7 @@ import axios from "axios";
 import NavBar from "../../components/NavBar/NavBar";
 import "./Menu.css";
 import { useParams } from "react-router-dom";
-import {
-  CCard,
-  CButton,
-  CCardText,
-  CCardTitle,
-  CCardBody,
-  CCardImage,
-} from "@coreui/react";
+
 
 export default function ViewProduct() {
   let { id } = useParams();
@@ -73,9 +66,10 @@ export default function ViewProduct() {
       <div className="reviewForm">
         <form onSubmit={handleSubmit}>
           <div className="password">
-            <label>Name</label>
+            <label className="label">Name</label>
+            <br/>
             <input
-              className="input"
+              className="form_input"
               type="text"
               placeholder="Enter your name"
               name="CustomerName"
@@ -84,9 +78,10 @@ export default function ViewProduct() {
             />
           </div>
           <div className="password">
-            <label>Rating</label>
+            <label className="label">Rating</label>
+            <br/>
             <input
-              className="input"
+              className="form_input"
               type="text"
               placeholder="Enter your rate: 1-5"
               name="Rate"
@@ -95,9 +90,10 @@ export default function ViewProduct() {
             />
           </div>
           <div className="password">
-            <label>Comment</label>
+            <label className="label">Comment</label>
+            <br/>
             <input
-              className="input"
+              className="form_input"
               type="text"
               placeholder="Enter your name"
               name="Comment"
@@ -105,7 +101,7 @@ export default function ViewProduct() {
               onChange={handleChange}
             />
           </div>
-          <button className="submit_btn" type="submit">
+          <button className="sub_btn" type="submit">
             Submit
           </button>
         </form>
