@@ -21,16 +21,13 @@ function EditForm() {
     console.log(formData);
   };
 
-  function editId(id, e) {
+  const editId = (id, e)=> {
     e.preventDefault();
-    setProdId(id);
-
-    console.log(id);
     axios
       .put(`http://localhost:1337/api/products/${id}`, { data: {formData} })
       .then((response) => {
-        console.log(response);
-        console.log("ora");
+        setProdId(id)
+        console.log(response,"res");
       })
       .catch((error) => {
         console.log(error);
@@ -39,7 +36,7 @@ function EditForm() {
 
   return (
     <div>
-      <form>
+      <form onSubmit={(e) => editId(prodId, e)}>
         <label>
           Name:
           <input type="text" name="name"    value={formData.name}   onChange={handleChange}/>
@@ -59,7 +56,7 @@ function EditForm() {
           Picture:
           <input type="text" name="Picture" value={formData.Picture}   onChange={handleChange} />
         </label>
-        <input type="submit" onClick={(e) => editId(prodId, e)} value="Submit" />
+        <input type="submit" value="Submit" />
       </form>
     </div>
   );

@@ -7,25 +7,24 @@ import Modal from "../modal/Modal";
 import EditForm from "./EditForm";
 import { Link, useParams } from "react-router-dom";
 
-
 function CRUD() {
   const [modalOpen, setModalOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [cards, setCards] = useState([]);
-  const [ id,setId] = useState([]);
+  const [id, setId] = useState("");
 
   function getId(id) {
     setId(id);
     console.log(id);
     axios
-    .delete(`http://localhost:1337/api/products/${id}`)
-    .then((response) => {
-      console.log(response);
-      console.log("ora");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .delete(`http://localhost:1337/api/products/${id}`)
+      .then((response) => {
+        console.log(response);
+        console.log("ora");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   //get all from strapi
@@ -102,7 +101,10 @@ function CRUD() {
                   <p className="card-text">{card.attributes.description}</p>
                   <p className="card-text">R {card.attributes.price}.00</p>
                   <div className="buttons">
-                  <Link key={card.id} to={`/edit/${card.id}`}> <button className="btn_t">Edit</button> </Link>
+                    <Link key={card.id} to={`/edit/${card.id}`}>
+                      {" "}
+                      <button className="btn_t">Edit</button>{" "}
+                    </Link>
                     <button className="btn " onClick={() => getId(card.id)}>
                       Delete
                     </button>

@@ -42,10 +42,6 @@ const AppRoutes = () => {
       <Route path="header" element={<Header/>}/>
       <Route path="view/:id" element={<ViewProduct/>}/>
       <Route path="edit/:id" element={<EditForm/>}/>
-      <Route
-        
-      />
-      
     </Routes>
   );
 };
