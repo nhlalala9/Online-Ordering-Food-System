@@ -1,11 +1,11 @@
 import React,{useState} from "react";
-// import { Link } from "react-scroll";
+import { Link } from "react-scroll";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { removeToken } from "../../helpers";
 import logo from "../../images/logo1.png";
 import "./NavBar.css";
-import { NavLink,Link } from "react-router-dom";
+
 
 
 
@@ -13,6 +13,7 @@ import { NavLink,Link } from "react-router-dom";
 function NavBar({ setShow, size }) {
     const [nav, setnav] = useState(false);
     const navigate = useNavigate();
+    
     const handleLogout = () => {
         removeToken();
         navigate("/signin", { replace: true });
