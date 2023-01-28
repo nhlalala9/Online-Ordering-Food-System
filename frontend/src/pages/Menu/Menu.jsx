@@ -10,24 +10,23 @@ import {
 import "./Menu.css";
 import NavBar from "../../components/NavBar/NavBar";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../cart/cartReducer";
+import { Link, useParams } from "react-router-dom";
+// import Backdrop from "@mui/material/Backdrop";
+// import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 function Menu() {
-  const id = useParams().id;
+  let { id } = useParams();
+  // const card = cards.find(card => card.id === id);
   const [cards, setCards] = useState([]);
-  const [data, setData] = useState({})
- 
+  const [loading, setLoading] = useState();
+  const [query, setQuery] = useState("");
 
-const dispatch = useDispatch();
-
-  useEffect(() => {
+  const getFood = async () => {
     axios
       .get("http://localhost:1337/api/products")
       .then((response) => {
-        // setIsLoading(true);
+        setLoading(true);
         setCards(response.data.data);
         console.log(response.data.data[0].attributes);
 
@@ -35,59 +34,84 @@ const dispatch = useDispatch();
         
       })
       .catch((err) => console.log(err));
-  }, [id])
+  };
 
+  useEffect(() => {
+    getFood();
+  }, [id]);
 
-
-  // function addToCart(productId) {
-  //   axios.post("http://localhost:1337/api/products", { productId })
-  //     .then(res => console.log(res.data ,"toka"))
-  //     .catch(err => console.log(err));
-  // }
-
-  const [searchTerm, setSearchTerm] = useState("");
+  useEffect(() => {
+    if (query) {
+      axios
+        .get(`http://localhost:1337/api/products?filters[name][$containsi]=${query}`)
+        .then((response) => {
+          setLoading(true);
+          setCards(response.data.data);
+          console.log(response.data.data);
+        })
+        .catch((err) => {console.log(err)});
+    } else {
+      getFood();
+    }
+  }, [query]);
 
   return (
     <>
-      <NavBar />
-      <div className="myMenu">
-        <div className="searc">
-          <input
-            className="sea"
-            type="text"
-            placeholder="I'm looking for...."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <span>
-            <i className="ri-search-line"></i>
-          </span>
-        </div>
-        <div className="menu_items">
-          {cards.map((card) => (
-            <div className="see"  key={card.id}>
-              <p></p>
-              <CCard style={{ width: "20rem" }}>
-                <CCardImage src={card.attributes.Picture} />
-                <CCardBody>
-                  <CCardTitle>{card.attributes.name}</CCardTitle>
-                  <CCardText>
-                    {card.attributes.price}
-                  </CCardText>
-                  <CButton onClick={() =>dispatch(addToCart({
-                    id:cards.id,
-                    name:cards.data.name,
-                    price:cards.attributes.price,
-                    picture:cards.attributes.picture
-                  }))}>
-                    <Link >Add to cart </Link>
-                  </CButton>
-                </CCardBody>
-              </CCard>
+      {loading ? (
+        <Box>
+          <NavBar />
+          <div className="myMenu">
+            <div className="searc">
+              <input
+                className="sea"
+                type="text"
+                placeholder="I'm looking for...."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+              <span>
+                <i className="ri-search-line"></i>
+              </span>
             </div>
-          ))}
-        </div>
-      </div>
+
+            <div className="menu_items">
+              {cards.map((card) => (
+                <div key={card.id} className="see">
+                  <CCard style={{ width: "20rem" }}>
+                    <Link key={card.id} to={`/view/${card.id}`}>
+                      {" "}
+                      <CCardImage
+                        style={{ height: "15rem" }}
+                        src={card.attributes.Picture}
+                      />{" "}
+                    </Link>
+                    <CCardBody>
+                      <CCardTitle>{card.attributes.name}</CCardTitle>
+                      <CCardText> R {card.attributes.price}</CCardText>
+                      <CButton>
+                        <a href="#">Add to cart </a>{" "}
+                      </CButton>
+                    </CCardBody>
+                  </CCard>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Box>
+      ) : (
+        <>
+          {/* <Backdrop
+        sx={{ color: '#red', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+        onClick={handleClose}
+
+      >
+      
+      </Backdrop> */}
+          Loading...
+          {/* <CircularProgress color="blue" /> */}
+        </>
+      )}
     </>
   );
 }

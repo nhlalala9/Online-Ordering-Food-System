@@ -18,9 +18,8 @@ import Book from "./pages/book";
 import Menu from "./pages/Menu/Menu";
 import Header from "./components/Header/Header";
 import Booking from "./components/Booking/Booking";
-import Cart from "./pages/cart/Cart";
-// import Products from "./components/Products/Products";
-
+import ViewProduct from "./pages/Menu/ViewProduct";
+import EditForm from "./components/Crud/EditForm";
 
 const AppRoutes = () => {
   return (
@@ -41,11 +40,8 @@ const AppRoutes = () => {
       <Route path="menu" element={<Menu/>}/>
       <Route path="booking" element={<Booking/>}/>
       <Route path="header" element={<Header/>}/>
-      <Route path="cart" element={<Cart/>}/>
-      <Route
-        
-      />
-      
+      <Route path="view/:id" element={<ViewProduct/>}/>
+      <Route path="edit/:id" element={<EditForm/>}/>
     </Routes>
   );
 };

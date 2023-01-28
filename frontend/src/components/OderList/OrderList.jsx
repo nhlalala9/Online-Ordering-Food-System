@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "./OrderList.css";
-import Search from "../search/search";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -18,17 +17,37 @@ const OrderManagement = () => {
   // const [selectedOrder, setSelectedOrder] = useState(null);
   const [isLoading, setIsLoading] = useState(false); 
   const [error, setError] = useState(null);
+  const [query, setQuery] = useState("");
+
+  const getOrders = async () => {
+    axios
+    .get("http://localhost:1337/api/order-lists")
+    .then((response) => {
+      setIsLoading(true);
+      setOrders(response.data.data);
+      // §§console.log(orders)
+    })
+    .catch((err) => console.log(err));
+  }
 
   useEffect(() => {
+    getOrders();
+  }, []);
+
+
+  useEffect(() => {
+    if (query){
     axios
-      .get("http://localhost:1337/api/order-lists")
+      .get(`http://localhost:1337/api/order-lists?filters[DishName][$containsi]=${query}`)
       .then((response) => {
         setIsLoading(true);
         setOrders(response.data.data);
-        // §§console.log(orders)
       })
       .catch((err) => console.log(err));
-  }, []);
+    } else {
+      getOrders();
+  }
+}, [query]);
 
   //Post method
   axios
@@ -85,7 +104,18 @@ const OrderManagement = () => {
         <div className='move'>
           <NaviBar />
           <div className="search">
-          <Search/>
+          <div className="searc">
+              <input
+                className="sea"
+                type="text"
+                placeholder="I'm looking for...."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+              <span>
+                <i className="ri-search-line"></i>
+              </span>
+            </div>
           </div>
         <div className="table">
         <div className="t">

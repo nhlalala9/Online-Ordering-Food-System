@@ -21,7 +21,7 @@ function Modal({ setOpenModal }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:1337/api/products", {"data": formData})
+      .post("http://localhost:1337/api/products", {data: formData})
       .then((response) => {
         console.log(response);
       })
@@ -47,6 +47,7 @@ function Modal({ setOpenModal }) {
           <h5>Add new item to your menu</h5>
         </div>
         <div className="modal_body">
+          
           <form onSubmit={handleSubmit}>
             <label>Name:</label>
             <input
