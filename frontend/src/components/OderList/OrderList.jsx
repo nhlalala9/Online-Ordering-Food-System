@@ -104,9 +104,8 @@ const OrderManagement = () => {
         <div className='move'>
           <NaviBar />
           <div className="search">
-          <div className="searc">
               <input
-                className="sea"
+                className="sea_input"
                 type="text"
                 placeholder="I'm looking for...."
                 value={query}
@@ -115,7 +114,6 @@ const OrderManagement = () => {
               <span>
                 <i className="ri-search-line"></i>
               </span>
-            </div>
           </div>
         <div className="table">
         <div className="t">

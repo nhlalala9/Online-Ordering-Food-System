@@ -68,7 +68,7 @@
   }
   
   #cancelBtn {
-    background-color: crimson;
+    background-color: blue;
   }
 
   .modal_input{
@@ -79,4 +79,16 @@
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+  }
+
+  .bt{
+    border-radius: 5px;
+    background-color: blue;
+    width: 30%;
+  }
+
+  .bt1{
+    border-radius: 5px;
+    background-color: blue;
+    width: 30%;
   }

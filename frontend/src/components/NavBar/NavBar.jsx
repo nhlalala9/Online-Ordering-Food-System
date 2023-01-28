@@ -3,7 +3,7 @@ import React,{useState} from "react";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { removeToken } from "../../helpers";
-import logo from "../../images/logo1.png";
+import logo from "../../images/logo.jpeg";
 import "./NavBar.css";
 import { NavLink,Link } from "react-router-dom";
 

@@ -4,7 +4,7 @@ import NaviBar from "../NaviBar/NaviBar";
 import "./Crud.css";
 import Sidebar from "../Sidebar";
 import Modal from "../modal/Modal";
-import EditForm from "./EditForm";
+// import EditForm from "./EditForm";
 import { Link, useParams } from "react-router-dom";
 
 function CRUD() {
@@ -21,6 +21,7 @@ function CRUD() {
       .then((response) => {
         console.log(response);
         console.log("ora");
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);
@@ -74,9 +75,9 @@ function CRUD() {
           >
             Add to list
           </button>
-          <div className="searc">
+          <div className="search">
             <input
-              className="sea"
+              className="search_input"
               type="text"
               placeholder="I'm looking for...."
               value={query}
@@ -89,29 +90,46 @@ function CRUD() {
         </div>
         <div className="cards">
           {cards.map((card) => (
-            <div key={card.id} className="crud">
-              <div className="card">
-                <img
-                  src={card.attributes.Picture}
-                  className="image"
-                  alt="..."
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{card.attributes.name}</h5>
-                  <p className="card-text">{card.attributes.description}</p>
-                  <p className="card-text">R {card.attributes.price}.00</p>
-                  <div className="buttons">
-                    <Link key={card.id} to={`/edit/${card.id}`}>
-                      {" "}
-                      <button className="btn_t">Edit</button>{" "}
-                    </Link>
-                    <button className="btn " onClick={() => getId(card.id)}>
-                      Delete
-                    </button>
-                  </div>
-                </div>
+            <div class="card" key={card.id}>
+            <img class="card-img-top" src={card.attributes.Picture} alt="Card image cap"/>
+            <div class="card-body">
+              <h5 class="card-title">{card.attributes.name}</h5>
+              <p className="price">R {card.attributes.price}.00</p>
+              <div class="card-text">
+              <p >{card.attributes.description}</p>
               </div>
+              <div className="buttons">
+                     <Link key={card.id} to={`/edit/${card.id}`}>
+                       <button className="btn_t">Edit</button>
+                     </Link>
+                     <button className="btnRed " onClick={() => getId(card.id)}>
+                       Delete
+                     </button>
+                   </div>
             </div>
+          </div>
+            // <div key={card.id} className="crud">
+            //   <div className="card">
+            //     <img
+            //       src={card.attributes.Picture}
+            //       className="image"
+            //       alt="..."
+            //     />
+            //     <div className="card-body">
+            //       <h5 className="card-title">{card.attributes.name}</h5>
+            //       <p className="card-text">{card.attributes.description}</p>
+            //       <p className="card-text">R {card.attributes.price}.00</p>
+            //       <div className="buttons">
+            //         <Link key={card.id} to={`/edit/${card.id}`}>
+            //           <button className="btn_t">Edit</button>
+            //         </Link>
+            //         <button className="btn " onClick={() => getId(card.id)}>
+            //           Delete
+            //         </button>
+            //       </div>
+            //     </div>
+            //   </div>
+            // </div>
           ))}
         </div>
       </div>

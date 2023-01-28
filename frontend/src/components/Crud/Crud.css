@@ -1,21 +1,11 @@
 .crud {
-    /* gap: 5px; */
-    /* margin-top: 40px; */
     display: flex;
-    /* flex-direction: row; */
     width: 20%;
-    /* background-color: red; */
-}
-.image{
-    /* height: 15rem;
-    border: solid 2px red; */
-}
-.cards {
-    /* display: flex; */
 }
 
+
 .btn_add{
-    background-color: green;
+    background-color: blue;
     width: 100px;
     height: 30px;
     
@@ -30,29 +20,36 @@
     
 }
 
-
 .buttons{
     display: flex;
     flex-direction: row;
     gap: 5px;
-    justify-content: center;
-    
+    justify-content: space-between
 }
-.btn{
-    width: 55px;
+.btnRed{
+    width: 60px;
     background-color: red;
+    border-radius: 5px;
+    border: solid 1px black;
 }
 .btn_t{
+    width: 60px;
     background-color: yellow;
-    width: 55px;
-    
+    border-radius: 5px;
+}
+.card-img-top{
+    height: 200px;
+}
+.card-text{
+    height: 150px;
 }
 
 .card {
     margin-left: 30PX;
     border: 0.5px solid;
     padding: 5px;
-    width: 200px;
+    /* width: 200px; */
+    width: 22rem;
   }
 
 .move{
@@ -70,3 +67,40 @@
     display: flex;
     align-items: center;
 }
+
+.edit_form{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 20%; */
+    border: solid 12px blue;
+    height: 100%;
+    width: 100%;
+}
+
+.btns{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancel{
+    width: 10%;
+    border-radius:5px;
+}
+
+.save{
+    width: 10%;
+    border-radius:5px;
+}
+.try{
+   
+    width: 50rem;
+}
+
+.search_input{
+    margin-top: 50px;
+    width: 30rem;
+    height: 40px;
+    padding: 5px;
+}
+

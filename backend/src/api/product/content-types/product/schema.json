@@ -19,7 +19,7 @@
       "type": "decimal"
     },
     "description": {
-      "type": "string"
+      "type": "text"
     },
     "Picture": {
       "type": "text"

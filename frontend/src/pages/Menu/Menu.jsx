@@ -88,7 +88,7 @@ function Menu() {
                     <CCardBody>
                       <CCardTitle>{card.attributes.name}</CCardTitle>
                       <CCardText> R {card.attributes.price}</CCardText>
-                      <CButton>
+                      <CButton  style={{ width: "17rem", height:"50px" }}>
                         <a href="#">Add to cart </a>{" "}
                       </CButton>
                     </CCardBody>

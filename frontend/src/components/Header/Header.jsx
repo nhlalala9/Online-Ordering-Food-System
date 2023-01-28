@@ -21,8 +21,8 @@ function Header() {
     </div>
     <div id="main">
       <div className="header-heading">
-            <h3>It's Great Time For A Good Taste Of Burger</h3>
-            <h1><span>BURGER</span> FOR <br/>WEEK</h1>
+            <h3>It's Great Time For A Good Taste Of Variety Of Foods</h3>
+            <h1><span>HAPPY MEALS</span> FOR <br/>WEEK</h1>
             <p className='details'>Enjoy your meals with us</p>
             <div className="header-btns">
                 <a href="/menu" className="header-btn">See all foods</a>
