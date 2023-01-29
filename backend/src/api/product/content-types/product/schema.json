@@ -23,6 +23,9 @@
     },
     "Picture": {
       "type": "text"
+    },
+    "quantity": {
+      "type": "integer"
     }
   }
 }

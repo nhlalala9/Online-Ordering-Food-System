@@ -1,18 +1,19 @@
 import React,{useState} from "react";
 // import { Link } from "react-scroll";
 import { Button } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { removeToken } from "../../helpers";
-import logo from "../../images/logo.jpeg";
+import logo from "../../images/logo1.png";
 import "./NavBar.css";
-import { NavLink,Link } from "react-router-dom";
 
 
 
 
-function NavBar() {
+
+function NavBar({ setShow, size }) {
     const [nav, setnav] = useState(false);
     const navigate = useNavigate();
+    
     const handleLogout = () => {
         removeToken();
         navigate("/signin", { replace: true });
@@ -40,13 +41,19 @@ function NavBar() {
             <label for="menu-btn" className="menu-icon">
                 <span className="nav-icon"></span>
             </label> */}
+             
             <ul className="menu flex flex-row">
+               
                 <li><Link to="/dashboard" smooth={true} duration={2000}>Home</Link></li>
                 <li><Link to="/menu" smooth={true} duration={2000}>Menu</Link></li>
                 <li><Link to="/contact" smooth={true} duration={2000}>Notifications</Link></li>
                 <li><Link to="/booking" smooth={true} duration={2000}>booking</Link></li>
-                <li><Link to="" smooth={true} duration={2000}onClick={handleLogout}> logout</Link></li>
-                
+                {/* <li><Link to="/cart" className="auth_button_signUp" onClick={() => setShow(true)}>{size === 0? '': size} Cart</Link></li> */}
+                <li><Link to="/cart">Cart</Link></li>
+                {/* <li><Link to="" smooth={true} duration={2000}onClick={handleLogout}> logout</Link></li> */}
+                <li><Link to="logout" smooth={true} duration={2000}  className="auth_button_signUp"
+              type="primary"
+              onClick={handleLogout} >logout</Link></li>
 
             </ul>
         </nav>

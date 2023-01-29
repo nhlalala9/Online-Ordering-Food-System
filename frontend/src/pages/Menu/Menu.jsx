@@ -15,7 +15,7 @@ import { Link, useParams } from "react-router-dom";
 // import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
-function Menu() {
+function Menu({productItems, handleProduct }) {
   let { id } = useParams();
   // const card = cards.find(card => card.id === id);
   const [cards, setCards] = useState([]);
@@ -28,13 +28,11 @@ function Menu() {
       .then((response) => {
         setLoading(true);
         setCards(response.data.data);
-        console.log(response.data.data[0].attributes);
-
-       
-        
+        console.log(response.data.data); 
       })
       .catch((err) => console.log(err));
   };
+
 
   useEffect(() => {
     getFood();
@@ -54,7 +52,7 @@ function Menu() {
       getFood();
     }
   }, [query]);
-
+console.log(productItems,"seeeee")
   return (
     <>
       {loading ? (
@@ -75,21 +73,22 @@ function Menu() {
             </div>
 
             <div className="menu_items">
-              {cards.map((card) => (
-                <div key={card.id} className="see">
+              {productItems.map((productItem) => (
+                <div key={productItem.id} className="see">
                   <CCard style={{ width: "20rem" }}>
-                    <Link key={card.id} to={`/view/${card.id}`}>
+                    <Link key={productItem.id} to={`/view/${productItem.id}`}>
                       {" "}
                       <CCardImage
                         style={{ height: "15rem" }}
-                        src={card.attributes.Picture}
+                        src={productItem.attributes.Picture}
                       />{" "}
                     </Link>
                     <CCardBody>
-                      <CCardTitle>{card.attributes.name}</CCardTitle>
-                      <CCardText> R {card.attributes.price}</CCardText>
-                      <CButton  style={{ width: "17rem", height:"50px" }}>
-                        <a href="#">Add to cart </a>{" "}
+                      <CCardTitle>{productItem.attributes.name}</CCardTitle>
+                      <CCardText> R {productItem.attributes.price}</CCardText>
+                      <CButton  style={{ width: "17rem", height:"50px" }} 
+                      onClick={() => handleProduct(productItem)}>
+                        Add to cart
                       </CButton>
                     </CCardBody>
                   </CCard>
