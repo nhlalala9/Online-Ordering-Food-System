@@ -5,7 +5,7 @@ import "./Menu.css";
 import { useParams } from "react-router-dom";
 
 
-export default function ViewProduct() {
+export default function ViewProduct(productItems, handleProduct) {
   let { id } = useParams();
   const [formData, setFormData] = useState({
     CustomerName: "",
@@ -57,7 +57,7 @@ export default function ViewProduct() {
           <h4> {cards?.attributes?.description}</h4>
           <h3>R {cards?.attributes?.price}</h3>
           <button className="add_btn">
-            <a href="#">Add to cart </a>
+            <a href="#" onClick={()=> {handleProduct(productItems)}}>Add to cart </a>
           </button>
         </div>
       </div>

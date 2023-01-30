@@ -43,7 +43,7 @@ const AppRoutes = ({productItems, cartItems, handleProduct, handleRemoveProduct,
       handleCartClearance={handleCartClearance}/>}/>
       <Route path="booking" element={<Booking/>}/>
       <Route path="header" element={<Header/>}/>
-      <Route path="view/:id" element={<ViewProduct/>}/>
+      <Route path="view/:id" element={<ViewProduct productItems={productItems} handleProduct={handleProduct}/>}/>
       <Route path="edit/:id" element={<EditForm/>}/>
     </Routes>
   );

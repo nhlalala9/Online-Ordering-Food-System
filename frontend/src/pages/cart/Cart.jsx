@@ -54,12 +54,16 @@ const cart = ({ cartItems, handleProduct, handleRemoveProduct, handleCartClearan
               <div className="cart-items-price">
                 {item.quantity} * R{item.attributes.price}
               </div>
+              <Link to="/menu"><h6>Continue shopping</h6></Link>
               <div className="cart-items-total-price-name">
         Total
         <div className="cart-items-total-price">R {totalPrice}</div>
+        
       </div>
-      <Link to="/menu"><h6>Continue shopping</h6></Link>
-
+      
+<div className="checkout">
+  <button type = "submit" className="checkout_button">Proceed to checkout</button>
+</div>
             </div>
             
           ))}

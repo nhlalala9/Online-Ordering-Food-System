@@ -39,6 +39,7 @@ const handleProduct = (product) =>{
     navigate('/cart');
   }else{
     setCartItems([...cartItems, {...product, quantity: + 1}])
+    navigate('/cart');
   }
 }
 

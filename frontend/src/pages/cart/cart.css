@@ -15,7 +15,15 @@
     border-bottom: 2px solid black;
     
 }
+.checkout{
+    margin: 20px 200px;
+}
 
+.checkout_button{
+    height: 35px;
+    width: 100%;
+    border-radius: 5px;
+}
 .cart-items-empty{
     display: flex;
     flex-direction: column;
