@@ -6,9 +6,14 @@ import { Col, Layout, Row } from "antd";
 import AppHeader from "./components/AppHeader/Appheader"
 import AppRoutes from "./Routes";
 import axios from "axios";
-
+import   {useNavigate} from "react-router-dom"
 
 const App = () => {
+  const navigate = useNavigate();
+
+  // const handleClick = () => {
+  //   navigate('/cart');
+  // }; 
 
   const data = [];
 async function fetchData() {
@@ -22,7 +27,8 @@ fetchData();
 
 const productItems = data;
 const [cartItems, setCartItems] = useState([]);
-console.log(cartItems,"tyu");
+// console.log(cartItems,"tyu");
+
 const handleProduct = (product) =>{
   const ProductExist = cartItems.find((item) => item.id === product.id);
   if (ProductExist){
@@ -30,22 +36,24 @@ const handleProduct = (product) =>{
     {...ProductExist, quantity: ProductExist.quantity + 1}
     :item
     ));
+    navigate('/cart');
   }else{
     setCartItems([...cartItems, {...product, quantity: + 1}])
   }
 }
 
 const handleRemoveProduct =(product) => {
-  const ProductExists = cartItems.find((item) => item.id === product.id);
-  // if (ProductExist.quantity === 1){
-  //   setCartItems(cartItems.filter((item) => item.id === product.id ));
-  // }else{
-  //   setCartItems(
-  //     cartItems.map((item) => 
-  //     item.id === product.id ?
-  //      {...ProductExist, quantity: ProductExists.quantity - 1}
-  //     :item ));
-  // }
+  const ProductExist = cartItems.find((item) => item.id === product.id);
+  if (ProductExist.quantity === 1){
+    setCartItems(cartItems.filter((item) => item.id === product.id ));
+    navigate('/cart');
+  }else{
+    setCartItems(
+      cartItems.map((item) => 
+      item.id === product.id ?
+       {...ProductExist, quantity: ProductExist.quantity - 1}
+      :item ));
+  }
 }
 
 const handleCartClearance = () =>{

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "./cart.css";
+import NavBar from "../../components/NavBar/NavBar";
 
 const cart = ({ cartItems, handleProduct, handleRemoveProduct, handleCartClearance }) => {
   console.log(cartItems, "test");
-// const totalPrice = cartItems.reduce(
-//   (price,item) => price + item.attributes.quantity * item.attributes.price)
+//  const totalPrice = cartItems.reduce(
+//  (price,item) => price + item.quantity * item.attributes.price)
   return (
+    <>
+    <NavBar />
     <div className="cart_item">
       <h2 className="card-items-header">Cart Items</h2>
       <div className="clear-cart">
@@ -36,19 +39,24 @@ const cart = ({ cartItems, handleProduct, handleRemoveProduct, handleCartClearan
                   -
                 </button>
               </div>
+             
               <div className="cart-items-price">
-                {item.attributes.quantity} * R{item.attributes.price}
+                {item.quantity} * R{item.attributes.price}
               </div>
-            </div>
-          ))}
-        </div>
-      }
-      <div className="cart-items-total-price-name">
+              <div className="cart-items-total-price-name">
         Total
-        {/* <div className="cart-items-total-price">R (totalPrice)</div> */}
+        <div className="cart-items-total-price">R</div>
       </div>
+            </div>
+
+            
+          ))}
+           
     </div>
-  );
+          }
+   </div>
+   </> 
+   );
 };
 
 export default cart;

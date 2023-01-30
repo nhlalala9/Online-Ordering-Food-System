@@ -18,9 +18,9 @@ function Products() {
         </p>
         <div className="a-container">
             <ProductBox image={pimage1} title="Luger Burger"/>
-            <ProductBox image={pimage1} title="Luger Burger"/>
-            <ProductBox image={pimage1} title="Luger Burger"/>
-            <ProductBox image={pimage1} title="Luger Burger"/>
+            {/* <ProductBox image={pimage1} title="Luger Burger"/> */}
+            {/* <ProductBox image={pimage1} title="Luger Burger"/> */}
+            {/* <ProductBox image={pimage1} title="Luger Burger"/> */}
         </div>
 
     </div>
