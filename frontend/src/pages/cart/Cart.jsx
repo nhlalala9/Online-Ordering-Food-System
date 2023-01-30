@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./cart.css";
 import NavBar from "../../components/NavBar/NavBar";
-
+import { Link} from "react-router-dom";
 const cart = ({ cartItems, handleProduct, handleRemoveProduct, handleCartClearance }) => {
-  console.log(cartItems, "test");
-//  const totalPrice = cartItems.reduce(
-//  (price,item) => price + item.quantity * item.attributes.price)
+  // console.log(cartItems, "test");
+
+ const totalPrice = cartItems.reduce(
+ (price,item) => price + (item.quantity * item.attributes.price),0);
+
   return (
     <>
     <NavBar />
@@ -17,7 +19,16 @@ const cart = ({ cartItems, handleProduct, handleRemoveProduct, handleCartClearan
         )}
       </div>
       {cartItems.length === 0 && (
-        <div className="cart-items-empty"> No items are added.</div>
+        <div className="cart-items-empty"> 
+        <div className="empty"> 
+        <h2>No items are added.</h2>
+        </div>
+       
+        <div className="continue_shopping">
+        <Link to="/menu"><h6>Continue shopping</h6></Link>
+        </div>
+        </div>
+        
       )}
       {
         <div>
@@ -45,16 +56,18 @@ const cart = ({ cartItems, handleProduct, handleRemoveProduct, handleCartClearan
               </div>
               <div className="cart-items-total-price-name">
         Total
-        <div className="cart-items-total-price">R</div>
+        <div className="cart-items-total-price">R {totalPrice}</div>
       </div>
-            </div>
+      <Link to="/menu"><h6>Continue shopping</h6></Link>
 
+            </div>
             
           ))}
            
     </div>
           }
    </div>
+
    </> 
    );
 };
