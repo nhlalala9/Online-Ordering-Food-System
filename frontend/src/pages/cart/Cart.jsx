@@ -9,10 +9,10 @@ const cart = ({ cartItems, handleProduct, handleRemoveProduct, handleCartClearan
  (price,item) => price + (item.quantity * item.attributes.price),0);
 
   return (
-    <>
+    <div className="main_cart">
     <NavBar />
     <div className="cart_item">
-      <h2 className="card-items-header">Cart Items</h2>
+      <h1 className="card-items-header">Cart Items</h1>
       <div className="clear-cart">
         {cartItems.length >= 1 && (
           <button className="clear-cart-button" onClick={handleCartClearance}>Clear cart</button>
@@ -72,7 +72,7 @@ const cart = ({ cartItems, handleProduct, handleRemoveProduct, handleCartClearan
           }
    </div>
 
-   </> 
+   </div> 
    );
 };
 

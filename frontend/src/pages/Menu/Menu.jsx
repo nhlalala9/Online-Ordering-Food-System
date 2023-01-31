@@ -14,6 +14,7 @@ import { Link, useParams } from "react-router-dom";
 // import Backdrop from "@mui/material/Backdrop";
 // import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
+import { height } from "@mui/system";
 
 function Menu({productItems, handleProduct }) {
   let { id } = useParams();
@@ -75,17 +76,17 @@ console.log(productItems,"seeeee")
             <div className="menu_items">
               {productItems.map((productItem) => (
                 <div key={productItem.id} className="see">
-                  <CCard style={{ width: "20rem" }}>
+                  <CCard style={{ width: "20rem",}}>
                     <Link key={productItem.id} to={`/view/${productItem.id}`}>
-                      {" "}
                       <CCardImage
                         style={{ height: "15rem" }}
                         src={productItem.attributes.Picture}
-                      />{" "}
+                      />
                     </Link>
                     <CCardBody>
-                      <CCardTitle>{productItem.attributes.name}</CCardTitle>
-                      <CCardText> R {productItem.attributes.price}</CCardText>
+                      <CCardTitle style={{fontSize:"24px"}}>{productItem.attributes.name}</CCardTitle>
+                      <CCardText style={{ fontSize:"16px"}}> R{productItem.attributes.price}</CCardText>
+                      {/* <CCardText> R {productItem.attributes.description}</CCardText> */}
                       <CButton  style={{ width: "17rem", height:"50px" }} 
                       onClick={() => handleProduct(productItem)}>
                         Add to cart

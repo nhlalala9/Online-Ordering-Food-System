@@ -49,31 +49,7 @@ const OrderManagement = () => {
   }
 }, [query]);
 
-  //Post method
-  axios
-    .post("http://localhost:1337/api/order-lists", {
-      field1: "value1",
-      field2: "value2",
-    })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
-  //delete method
-  axios
-    .delete("http://localhost:1337/content-type-name/id")
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
-
-
+ 
   if (error) {
     return <p>An error occurred: {error.message}</p>;
   }
@@ -115,7 +91,7 @@ const OrderManagement = () => {
                 <i className="ri-search-line"></i>
               </span>
           </div>
-        <div className="table">
+        {/* <div className="table"> */}
         <div className="t">
         <TableContainer 
           component={Paper}
@@ -150,25 +126,11 @@ const OrderManagement = () => {
                   <TableCell align="left">
                     {row.attributes.CustomerName}
                   </TableCell>
-                  {/* <TableCell align="left">{row.attributes.Address}</TableCell> */}
                   <TableCell align="left">{row.attributes.DishName}</TableCell>
                   <TableCell align="left">{row.attributes.Date}</TableCell>
-                  <TableCell align="left"> {" "} <img src={row.attributes.Picture} alt="" className="image"></img></TableCell>
+                  <TableCell align="left"><img src={row.attributes.Picture} alt="" className="order_image"></img></TableCell>
                   <TableCell align="left">{row.attributes.Price}</TableCell>
                   <TableCell align="left">{row.attributes.Quantity}</TableCell>
-                  {/* <TableCell align="left"> {row.attributes.PaymentMethod}</TableCell> */}
-                  {/* <TableCell align="left">{row.attributes.Acquire}</TableCell> */}
-                   {/* <TableCell align="left">
-                    <span className="status" style={makeStyle(row.status)}>{row.status}</span>
-                  </TableCell> */}
-                  {/* { <TableCell align="left">
-                    <button className="edit">Accept</button>
-                    <button className="delete" type="button">
-                      {" "}
-                      Reject
-                    </button>
-                  </TableCell> } */}
-                 
                 </TableRow>
               ))}
             </TableBody>
@@ -179,7 +141,7 @@ const OrderManagement = () => {
       </div>
       </div>
       </div>
-    </div>
+    // </div>
   );
 };
 

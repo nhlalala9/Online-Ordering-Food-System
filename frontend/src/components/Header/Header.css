@@ -14,6 +14,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('../../images/banner.png');
+    background-color: linear-gradient(106.37deg, #ffe1bc 19.63%, #ffcfd1 41.55%, #f3c6f1 80.85%);  
 }
 
 .header-heading {
