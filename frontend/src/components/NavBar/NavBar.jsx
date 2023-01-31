@@ -48,9 +48,10 @@ function NavBar({ setShow, size }) {
                 <li><Link to="/menu" smooth={true} duration={2000}>Menu</Link></li>
                 <li><Link to="/contact" smooth={true} duration={2000}>Notifications</Link></li>
                 <li><Link to="/booking" smooth={true} duration={2000}>booking</Link></li>
-                <li><Link to="/cart" className="auth_button_signUp" onClick={() => setShow(true)}>{size === 0? '': size} Cart</Link></li>
+                {/* <li><Link to="/cart" className="auth_button_signUp" onClick={() => setShow(true)}>{size === 0? '': size} Cart</Link></li> */}
+                <li><Link to="/cart">Cart</Link></li>
                 {/* <li><Link to="" smooth={true} duration={2000}onClick={handleLogout}> logout</Link></li> */}
-                <li><Link to="/signin" smooth={true} duration={2000}  className="auth_button_signUp"
+                <li><Link to="logout" smooth={true} duration={2000}  className="auth_button_signUp"
               type="primary"
               onClick={handleLogout} >logout</Link></li>
 

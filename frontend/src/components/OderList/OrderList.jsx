@@ -17,8 +17,9 @@ const OrderManagement = () => {
   // const [selectedOrder, setSelectedOrder] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [query, setQuery] = useState("");
 
-  useEffect(() => {
+  const getOrders = async () => {
     axios
       .get("http://localhost:1337/api/order-lists")
       .then((response) => {
@@ -27,31 +28,26 @@ const OrderManagement = () => {
         // §§console.log(orders)
       })
       .catch((err) => console.log(err));
+  }
+
+  useEffect(() => {
+    getOrders();
   }, []);
 
-  //Post method
-  axios
-    .post("http://localhost:1337/api/order-lists", {
-      field1: "value1",
-      field2: "value2",
-    })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
 
-  //delete method
-  axios
-    .delete("http://localhost:1337/content-type-name/id")
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
+  useEffect(() => {
+    if (query) {
+      axios
+        .get(`http://localhost:1337/api/order-lists?filters[DishName][$containsi]=${query}`)
+        .then((response) => {
+          setIsLoading(true);
+          setOrders(response.data.data);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      getOrders();
+    }
+  }, [query]);
 
 
   if (error) {
@@ -84,7 +80,21 @@ const OrderManagement = () => {
       <div className='move'>
         <NaviBar />
 
-        <div className="table">
+        <div className='move'>
+          <NaviBar />
+          <div className="search">
+            <input
+              className="sea_input"
+              type="text"
+              placeholder="I'm looking for...."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <span>
+              <i className="ri-search-line"></i>
+            </span>
+          </div>
+          {/* <div className="table"> */}
           <div className="t">
             <TableContainer
               component={Paper}
@@ -119,25 +129,11 @@ const OrderManagement = () => {
                       <TableCell align="left">
                         {row.attributes.CustomerName}
                       </TableCell>
-                      {/* <TableCell align="left">{row.attributes.Address}</TableCell> */}
                       <TableCell align="left">{row.attributes.DishName}</TableCell>
                       <TableCell align="left">{row.attributes.Date}</TableCell>
-                      <TableCell align="left"> {" "} <img src={row.attributes.Picture} alt="" className="image"></img></TableCell>
+                      <TableCell align="left"><img src={row.attributes.Picture} alt="" className="order_image"></img></TableCell>
                       <TableCell align="left">{row.attributes.Price}</TableCell>
                       <TableCell align="left">{row.attributes.Quantity}</TableCell>
-                      {/* <TableCell align="left"> {row.attributes.PaymentMethod}</TableCell> */}
-                      {/* <TableCell align="left">{row.attributes.Acquire}</TableCell> */}
-                      {/* <TableCell align="left">
-                    <span className="status" style={makeStyle(row.status)}>{row.status}</span>
-                  </TableCell> */}
-                      {/* { <TableCell align="left">
-                    <button className="edit">Accept</button>
-                    <button className="delete" type="button">
-                      {" "}
-                      Reject
-                    </button>
-                  </TableCell> } */}
-
                     </TableRow>
                   ))}
                 </TableBody>
@@ -148,7 +144,7 @@ const OrderManagement = () => {
           </div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 

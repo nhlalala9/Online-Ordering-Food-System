@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
-import Logo from "../images/logo.png";
+import Logo from "../images/logo.jpeg";
 import { UilSignOutAlt } from "@iconscout/react-unicons";
 import { SidebarData } from "./Data/Data";
 import { UilBars } from "@iconscout/react-unicons";
@@ -27,7 +27,7 @@ const Sidebar = () => {
       left: "-60%",
     },
   };
-  console.log(window.innerWidth);
+  // console.log(window.innerWidth);
   return (
     <>
       <div
@@ -46,7 +46,7 @@ const Sidebar = () => {
         <div className="logo">
           <img src={Logo} alt="logo" />
           <span>
-            Sh<span>o</span>ps
+            Foo<span>d</span>ie
           </span>
         </div>
 

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./Modal.css";
 import axios from "axios";
+import   {useNavigate} from "react-router-dom"
 
 function Modal({ setOpenModal }) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -21,9 +23,10 @@ function Modal({ setOpenModal }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:1337/api/products", {"data": formData})
+      .post("http://localhost:1337/api/products", {data: formData})
       .then((response) => {
         console.log(response);
+        navigate('/crud');
       })
       .catch((error) => {
         console.log(error);
@@ -85,7 +88,7 @@ function Modal({ setOpenModal }) {
               onChange={handleChange}
             />
             <div className="modal_footer">
-              <button
+              <button  className="bt1"
                 onClick={() => {
                   setOpenModal(false);
                 }}
@@ -93,7 +96,7 @@ function Modal({ setOpenModal }) {
               >
                 Cancel
               </button>
-              <button type="submit">
+              <button className="bt" type="submit">
                 Continue
               </button>
             </div>

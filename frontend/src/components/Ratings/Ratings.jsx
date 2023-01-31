@@ -33,7 +33,7 @@ const Ratings = () => {
             <Card style={{ width: "18rem" }}>
               <Card.Body>
                 <Card.Title>{card.attributes.CustomerName}</Card.Title>
-                <Card.Title>MilkShake</Card.Title>
+                {/* <Card.Title>MilkShake</Card.Title> */}
                 {/* <option value="4">{<StarRating rating={rating} />}</option> */}
 
                 <Card.Text> <Box
@@ -43,8 +43,8 @@ const Ratings = () => {
     >
                 <Rating name="read-only" value={card.attributes.Rate} readOnly />
                 </Box>
-                {card.attributes.Rate}
-                <br/>
+                {/* {card.attributes.Rate} */}
+               
                 {card.attributes.Comment}
                 </Card.Text>
               </Card.Body>

@@ -36,7 +36,10 @@ function Products() {
              accusamus consectetur exercitationem eius vitae.
         </p>
         <div className="a-container">
-            <ProductBox/>
+            <ProductBox image={pimage1} title="Luger Burger"/>
+            {/* <ProductBox image={pimage1} title="Luger Burger"/> */}
+            {/* <ProductBox image={pimage1} title="Luger Burger"/> */}
+            {/* <ProductBox image={pimage1} title="Luger Burger"/> */}
         </div>
 
     </div>

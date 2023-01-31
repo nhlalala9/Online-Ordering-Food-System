@@ -1,9 +1,13 @@
 
 .Dash{
  margin-top: -500px;
- margin-left: 261px;
+ margin-left: 270px;
 }
-
+.order_image{
+  width: 30px;
+  height:30px;
+  border-radius: 30px;
+}
 .MuiTableRow-root > * {
   padding: 10px;
 }
@@ -24,15 +28,18 @@ th {
   padding: 8px;
   border-radius: 9px;
 }
-
+.sea_input{
+  width: 30rem;
+    height: 40px;
+    padding: 5px;
+}
 .search{
   display: flex;
-  /* background-color: red; */
-  /* align-items: flex-end; */
   justify-content: center;
-  margin-top: 10px;
-  margin-right: 10px;
-  /* padding: 10px; */
+  margin-top: 30px;
+  /* margin-right: 10px;/ */
+  /* width: 50px; */
+ 
 }
 .t{
   margin-top: 50px;
@@ -47,6 +54,7 @@ th {
     height: 97%;
 
 }
+
 
 @media screen and (max-width: 1200px) {
   .table {
