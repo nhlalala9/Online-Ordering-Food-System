@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./cart.css";
 import NavBar from "../../components/NavBar/NavBar";
 import { Link} from "react-router-dom";
-const cart = ({ cartItems, handleProduct, handleRemoveProduct, handleCartClearance }) => {
+
+const Cart = ({ cartItems, handleProduct, handleRemoveProduct, handleCartClearance }) => {
   // console.log(cartItems, "test");
 
  const totalPrice = cartItems.reduce(
  (price,item) => price + (item.quantity * item.attributes.price),0);
+
+ useEffect (() => {
+  localStorage.setItem(cartItems, JSON.stringify(cartItems))
+ } , [cartItems]);
 
   return (
     <>
@@ -76,4 +81,4 @@ const cart = ({ cartItems, handleProduct, handleRemoveProduct, handleCartClearan
    );
 };
 
-export default cart;
+export default Cart;

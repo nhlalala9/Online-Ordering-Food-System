@@ -11,14 +11,13 @@ import "./Menu.css";
 import NavBar from "../../components/NavBar/NavBar";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-// import Backdrop from "@mui/material/Backdrop";
-// import CircularProgress from "@mui/material/CircularProgress";
+
 import Box from "@mui/material/Box";
 
-function Menu({productItems, handleProduct }) {
+function Menu({productItems, HandleProduct }) {
   let { id } = useParams();
   // const card = cards.find(card => card.id === id);
-  const [cards, setCards] = useState([]);
+  // const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState();
   const [query, setQuery] = useState("");
 
@@ -27,7 +26,7 @@ function Menu({productItems, handleProduct }) {
       .get("http://localhost:1337/api/products")
       .then((response) => {
         setLoading(true);
-        setCards(response.data.data);
+        productItems = (response.data.data);
         console.log(response.data.data); 
       })
       .catch((err) => console.log(err));
@@ -44,15 +43,20 @@ function Menu({productItems, handleProduct }) {
         .get(`http://localhost:1337/api/products?filters[name][$containsi]=${query}`)
         .then((response) => {
           setLoading(true);
-          setCards(response.data.data);
+          productItems = (response.data.data);
           console.log(response.data.data);
+          // productItems = {cards};
+          console.log(productItems, "sdfghj")
         })
         .catch((err) => {console.log(err)});
     } else {
       getFood();
+     
     }
   }, [query]);
-console.log(productItems,"seeeee")
+
+
+
   return (
     <>
       {loading ? (
@@ -87,7 +91,7 @@ console.log(productItems,"seeeee")
                       <CCardTitle>{productItem.attributes.name}</CCardTitle>
                       <CCardText> R {productItem.attributes.price}</CCardText>
                       <CButton  style={{ width: "17rem", height:"50px" }} 
-                      onClick={() => handleProduct(productItem)}>
+                      onClick={() => HandleProduct(productItem)}>
                         Add to cart
                       </CButton>
                     </CCardBody>

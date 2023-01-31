@@ -1,7 +1,7 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
-import React,{useState} from "react";
+import React,{useState, useEffect } from "react";
 import { Col, Layout, Row } from "antd";
 import AppHeader from "./components/AppHeader/Appheader"
 import AppRoutes from "./Routes";
@@ -26,10 +26,22 @@ async function fetchData() {
 fetchData();
 
 const productItems = data;
-const [cartItems, setCartItems] = useState([]);
-// console.log(cartItems,"tyu");
+const [cartItems, setCartItems] = useState([], () => {
+  const localData = localStorage.getItem(cartItems);
+return localData ? JSON.parse(localData) : []
+});
+console.log(cartItems,"cart items");
 
-const handleProduct = (product) =>{
+// function saveData() {
+// const localData = localStorage.getItem(cartItems);
+// return localData ? JSON.parse(localData) : []
+// }
+
+
+
+// console.log(localData,"local data ");
+
+const HandleProduct = (product) =>{
   const ProductExist = cartItems.find((item) => item.id === product.id);
   if (ProductExist){
     setCartItems(cartItems.map((item) => item.id === product.id ?
@@ -41,6 +53,9 @@ const handleProduct = (product) =>{
     setCartItems([...cartItems, {...product, quantity: + 1}])
     navigate('/cart');
   }
+  useEffect (() => {
+    localStorage.setItem(cartItems, JSON.stringify(cartItems))
+   } , [cartItems]);
 }
 
 const handleRemoveProduct =(product) => {
@@ -63,7 +78,7 @@ const handleCartClearance = () =>{
 
   return (
     <div className='App'>
-      <AppRoutes productItems={productItems} cartItems={cartItems} handleProduct={handleProduct}
+      <AppRoutes productItems={productItems} cartItems={cartItems} HandleProduct={HandleProduct}
       handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance}/>
       
     </div>

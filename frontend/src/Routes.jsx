@@ -22,7 +22,7 @@ import ViewProduct from "./pages/Menu/ViewProduct";
 import EditForm from "./components/Crud/EditForm";
 import Cart from "./pages/cart/Cart";
 
-const AppRoutes = ({productItems, cartItems, handleProduct, handleRemoveProduct,handleCartClearance}) => {
+const AppRoutes = ({productItems, cartItems, HandleProduct, handleRemoveProduct,handleCartClearance}) => {
   return (
     <Routes>
       
@@ -38,12 +38,12 @@ const AppRoutes = ({productItems, cartItems, handleProduct, handleRemoveProduct,
       <Route path="orderlist" element={<OrderList/>}/>
       <Route path="ratings" element={<Ratings/>}/>
       <Route path="book" element={<Book/>}/>
-      <Route path="/menu" element={<Menu productItems={productItems} handleProduct={handleProduct}/>}/>
-      <Route path="cart" element={<Cart cartItems={cartItems} handleProduct={handleProduct} handleRemoveProduct={handleRemoveProduct}
+      <Route path="/menu" element={<Menu productItems={productItems} HandleProduct={HandleProduct}/>}/>
+      <Route path="cart" element={<Cart cartItems={cartItems} HandleProduct={HandleProduct} handleRemoveProduct={handleRemoveProduct}
       handleCartClearance={handleCartClearance}/>}/>
       <Route path="booking" element={<Booking/>}/>
       <Route path="header" element={<Header/>}/>
-      <Route path="view/:id" element={<ViewProduct productItems={productItems} handleProduct={handleProduct}/>}/>
+      <Route path="view/:id" element={<ViewProduct productItems={productItems} HandleProduct={HandleProduct}/>}/>
       <Route path="edit/:id" element={<EditForm/>}/>
     </Routes>
   );
