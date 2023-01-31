@@ -68,7 +68,7 @@
   }
   
   #cancelBtn {
-    background-color: blue;
+    background-color: var(--orange);;
   }
 
   .modal_input{
@@ -83,12 +83,12 @@
 
   .bt{
     border-radius: 5px;
-    background-color: blue;
+    background-color: var(--pink);
     width: 30%;
   }
 
   .bt1{
     border-radius: 5px;
-    background-color: blue;
+    background-color: var(--purple);
     width: 30%;
   }

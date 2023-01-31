@@ -21,6 +21,7 @@ import Booking from "./components/Booking/Booking";
 import ViewProduct from "./pages/Menu/ViewProduct";
 import EditForm from "./components/Crud/EditForm";
 import Cart from "./pages/cart/Cart";
+import Checkout from "./pages/cart/checkout";
 
 const AppRoutes = ({productItems, cartItems, HandleProduct, handleRemoveProduct,handleCartClearance}) => {
   return (
@@ -45,6 +46,7 @@ const AppRoutes = ({productItems, cartItems, HandleProduct, handleRemoveProduct,
       <Route path="header" element={<Header/>}/>
       <Route path="view/:id" element={<ViewProduct productItems={productItems} HandleProduct={HandleProduct}/>}/>
       <Route path="edit/:id" element={<EditForm/>}/>
+      <Route path="checkout" element={<Checkout/>}/>
     </Routes>
   );
 };

@@ -1,9 +1,13 @@
 
 .Dash{
  margin-top: -500px;
- margin-left: 261px;
+ margin-left: 270px;
 }
-
+.order_image{
+  width: 30px;
+  height:30px;
+  border-radius: 30px;
+}
 .MuiTableRow-root > * {
   padding: 10px;
 }

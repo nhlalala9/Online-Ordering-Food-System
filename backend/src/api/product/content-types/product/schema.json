@@ -26,6 +26,9 @@
     },
     "quantity": {
       "type": "integer"
+    },
+    "Total_Price": {
+      "type": "integer"
     }
   }
 }
