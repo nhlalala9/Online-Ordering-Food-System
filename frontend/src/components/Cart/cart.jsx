@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import "./cart.css";
 import axios from 'axios';
+import NavBar from '../NavBar/NavBar';
 
 
 const Cart = ({ cart, setCart }) => {
@@ -44,6 +45,7 @@ const Cart = ({ cart, setCart }) => {
     });
 
     return (
+
         <div>
             {/* {orders.map((orders) => (
                 <div className="cart_box" key={orders.id}>
@@ -67,14 +69,14 @@ const Cart = ({ cart, setCart }) => {
                 <span>Total Price of your Cart</span>
                 <span>R - {price}</span>
             </div> */}
-
+            <NavBar />
             <div title='Cart'>
                 <div className="cart_img">
                 </div>
                 <Container>
                     <Row>
                         <Col lg="12">
-                            <h5 className="text-center">Your cart is empty</h5>
+                            {/* <h5 className="text-center">Your cart is empty</h5> */}
                             <table className="table table-bordered" style={{ width: "700px" }}>
                                 <thead>
                                     <tr>

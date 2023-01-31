@@ -15,7 +15,7 @@ import Sidebar from "../Sidebar";
 const OrderManagement = () => {
   const [orders, setOrders] = useState([]);
   // const [selectedOrder, setSelectedOrder] = useState(null);
-  const [isLoading, setIsLoading] = useState(false); 
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -79,74 +79,74 @@ const OrderManagement = () => {
 
   return (
     <div className="Glass">
-        <Sidebar />
+      <Sidebar />
 
-        <div className='move'>
-          <NaviBar />
-         
+      <div className='move'>
+        <NaviBar />
+
         <div className="table">
-        <div className="t">
-        <TableContainer 
-          component={Paper}
-          style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
-        >
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>ID</TableCell>
-                <TableCell align="left">Customer Name</TableCell>
-                {/* <TableCell align="left">Address</TableCell> */}
-                <TableCell align="left">Dish Name</TableCell>
-                <TableCell align="left">Date</TableCell>
-                <TableCell align="left">Image</TableCell>
-                <TableCell align="left">Price</TableCell>
-                <TableCell align="left">Quantity</TableCell>
-                {/* <TableCell align="left">Payment Method</TableCell> */}
-                {/* <TableCell align="left">Acquire</TableCell> */}
-                {/* <TableCell align="left">Status</TableCell> */}
-                {/* <TableCell align="left">Actions</TableCell> */}
-              </TableRow>
-            </TableHead>
-            <TableBody style={{ color: "white" }}>
-              {orders.map((row) => (
-                <TableRow
-                  key={row.id}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    {row.id}
-                  </TableCell>
-                  <TableCell align="left">
-                    {row.attributes.CustomerName}
-                  </TableCell>
-                  {/* <TableCell align="left">{row.attributes.Address}</TableCell> */}
-                  <TableCell align="left">{row.attributes.DishName}</TableCell>
-                  <TableCell align="left">{row.attributes.Date}</TableCell>
-                  <TableCell align="left"> {" "} <img src={row.attributes.Picture} alt="" className="image"></img></TableCell>
-                  <TableCell align="left">{row.attributes.Price}</TableCell>
-                  <TableCell align="left">{row.attributes.Quantity}</TableCell>
-                  {/* <TableCell align="left"> {row.attributes.PaymentMethod}</TableCell> */}
-                  {/* <TableCell align="left">{row.attributes.Acquire}</TableCell> */}
-                   {/* <TableCell align="left">
+          <div className="t">
+            <TableContainer
+              component={Paper}
+              style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
+            >
+              <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>ID</TableCell>
+                    <TableCell align="left">Customer Name</TableCell>
+                    {/* <TableCell align="left">Address</TableCell> */}
+                    <TableCell align="left">Dish Name</TableCell>
+                    <TableCell align="left">Date</TableCell>
+                    <TableCell align="left">Image</TableCell>
+                    <TableCell align="left">Price</TableCell>
+                    <TableCell align="left">Quantity</TableCell>
+                    {/* <TableCell align="left">Payment Method</TableCell> */}
+                    {/* <TableCell align="left">Acquire</TableCell> */}
+                    {/* <TableCell align="left">Status</TableCell> */}
+                    {/* <TableCell align="left">Actions</TableCell> */}
+                  </TableRow>
+                </TableHead>
+                <TableBody style={{ color: "white" }}>
+                  {orders.map((row) => (
+                    <TableRow
+                      key={row.id}
+                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    >
+                      <TableCell component="th" scope="row">
+                        {row.id}
+                      </TableCell>
+                      <TableCell align="left">
+                        {row.attributes.CustomerName}
+                      </TableCell>
+                      {/* <TableCell align="left">{row.attributes.Address}</TableCell> */}
+                      <TableCell align="left">{row.attributes.DishName}</TableCell>
+                      <TableCell align="left">{row.attributes.Date}</TableCell>
+                      <TableCell align="left"> {" "} <img src={row.attributes.Picture} alt="" className="image"></img></TableCell>
+                      <TableCell align="left">{row.attributes.Price}</TableCell>
+                      <TableCell align="left">{row.attributes.Quantity}</TableCell>
+                      {/* <TableCell align="left"> {row.attributes.PaymentMethod}</TableCell> */}
+                      {/* <TableCell align="left">{row.attributes.Acquire}</TableCell> */}
+                      {/* <TableCell align="left">
                     <span className="status" style={makeStyle(row.status)}>{row.status}</span>
                   </TableCell> */}
-                  {/* { <TableCell align="left">
+                      {/* { <TableCell align="left">
                     <button className="edit">Accept</button>
                     <button className="delete" type="button">
                       {" "}
                       Reject
                     </button>
                   </TableCell> } */}
-                 
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-       
-     
-      </div>
-      </div>
+
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+
+
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React,{useState} from "react";
-import { Link } from "react-scroll";
+// import { Link } from "react-scroll";
 import { Button } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { removeToken } from "../../helpers";
 import logo from "../../images/logo1.png";
 import "./NavBar.css";
@@ -50,7 +50,7 @@ function NavBar({ setShow, size }) {
                 <li><Link to="/booking" smooth={true} duration={2000}>booking</Link></li>
                 <li><Link to="/cart" className="auth_button_signUp" onClick={() => setShow(true)}>{size === 0? '': size} Cart</Link></li>
                 {/* <li><Link to="" smooth={true} duration={2000}onClick={handleLogout}> logout</Link></li> */}
-                <li><Link to="logout" smooth={true} duration={2000}  className="auth_button_signUp"
+                <li><Link to="/signin" smooth={true} duration={2000}  className="auth_button_signUp"
               type="primary"
               onClick={handleLogout} >logout</Link></li>
 

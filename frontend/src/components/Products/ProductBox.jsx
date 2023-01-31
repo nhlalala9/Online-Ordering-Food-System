@@ -53,7 +53,7 @@ function ProductBox() {
     };
   
     useEffect(() => {
-      handlePrice();
+      handlePrice()
     });
   
    

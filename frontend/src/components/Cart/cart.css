@@ -15,7 +15,7 @@ th {
 }
 
 .cart__page-btn button a:hover {
-    color: #fff;
+    color:blue;
 }
 
 .cart__subtotal {
@@ -23,7 +23,10 @@ th {
     font-size: 1.5rem;
 }
 
-
+.table-bordered{
+    width: 1000px;
+    display: flex;
+}
 
 @media only screen and (max-width: 768px) {
 
