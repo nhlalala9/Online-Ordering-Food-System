@@ -26,8 +26,9 @@ async function fetchData() {
 fetchData();
 
 const productItems = data;
+
 const [cartItems, setCartItems] = useState([], () => {
-  const localData = localStorage.getItem(cartItems);
+const localData = localStorage.getItem(cartItems);
 return localData ? JSON.parse(localData) : []
 });
 console.log(cartItems,"cart items");
@@ -40,7 +41,7 @@ console.log(cartItems,"cart items");
 
 
 // console.log(localData,"local data ");
-
+const localData = [];
 const HandleProduct = (product) =>{
   const ProductExist = cartItems.find((item) => item.id === product.id);
   if (ProductExist){
@@ -54,10 +55,12 @@ const HandleProduct = (product) =>{
     navigate('/cart');
   }
   useEffect (() => {
-    localStorage.setItem(cartItems, JSON.stringify(cartItems))
-   } , [cartItems]);
+
+    localData[0] = localStorage.setItem("mycartItems", JSON.stringify(cartItems))
+   } , [cartItems]); 
 }
 
+ console.log([localData],"loca'")
 const handleRemoveProduct =(product) => {
   const ProductExist = cartItems.find((item) => item.id === product.id);
   if (ProductExist.quantity === 1){
@@ -78,6 +81,7 @@ const handleCartClearance = () =>{
 
   return (
     <div className='App'>
+      
       <AppRoutes productItems={productItems} cartItems={cartItems} HandleProduct={HandleProduct}
       handleRemoveProduct={handleRemoveProduct} handleCartClearance={handleCartClearance}/>
       

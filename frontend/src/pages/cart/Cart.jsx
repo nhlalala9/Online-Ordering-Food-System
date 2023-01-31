@@ -1,21 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./cart.css";
 import NavBar from "../../components/NavBar/NavBar";
-<<<<<<< HEAD
 import { Link} from "react-router-dom";
 
-const Cart = ({ cartItems, handleProduct, handleRemoveProduct, handleCartClearance }) => {
-  // console.log(cartItems, "test");
-=======
-import { Link } from "react-router-dom";
-import Checkout from "./checkout";
->>>>>>> 2264a86c9381c1c561fc165e4c6084675671042a
-
-
-
-const cart = ({
+const Cart = ({
   cartItems,
-  handleProduct,
+  HandleProduct,
   handleRemoveProduct,
   handleCartClearance,
 }) => {
@@ -64,7 +54,7 @@ const cart = ({
                 <div className="cart-items-functions">
                   <button
                     className="cart-items-add"
-                    onClick={() => handleProduct(item)}
+                    onClick={() => HandleProduct(item)}
                   >
                     +
                   </button>

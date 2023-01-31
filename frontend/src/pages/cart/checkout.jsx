@@ -20,7 +20,7 @@ function Checkout() {
     const handleSubmit = (event) => {
         event.preventDefault();
         axios
-          .post("http://localhost:1337/api/reviews", { data: formData })
+          .post("http://localhost:1337/api/oder-lists", { data: formData })
           .then((response) => {
             console.log(response);
           })
@@ -31,52 +31,11 @@ function Checkout() {
 
   return (
     <div>
-          {/* <form onSubmit={handleSubmit}>
-          <div className="password">
-            <label className="label">Customer Name</label>
-            <br/>
-            <input
-              className="form_input"
-              type="text"
-              placeholder="Enter your name"
-              name="CustomerName"
-              value={formData.CustomerName}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="password">
-            <label className="label">Phone number</label>
-            <br/>
-            <input
-              className="form_input"
-              type="text"
-              placeholder="Enter your rate: 1-5"
-              name="Rate"
-              value={formData.Rate}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="password">
-            <label className="label">Address</label>
-            <br/>
-            <input
-              className="form_input"
-              type="text"
-              placeholder="Enter your name"
-              name="Comment"
-              value={formData.Comment}
-              onChange={handleChange}
-            />
-          </div>
-          
-          <button className="sub_btn" type="submit">
-            Submit
-          </button>
-        </form> */}
-            <form noValidate autoComplete="off">
+            <form onSubmit={handleSubmit} noValidate autoComplete="off">
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-          <TextField label="First Name" variant="outlined" fullWidth />
+          <TextField label="First Name" variant="outlined" fullWidth 
+          name='customerName' value={formData.customerName} onChange={handleChange}/>
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField label="Last Name" variant="outlined" fullWidth />
