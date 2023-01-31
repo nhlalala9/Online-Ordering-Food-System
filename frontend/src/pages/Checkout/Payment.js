@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
+import NavBar from "../../components/NavBar/NavBar";
 
 function Payment() {
   const [stripePromises, setStripePromise] = useState(null);
@@ -30,7 +31,9 @@ const stripePromise = loadStripe('pk_test_51MTmVOJ4KXUZIvUmY1DwumWudhZOFtjF0zCvZ
   }, []);
 
   return (
+    
     <>
+
       <h1>React Stripe and the Payment Element</h1>
       {/* {clientSecret && stripePromise && ( */}
         <Elements stripe={stripePromises} options={{ clientSecret }}>

@@ -53,7 +53,8 @@ function Menu({productItems, handleProduct }) {
       getFood();
     }
   }, [query]);
-console.log(productItems,"seeeee")
+
+console.log( productItems,"seeeee")
   return (
     <>
       {loading ? (
@@ -85,7 +86,7 @@ console.log(productItems,"seeeee")
                     </Link>
                     <CCardBody>
                       <CCardTitle style={{fontSize:"24px"}}>{productItem.attributes.name}</CCardTitle>
-                      <CCardText style={{ fontSize:"16px"}}> R{productItem.attributes.price}</CCardText>
+                      <CCardText style={{ fontSize:"16px"}}> R{productItem.attributes.price.toFixed(2)}</CCardText>
                       {/* <CCardText> R {productItem.attributes.description}</CCardText> */}
                       <CButton  style={{ width: "17rem", height:"50px" }} 
                       onClick={() => handleProduct(productItem)}>

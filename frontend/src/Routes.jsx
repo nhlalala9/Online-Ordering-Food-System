@@ -45,7 +45,7 @@ const AppRoutes = ({productItems, cartItems, handleProduct, handleRemoveProduct,
       <Route path="checkout" element={<Checkout/>}/>
       <Route path="/productsCart" element={<ProductsCart/>}/>
     
-      <Route path="menu" element={<Menu/>}/>
+    
       <Route path="booking" element={<Booking/>}/>
       <Route path="header" element={<Header/>}/>
       <Route path="view/:id" element={<ViewProduct/>}/>

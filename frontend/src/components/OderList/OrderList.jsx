@@ -77,8 +77,7 @@ const OrderManagement = () => {
     <div className="Glass">
       <Sidebar />
 
-      <div className='move'>
-        <NaviBar />
+      
 
         <div className='move'>
           <NaviBar />
@@ -143,8 +142,8 @@ const OrderManagement = () => {
 
           </div>
         </div>
-      </div>
-    // </div>
+   
+    </div>
   );
 };
 
