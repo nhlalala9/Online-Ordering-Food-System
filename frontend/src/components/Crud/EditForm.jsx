@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
 import { useParams} from "react-router";
 import "./Crud.css";
@@ -15,6 +15,7 @@ function EditForm() {
     navigate('/crud');
   };
 
+
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -27,7 +28,7 @@ function EditForm() {
       ...formData,
       [event.target.name]: event.target.value,
     });
-    console.log(formData);
+    console.log(formData.name);
   };
 
   const editId = (id, e) => {

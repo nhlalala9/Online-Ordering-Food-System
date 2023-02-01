@@ -24,16 +24,17 @@ const cart = ({ cartItems, handleProduct, handleRemoveProduct, handleCartClearan
               <h2>No items are added.</h2>
             </div>
 
-            <div className="continue_shopping">
-              <Link to="/menu"><h6>Continue shopping</h6></Link>
-            </div>
+          
           </div>
 
         )}
+          <div className="continue_shopping">
+              <Link to="/menu"><h6>Continue shopping</h6></Link>
+            </div>
         {
           <div>
             {cartItems.map((item) => (
-              <div key={item.id} className="card-items-list">
+              <div key={item.id} className="cart-items-list">
                 <img className="cart-items-image" src={item.attributes.Picture} />
                 <div className="cart-items-name">{item.attributes.name}</div>
                 <div className="cart-items-functions">
@@ -58,7 +59,7 @@ const cart = ({ cartItems, handleProduct, handleRemoveProduct, handleCartClearan
               </div>
 
             ))}
-             <Link to="/menu"><h6>Continue shopping</h6></Link>
+   
                 <div className="cart-items-total-price-name">
                   Total
                   <div className="cart-items-total-price">R {totalPrice.toFixed(2)}</div>
