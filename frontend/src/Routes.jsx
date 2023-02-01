@@ -22,6 +22,7 @@ import ViewProduct from "./pages/Menu/ViewProduct";
 import EditForm from "./components/Crud/EditForm";
 import Cart from "./pages/cart/Cart";
 import Checkout from "./pages/cart/checkout";
+import NavBar from "./components/NavBar/NavBar";
 
 const AppRoutes = ({productItems, cartItems, HandleProduct, handleRemoveProduct,handleCartClearance}) => {
   return (
@@ -33,7 +34,7 @@ const AppRoutes = ({productItems, cartItems, HandleProduct, handleRemoveProduct,
       <Route path="dashboard" element={<Dashboard/>}/>
       <Route path="forgotPassword" element={<ForgotPassword/>}/>
       <Route path="crud" element={<Crud/>}/>
-     
+     <Route path="nav" element={<NavBar/>}/>
     
       <Route path="dash" element={<Admin/>}/>
       <Route path="orderlist" element={<OrderList/>}/>
@@ -46,7 +47,7 @@ const AppRoutes = ({productItems, cartItems, HandleProduct, handleRemoveProduct,
       <Route path="header" element={<Header/>}/>
       <Route path="view/:id" element={<ViewProduct productItems={productItems} HandleProduct={HandleProduct}/>}/>
       <Route path="edit/:id" element={<EditForm/>}/>
-      <Route path="checkout" element={<Checkout/>}/>
+      <Route path="checkout" element={<Checkout cartItems={cartItems} />}/>
     </Routes>
   );
 };

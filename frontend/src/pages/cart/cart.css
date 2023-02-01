@@ -138,3 +138,16 @@ h1{
 .clear-cart-button:hover{
     background-color: aqua;
 }
+
+.pay_now{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.pay_btn{
+    width: 10%;
+    height: 30px;
+    border-radius: 5px;
+    background: var(--pink);
+}

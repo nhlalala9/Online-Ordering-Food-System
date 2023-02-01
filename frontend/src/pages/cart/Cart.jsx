@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./cart.css";
 import NavBar from "../../components/NavBar/NavBar";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Cart = ({
   cartItems,
@@ -13,10 +13,19 @@ const Cart = ({
     (price, item) => price + item.quantity * item.attributes.price,
     0
   );
+    
+  const [state, setState] = useState(true);
 
- useEffect (() => {
-  localStorage.setItem(cartItems, JSON.stringify(cartItems))
- } , [cartItems]);
+  useEffect(() => {
+    // localStorage.setItem("Cart Items", JSON.stringify(cartItems));
+
+    // if (cartItems.length >= 1) {
+    //   setState(false);
+    // }
+    // if (cartItems.length === 0) {
+    //   setState(true);
+    // }
+  }, []);
 
   return (
     <div className="main_cart">
@@ -37,11 +46,11 @@ const Cart = ({
             </div>
           </div>
         )}
-         <div className="continue_shopping">
-              <Link to="/menu">
-                <h6>Continue shopping</h6>
-              </Link>
-            </div>
+        <div className="continue_shopping">
+          <Link to="/menu">
+            <h6>Continue shopping</h6>
+          </Link>
+        </div>
         {
           <div>
             {cartItems.map((item) => (
@@ -49,6 +58,7 @@ const Cart = ({
                 <img
                   className="cart-items-image"
                   src={item.attributes.Picture}
+                  alt=""
                 />
                 <div className="cart-items-name">{item.attributes.name}</div>
                 <div className="cart-items-functions">
@@ -69,20 +79,24 @@ const Cart = ({
                 <div className="cart-items-price">
                   {item.quantity} * R{item.attributes.price.toFixed(2)}
                 </div>
-               
               </div>
             ))}
-             <div className="cart-items-total-price-name">
-                  Total
-                  <div className="cart-items-total-price">
-                    R {totalPrice.toFixed(2)}
-                  </div>
-                </div>
+            <div className="cart-items-total-price-name">
+              Total
+              <div className="cart-items-total-price">
+                R {totalPrice.toFixed(2)}
+              </div>
+            </div>
             <div className="checkout">
-             <Link to='/checkout'><button type="submit" className="checkout_button">
-                Proceed to checkout
-              </button>
-              </Link> 
+              <Link to="/checkout">
+                <button
+                  hidden={state}
+                  type="submit"
+                  className="checkout_button"
+                >
+                  Proceed to checkout
+                </button>
+              </Link>
             </div>
           </div>
         }
