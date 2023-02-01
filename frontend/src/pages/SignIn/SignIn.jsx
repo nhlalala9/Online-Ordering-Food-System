@@ -73,7 +73,7 @@ const SignIn = () => {
 
           // message.success(`Welcome back ${data.user.username}!`);
 
-          // navigate("/dash", { replace: true });
+          navigate("/dash", { replace: true });
         }
       }
     } catch (error) {

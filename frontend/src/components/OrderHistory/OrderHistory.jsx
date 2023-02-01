@@ -1,53 +1,83 @@
-import React from 'react'
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import "./OrderHistory.css";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import NavBar from "../NavBar/NavBar";
 
-const OrderHistory = () => {
+
+const OrderManagement = () => {
+    const [products, setOrders] = useState([]);
+    // const [selectedOrder, setSelectedOrder] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [query, setQuery] = useState("");
+
+    const getOrders = async () => {
+        axios
+            .get("http://localhost:1337/api/products")
+            .then((response) => {
+                setIsLoading(true);
+                setOrders(response.data.data);
+                // §§console.log(orders)
+            })
+            .catch((err) => console.log(err));
+    }
+
+    useEffect(() => {
+        getOrders();
+    }, []);
+
     
     return (
-        <div className="overflow-x-auto">
-            <table className="table table-compact w-full">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>Cy Ganderton</td>
-                        <td>Quality Control Specialist</td>
-                        <td>Littel, Schaden and Vandervort</td>
-                        
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>Hart Hagerty</td>
-                        <td>Desktop Support Technician</td>
-                        <td>Zemlak, Daniel and Leannon</td>
-                        
-                    </tr>
-                    <tr>
-                        <th>3</th>
-                        <td>Brice Swyre</td>
-                        <td>Tax Accountant</td>
-                        <td>Carroll Group</td>
-                        
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th></th>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                       
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-    )
-}
 
-export default OrderHistory
+        <div className='move'>
+            <NavBar />
+
+            <div className="tt">
+                <TableContainer
+                    component={Paper}
+                    style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
+                >
+                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                        <TableHead>
+                            <TableRow>
+
+                                {/* <TableCell align="left">Address</TableCell> */}
+                                <TableCell align="left"> Name</TableCell>
+                                <TableCell align="left">Image</TableCell>
+                                <TableCell align="left">Date</TableCell>
+                                <TableCell align="left">Price</TableCell>
+                                <TableCell align="left">Quantity</TableCell>
+
+                            </TableRow>
+                        </TableHead>
+                        <TableBody style={{ color: "blue" }}>
+                            {products.map((row) => (
+                                <TableRow>
+
+                                    <TableCell align="left">{row.attributes.name}</TableCell>
+                                    <TableCell align="left"><img src={row.attributes.Picture} alt="" className="products_image"></img></TableCell>
+                                    <TableCell align="left">{row.attributes.date}</TableCell>
+                                    <TableCell align="left">{row.attributes.price}</TableCell>
+                                    <TableCell align="left">{row.attributes.quantity}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+
+
+            </div>
+        </div>
+
+
+    );
+};
+
+export default OrderManagement;

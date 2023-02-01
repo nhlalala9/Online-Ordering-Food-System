@@ -26,6 +26,9 @@
     },
     "quantity": {
       "type": "integer"
+    },
+    "date": {
+      "type": "datetime"
     }
   }
 }
