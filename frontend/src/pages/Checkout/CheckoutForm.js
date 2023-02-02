@@ -2,6 +2,8 @@ import { PaymentElement } from "@stripe/react-stripe-js";
 import { useState } from "react";
 import { useStripe, useElements } from "@stripe/react-stripe-js";
 import "./checkpay.css";
+import Products from "../../components/Products/Products";
+import { Link } from "react-router-dom";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -37,15 +39,20 @@ export default function CheckoutForm() {
 
     setIsProcessing(false);
   };
+  
 
   return (
+    
     <form id="payment-form" onSubmit={handleSubmit}>
+   
       <PaymentElement id="payment-element" />
+      <Link to="/menu">
       <button disabled={isProcessing || !stripe || !elements} id="submit">
         <span id="button-text" >
           {isProcessing ? "Processing ... " : "Pay now"}
         </span>
       </button>
+      </Link>
       {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}
     </form>

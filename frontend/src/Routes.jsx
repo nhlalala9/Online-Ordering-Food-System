@@ -29,6 +29,7 @@ import ViewProduct from "./pages/Menu/ViewProduct";
 import EditForm from "./components/Crud/EditForm";
 import Cart from "./pages/cart/Cart";
 import OrderHistory from "./components/OrderHistory/OrderHistory";
+import Delivery from "./components/Delivery/Delivery";
 
 
 
@@ -69,7 +70,7 @@ const AppRoutes = ({productItems, cartItems, handleProduct, handleRemoveProduct,
       <Route path="view/:id" element={<ViewProduct productItems={productItems} handleProduct={handleProduct}/>}/>
       <Route path="edit/:id" element={<EditForm/>}/>
       <Route path="orderhistory" element={<OrderHistory/>}/>
-     
+     <Route path="delivery" element={<Delivery/>}/>
      
     </Routes>
   );

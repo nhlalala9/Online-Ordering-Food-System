@@ -85,7 +85,7 @@ a{
 }
 
 .img{
-    border: solid 2px red;
+    /* border: solid 2px red; */
     width: 30rem;
 }
 
