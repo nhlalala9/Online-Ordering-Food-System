@@ -146,8 +146,9 @@ h1{
 }
 
 .pay_btn{
-    width: 10%;
+    width: 10;
     height: 30px;
     border-radius: 5px;
     background: var(--pink);
+   
 }

@@ -32,9 +32,9 @@ const stripePromise = loadStripe('pk_test_51MTmVOJ4KXUZIvUmY1DwumWudhZOFtjF0zCvZ
   }, []);
 
   return (
-  
-    // <NavBar/>
+
     <>
+    <NavBar/>
  
       {/* {clientSecret && stripePromise && ( */}
         <Elements stripe={stripePromises} options={{ clientSecret }}>
