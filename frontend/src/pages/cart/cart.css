@@ -61,6 +61,7 @@ h1{
     font-size: 20px;
     font-weight: 700;
     /* margin-left: 15%; */
+    /* border: 1px solid black; */
 }
 
 .cart-items-name, 
@@ -70,6 +71,7 @@ h1{
     margin-left: 10px;
     font-weight: bold;
     font-size: 20px;
+    /* margin-bottom: 5px; */
 }
 
 .cart-items-add,
@@ -90,6 +92,7 @@ h1{
 
 .cart-items-remove{
     background-color: red;
+    
 }
 
 .cart-items-add:active{
@@ -134,4 +137,17 @@ h1{
 
 .clear-cart-button:hover{
     background-color: aqua;
+}
+
+.pay_now{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.pay_btn{
+    width: 10%;
+    height: 30px;
+    border-radius: 5px;
+    background: var(--pink);
 }

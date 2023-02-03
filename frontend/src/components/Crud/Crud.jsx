@@ -108,28 +108,6 @@ function CRUD() {
                    </div>
             </div>
           </div>
-            // <div key={card.id} className="crud">
-            //   <div className="card">
-            //     <img
-            //       src={card.attributes.Picture}
-            //       className="image"
-            //       alt="..."
-            //     />
-            //     <div className="card-body">
-            //       <h5 className="card-title">{card.attributes.name}</h5>
-            //       <p className="card-text">{card.attributes.description}</p>
-            //       <p className="card-text">R {card.attributes.price}.00</p>
-            //       <div className="buttons">
-            //         <Link key={card.id} to={`/edit/${card.id}`}>
-            //           <button className="btn_t">Edit</button>
-            //         </Link>
-            //         <button className="btn " onClick={() => getId(card.id)}>
-            //           Delete
-            //         </button>
-            //       </div>
-            //     </div>
-            //   </div>
-            // </div>
           ))}
         </div>
       </div>

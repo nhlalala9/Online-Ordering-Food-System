@@ -26,13 +26,13 @@ function Modal({ setOpenModal }) {
       .post("http://localhost:1337/api/products", {data: formData})
       .then((response) => {
         console.log(response);
-        navigate('/crud');
+        navigate('crud');
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
+ 
   return (
     <div className="modalBackground">
       <div className="modalContainer">

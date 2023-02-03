@@ -27,8 +27,13 @@
     "quantity": {
       "type": "integer"
     },
+<<<<<<< HEAD
     "date": {
       "type": "datetime"
+=======
+    "Total_Price": {
+      "type": "integer"
+>>>>>>> b14358ffe9340de061e1553da1927f9b853855fd
     }
   }
 }

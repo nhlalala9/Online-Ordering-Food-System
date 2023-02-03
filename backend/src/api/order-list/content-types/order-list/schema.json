@@ -49,6 +49,9 @@
         "Pickup",
         "Sit-in"
       ]
+    },
+    "TotalPrice": {
+      "type": "integer"
     }
   }
 }

@@ -24,6 +24,7 @@ function EditForm() {
   });
 
   const handleChange = (event) => {
+    event.preventDefault();
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
@@ -52,72 +53,31 @@ function EditForm() {
         <Form.Label>Name</Form.Label>
         <Form.Control  name="name"
             value={formData.name}
-            onChange={handleChange} type="text" placeholder={formData.name}/>
+            onChange={handleChange} type="text" />
       </Form.Group>
       <Form.Group className="mb-3" >
         <Form.Label>Description</Form.Label>
         <Form.Control  name="description"
-            value={formData.description}
-            onChange={handleChange} type="text" placeholder={formData.description}/>
+            value={formData.description} 
+            onChange={handleChange} type="text" />
       </Form.Group>
       <Form.Group className="mb-3">
         <Form.Label>Price</Form.Label>
         <Form.Control  name="price"
             value={formData.price}
-            onChange={handleChange} type="text" placeholder={formData.price} />
+            onChange={handleChange} type="text" />
       </Form.Group>
       <Form.Group className="mb-3" >
         <Form.Label>Picture</Form.Label>
         <Form.Control className="try"  name="Picture"
             value={formData.Picture}
-            onChange={handleChange} type="text" placeholder={formData.Picture}/>
+            onChange={handleChange} type="text" />
       </Form.Group>
-        {/* <div className="e">
-          <label>Name: </label>
-          <input
-            className="edit"
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="e">
-          <label>Description: </label>
-          <input
-           className="edit"
-            type="text"
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="e">
-          <label>Price: </label>
-          <input
-           className="edit"
-            type="text"
-            name="price"
-            value={formData.price}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="e">
-          <label>Picture: </label>
-          <input
-           className="edit"
-            type="text"
-            name="Picture"
-            value={formData.Picture}
-            onChange={handleChange}
-          />
-        </div> */}
+       
         <div className="btns">
           <button onClick={handleClick} className="cancel" type="text">Cancel</button>
           <button  className="save" type="submit">Submit</button>
-          {/* <input type="submit" value="Submit" /> */}
+          
         </div>
       </form>
     </div>
