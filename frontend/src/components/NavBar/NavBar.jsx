@@ -48,6 +48,7 @@ function NavBar(cartItems) {
                 <li><Link to="/menu" smooth={true} duration={2000}>Menu</Link></li>
                 <li><Link to="/contact" smooth={true} duration={2000}>Notifications</Link></li>
                 <li><Link to="/booking" smooth={true} duration={2000}>booking</Link></li>
+                       <li><Link to="/orders" smooth={true} duration={2000}>Orders</Link></li>
                 {/* <li><Link to="/cart" className="auth_button_signUp" onClick={() => setShow(true)}>{size === 0? '': size} Cart</Link></li> */}
                 <li><Link to="/cart">Cart<Badge badgeContent={cartItems.length} color="primary">
  

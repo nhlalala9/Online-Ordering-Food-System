@@ -3,6 +3,7 @@ import axios from 'axios';
 import { TextField, Grid } from '@mui/material';
 import NavBar from '../../components/NavBar/NavBar';
 import "./cart.css"
+import { useSelector, useDispatch } from "react-redux";
 
 function Checkout(cartItems) {
 
@@ -25,6 +26,8 @@ function Checkout(cartItems) {
         country:"",
         });
 
+const cart = useSelector((state) => state);
+  console.log(cart ,"products");
 console.log(cartItems, "checkout") 
 
     const handleChange = (event) => {

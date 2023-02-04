@@ -7,19 +7,8 @@ import { useParams } from "react-router-dom";
 
 export default function ViewProduct(productItems, handleProduct) {
   let { id } = useParams();
-  const [formData, setFormData] = useState({
-    CustomerName: "",
-    Rate: "",
-    Comment: "",
-  });
 
-  const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-    console.log(formData);
-  };
+
   const [cards, setCards] = useState([]);
   useEffect(() => {
     axios
@@ -31,17 +20,7 @@ export default function ViewProduct(productItems, handleProduct) {
       .catch((err) => console.log(err));
   }, []);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    axios
-      .post("http://localhost:1337/api/reviews", { data: formData })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+
 
   return (
     <>
@@ -62,52 +41,6 @@ export default function ViewProduct(productItems, handleProduct) {
         </div>
       </div>
 
-      <h1 className="heading">Reviews</h1>
-      <div className="reviewForm">
-        <form onSubmit={handleSubmit}>
-          <div className="password">
-            <label className="label">Name</label>
-            <br/>
-            <input
-              className="form_input"
-              type="text"
-              placeholder="Enter your name"
-              name="CustomerName"
-              value={formData.CustomerName}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="password">
-            <label className="label">Rating</label>
-            <br/>
-            <input
-              className="form_input"
-              type="text"
-              placeholder="Enter your rate: 1-5"
-              name="Rate"
-              value={formData.Rate}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="password">
-            <label className="label">Comment</label>
-            <br/>
-            <input
-              className="form_input"
-              type="text"
-              placeholder="Enter your name"
-              name="Comment"
-              value={formData.Comment}
-              onChange={handleChange}
-            />
-          </div>
-          <button className="sub_btn" type="submit">
-            Submit
-          </button>
-        </form>
-
-        
-      </div>
     </>
   );
 }
