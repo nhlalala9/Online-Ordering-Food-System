@@ -5,12 +5,12 @@ import { useNavigate,Link } from "react-router-dom";
 import { removeToken } from "../../helpers";
 import logo from "../../images/logo1.png";
 import "./NavBar.css";
+import Badge from '@mui/material/Badge';
 
 
 
 
-
-function NavBar({ setShow, size }) {
+function NavBar(cartItems) {
     const [nav, setnav] = useState(false);
     const navigate = useNavigate();
     
@@ -49,7 +49,9 @@ function NavBar({ setShow, size }) {
                 <li><Link to="/contact" smooth={true} duration={2000}>Notifications</Link></li>
                 <li><Link to="/booking" smooth={true} duration={2000}>booking</Link></li>
                 {/* <li><Link to="/cart" className="auth_button_signUp" onClick={() => setShow(true)}>{size === 0? '': size} Cart</Link></li> */}
-                <li><Link to="/cart">Cart</Link></li>
+                <li><Link to="/cart">Cart<Badge badgeContent={cartItems.length} color="primary">
+ 
+</Badge></Link></li>
                 {/* <li><Link to="" smooth={true} duration={2000}onClick={handleLogout}> logout</Link></li> */}
                 <li><Link to="" smooth={true} duration={2000}  className="auth_button_signUp"
               type="primary"

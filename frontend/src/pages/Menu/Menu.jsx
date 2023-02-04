@@ -11,11 +11,9 @@ import "./Menu.css";
 import NavBar from "../../components/NavBar/NavBar";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-
 import Box from "@mui/material/Box";
-import { height } from "@mui/system";
 
-function Menu({productItems, HandleProduct }) {
+function Menu({ productItems, HandleProduct }) {
   let { id } = useParams();
   // const card = cards.find(card => card.id === id);
   // const [cards, setCards] = useState([]);
@@ -27,12 +25,11 @@ function Menu({productItems, HandleProduct }) {
       .get("http://localhost:1337/api/products")
       .then((response) => {
         setLoading(true);
-        productItems = (response.data.data);
-        console.log(response.data.data); 
+        productItems = response.data.data;
+        console.log(response.data.data);
       })
       .catch((err) => console.log(err));
   };
-
 
   useEffect(() => {
     getFood();
@@ -41,22 +38,23 @@ function Menu({productItems, HandleProduct }) {
   useEffect(() => {
     if (query) {
       axios
-        .get(`http://localhost:1337/api/products?filters[name][$containsi]=${query}`)
+        .get(
+          `http://localhost:1337/api/products?filters[name][$containsi]=${query}`
+        )
         .then((response) => {
           setLoading(true);
-          productItems = (response.data.data);
+          productItems = response.data.data;
           console.log(response.data.data);
           // productItems = {cards};
-          console.log(productItems, "sdfghj")
+          console.log(productItems, "sdfghj");
         })
-        .catch((err) => {console.log(err)});
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
       getFood();
-     
     }
   }, [query]);
-
-
 
   return (
     <>
@@ -80,7 +78,7 @@ function Menu({productItems, HandleProduct }) {
             <div className="menu_items">
               {productItems.map((productItem) => (
                 <div key={productItem.id} className="see">
-                  <CCard style={{ width: "20rem",}}>
+                  <CCard style={{ width: "20rem" }}>
                     <Link key={productItem.id} to={`/view/${productItem.id}`}>
                       <CCardImage
                         style={{ height: "15rem" }}
@@ -88,11 +86,18 @@ function Menu({productItems, HandleProduct }) {
                       />
                     </Link>
                     <CCardBody>
-                      <CCardTitle style={{fontSize:"24px"}}>{productItem.attributes.name}</CCardTitle>
-                      <CCardText style={{ fontSize:"16px"}}> R{productItem.attributes.price}</CCardText>
+                      <CCardTitle style={{ fontSize: "24px" }}>
+                        {productItem.attributes.name}
+                      </CCardTitle>
+                      <CCardText style={{ fontSize: "16px" }}>
+                        {" "}
+                        R{productItem.attributes.price}
+                      </CCardText>
                       {/* <CCardText> R {productItem.attributes.description}</CCardText> */}
-                      <CButton  style={{ width: "17rem", height:"50px" }} 
-                      onClick={() => HandleProduct(productItem)}>
+                      <CButton
+                        style={{ width: "17rem", height: "50px" }}
+                        onClick={() => HandleProduct(productItem)}
+                      >
                         Add to cart
                       </CButton>
                     </CCardBody>
