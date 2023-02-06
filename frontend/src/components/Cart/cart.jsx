@@ -47,28 +47,7 @@ const Cart = ({ cart, setCart }) => {
     return (
 
         <div>
-            {/* {orders.map((orders) => (
-                <div className="cart_box" key={orders.id}>
-                    <div className="cart_img">
-                        <img src={orders.Picture} alt="" />
-                        <p>{orders.name}</p>
-                    </div>
-                    
-                    <div>
-                        <button onClick={() => handleChange(orders, 1)}>+</button>
-                        <button>{orders.amount}</button>
-                        <button onClick={() => handleChange(orders, -1)}>-</button>
-                    </div>
-                    <div>
-                        <span>{orders.Price}</span>
-                        <button onClick={() => handleRemove(orders.id)}>Remove</button>
-                    </div>
-                </div>
-            ))}
-            <div className="total">
-                <span>Total Price of your Cart</span>
-                <span>R - {price}</span>
-            </div> */}
+           
             <NavBar />
             <div title='Cart'>
                 <div className="cart_img">

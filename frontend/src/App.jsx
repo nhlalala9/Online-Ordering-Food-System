@@ -84,6 +84,7 @@ const App = () => {
 
   return (
     <div className="App">
+      
       <AppRoutes
         productItems={productItems}
         cartItems={cartItems}
