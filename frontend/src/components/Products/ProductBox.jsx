@@ -68,7 +68,7 @@ function ProductBox(handleProduct,) {
           <div className="a-box" key={row.id}>
 
             <div className="a-b-img">
-              <img src={row.attributes.Picture} alt="" />
+              <img src={row.attributes.Picture.data.attributes.url} alt="" />
             </div>
 
             <div className="a-b-text">

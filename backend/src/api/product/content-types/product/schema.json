@@ -21,14 +21,14 @@
     "description": {
       "type": "text"
     },
-    "Picture": {
-      "type": "text"
-    },
     "quantity": {
       "type": "integer"
     },
     "Total_Price": {
       "type": "integer"
+    },
+    "Picture": {
+      "type": "string"
     }
   }
 }

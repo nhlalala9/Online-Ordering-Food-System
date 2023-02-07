@@ -82,7 +82,7 @@ function Modal({ setOpenModal }) {
             <label>Picture:</label>
             <input
               className="modal_input"
-              type="text"
+              type="file"
               name="Picture"
               value={formData.Picture}
               onChange={handleChange}

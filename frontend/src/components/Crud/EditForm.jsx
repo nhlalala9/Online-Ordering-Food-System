@@ -1,50 +1,45 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 import "./Crud.css";
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom"
 import { fetchData } from "../../utils/utils";
 
 function EditForm() {
-  const { id } = useParams();
-  const [prodId, setProdId] = useState(id);
+  const id  = useLocation();
+  const [prodId, setProdId] = useState(id.state);
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({});
+  const [data, setData] = useState({});
+  const [formData, setFormData] = useState({name:"", description:"",price:"", Price:""});
   const [loading, setLoading] = useState(true);
   const handleClick = () => {
     // 👇️ navigate programmatically
     navigate('/crud');
   };
 
+  console.log(id.state.params);
+
   // code for displaying data
   useEffect(() => {
-    fetchData(`api/products/${id}`)
-    .then((res) => {
-      setFormData({
-          name: res.data.data.attributes.name,
-          description: res.data.data.attributes.description,
-          price: res.data.data.attributes.price,
-          Picture: res.data.data.attributes.Picture,
+    fetchData(`api/products/${id.state.params}`)
+      .then((res) => {
+        console.log(res.attributes);
+        setData(res.attributes)
+        setLoading(false);
       })
-      setLoading(false);
-    })
-    .catch(error => console.log(error))
+      .catch(error => console.log(error))
   }, [])
-  
-  if(loading)
-   console.log("loading");
-   else
-   console.log(formData)
+
+  if (loading)
+    console.log("loading");
+  else
+    console.log(formData)
 
 
   const handleChange = (event) => {
-    event.preventDefault();
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-    console.log(formData.name);
+    const {name, value} = event.target;
+    setFormData(preventData => ({ ...preventData, [name]:value}));
   };
 
   const editId = (id, e) => {
@@ -67,27 +62,28 @@ function EditForm() {
         <Form.Group className="mb-3" >
           <Form.Label>Name</Form.Label>
           <Form.Control name="name"
-            value={formData.name}
+            value={formData.name || data.name}
             onChange={handleChange} type="text" />
         </Form.Group>
         <Form.Group className="mb-3" >
           <Form.Label>Description</Form.Label>
           <Form.Control name="description"
-            value={formData.description}
+            value={formData.description || data.description}
             onChange={handleChange} type="text" />
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Price</Form.Label>
           <Form.Control name="price"
-            value={formData.price}
+            value={formData.price || data.price}
             onChange={handleChange} type="text" />
         </Form.Group>
         <Form.Group className="mb-3" >
+          
           <Form.Label>Picture</Form.Label>
-          <img src={formData.Picture} />
+          <img src={data.Picture } />
           <Form.Control className="try" name="Picture"
-            value={formData.Picture}
-            onChange={handleChange} type="text" />
+            value={formData.Picture || data.Picture }
+            onChange={handleChange} type=""  />
         </Form.Group>
 
         <div className="btns">

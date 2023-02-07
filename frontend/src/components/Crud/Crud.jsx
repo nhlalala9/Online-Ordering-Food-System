@@ -5,14 +5,14 @@ import "./Crud.css";
 import Sidebar from "../Sidebar";
 import Modal from "../modal/Modal";
 // import EditForm from "./EditForm";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 function CRUD() {
   const [modalOpen, setModalOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [cards, setCards] = useState([]);
   const [id, setId] = useState("");
-
+  const navigate = useNavigate();
   function getId(id) {
     setId(id);
     console.log(id);
@@ -59,6 +59,10 @@ function CRUD() {
     }
   }, [query]);
 
+    function edit(params){
+      navigate(`/edit/${params}`, {state:{params}})
+    }
+
   return (
     <div className="Glass">
       <Sidebar />
@@ -99,9 +103,9 @@ function CRUD() {
               <p >{card.attributes.description}</p>
               </div>
               <div className="buttons">
-                     <Link key={card.id} to={`/edit/${card.id}`}>
-                       <button className="btn_t">Edit</button>
-                     </Link>
+                 
+                       <button className="btn_t" onClick={()=> edit(card.id)}>Edit</button>
+                    
                      <button className="btnRed " onClick={() => getId(card.id)}>
                        Delete
                      </button>
