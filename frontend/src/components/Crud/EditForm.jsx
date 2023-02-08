@@ -88,7 +88,7 @@ function EditForm() {
 
         <div className="btns">
           <button onClick={handleClick} className="cancel" type="text">Cancel</button>
-          <button className="save" type="submit">Submit</button>
+          <button onClick={handleClick} className="save" type="submit">Submit</button>
 
         </div>
       </form>

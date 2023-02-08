@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import "./Modal.css";
 import axios from "axios";
 import   {useNavigate} from "react-router-dom"
+import Loader from "../Loader/Loader";
 
 function Modal({ setOpenModal }) {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     description: "",
     price: "",
-    Picture: "",
   });
+
+  const [picture, setPicture] = useState()
 
   const handleChange = (event) => {
     setFormData({
@@ -22,17 +25,30 @@ function Modal({ setOpenModal }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setLoading(true)
+    // formData.append(“files”, image);
+    // formData.append(“ref”, “api::event.event”);
+    // formData.append(“refId”, eventId);
+    // formData.append(“field”, “image”);
     axios
       .post("http://localhost:1337/api/products", {data: formData})
       .then((response) => {
-        console.log(response);
-        navigate('crud');
+        const formData = new FormData();
+        formData.append("files", picture);
+        formData.append("ref","api::product.product");
+        formData.append("field","pictures")
+        formData.append("refId",response.data.data.id);
+        axios.post("http://localhost:1337/api/upload", formData).then((res) => {
+        ("uploaded");
+        setLoading(false);
+        window.open('/crud','_self');
+        })
       })
       .catch((error) => {
         console.log(error);
       });
   };
- 
+
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -51,7 +67,7 @@ function Modal({ setOpenModal }) {
         </div>
         <div className="modal_body">
           
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} encType="multipart/form-data">
             <label>Name:</label>
             <input
               className="modal_input"
@@ -85,7 +101,7 @@ function Modal({ setOpenModal }) {
               type="file"
               name="Picture"
               value={formData.Picture}
-              onChange={handleChange}
+              onChange={(e) => setPicture(e.target.files[0])}
             />
             <div className="modal_footer">
               <button  className="bt1"
@@ -103,6 +119,7 @@ function Modal({ setOpenModal }) {
           </form>
         </div>
       </div>
+      {loading && <Loader />}
     </div>
   );
 }
