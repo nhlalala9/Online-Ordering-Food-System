@@ -31,7 +31,7 @@ function Modal({ setOpenModal }) {
     // formData.append(“refId”, eventId);
     // formData.append(“field”, “image”);
     axios
-      .post("http://localhost:1337/api/products", {data: formData})
+      .post("http://localhost:1337/api/products/populate=*", {data: formData})
       .then((response) => {
         const formData = new FormData();
         formData.append("files", picture);
