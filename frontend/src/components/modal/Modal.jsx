@@ -3,6 +3,7 @@ import "./Modal.css";
 import axios from "axios";
 import   {useNavigate} from "react-router-dom"
 import { UpdatesData } from "../Data/Data";
+import Loader from "../Loader/Loader";
 
 function Modal({ setOpenModal }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -49,13 +50,15 @@ function Modal({ setOpenModal }) {
 //     })
 
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     description: "",
     price: "",
-    Picture: "",
-    image:""
+  
   });
+
+  const [picture, setPicture] = useState()
 
   const handleChange = (event) => {
     setFormData({
@@ -67,37 +70,31 @@ function Modal({ setOpenModal }) {
 
   const handleSubmit = async(event) => {
     event.preventDefault();
-
-  await  axios
-      .post("http://localhost:1337/api/products", {data: formData})
-      .then(async(response) => {
-        console.log(response);
-        // navigate('crud');
-        const formData = new formData
-        formData.append("files",formData.image);
-        formData.append("refId",response.data.data.id);
-        formData.append("field","image");
+    setLoading(true)
+    // formData.append(“files”, image);
+    // formData.append(“ref”, “api::event.event”);
+    // formData.append(“refId”, eventId);
+    // formData.append(“field”, “image”);
+    axios
+      .post("http://localhost:1337/api/products/populate=*", {data: formData})
+      .then((response) => {
+        const formData = new FormData();
+        formData.append("files", picture);
         formData.append("ref","api::product.product");
-        console.log('====================================');
-        console.log(formData);
-        console.log('====================================');
-
-        await axios.post("http://localhost:1337/api/upload",  )
-        .then( ( response) => { alert("Image Added")
-          //  setfileId = response.data[0].id
-          console.log(response, "upload response");
-          
-  
+        formData.append("field","pictures")
+        formData.append("refId",response.data.data.id);
+        axios.post("http://localhost:1337/api/upload", formData).then((res) => {
+        ("uploaded");
+        setLoading(false);
+        window.open('/crud','_self');
+        })
       })
       .catch((error) => {
         console.log(error);
       });
-            })
-            .catch((error)=>{
-            //handle error
-        })
+          
   };
- 
+
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -116,7 +113,7 @@ function Modal({ setOpenModal }) {
         </div>
         <div className="modal_body">
           
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} encType="multipart/form-data">
             <label>Name:</label>
             <input
               className="modal_input"
@@ -147,10 +144,10 @@ function Modal({ setOpenModal }) {
             <label>Picture:</label>
             <input
               className="modal_input"
-              type="text"
+              type="file"
               name="Picture"
               value={formData.Picture}
-              onChange={handleChange}
+              onChange={(e) => setPicture(e.target.files[0])}
             />
                <label>image:</label>
             <input
@@ -177,6 +174,7 @@ function Modal({ setOpenModal }) {
           </form>
         </div>
       </div>
+      {loading && <Loader />}
     </div>
   );
 }

@@ -3,6 +3,7 @@ import "./Booking.css";
 import NavBar from "../NavBar/NavBar"
 
 function Booking() {
+ 
     return (
       <>
 <NavBar />

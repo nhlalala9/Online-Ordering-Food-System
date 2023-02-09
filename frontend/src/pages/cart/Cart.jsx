@@ -3,6 +3,8 @@ import "./cart.css";
 import NavBar from "../../components/NavBar/NavBar";
 import { Link } from "react-router-dom";
 
+
+
 const Cart = ({
   cartItems,
   HandleProduct,
@@ -23,6 +25,7 @@ const Cart = ({
       setState(false);
       console.log(cartItems)
     }
+   
     if (cartItems.length === 0) {
       setState(true);
     }
@@ -31,6 +34,7 @@ const Cart = ({
   console.log(cartItems[0].quantity)
   // console.log(cartItems[0].attributes.price, "price")
 
+  
   return (
     <div className="main_cart">
       <NavBar />
@@ -38,9 +42,9 @@ const Cart = ({
         <h1 className="card-items-header">Cart Items</h1>
         <div className="clear-cart">
           {cartItems.length >= 1 && (
-            <button className="clear-cart-button" onClick={handleCartClearance}>
-              Clear cart
-            </button>
+            <button className="clear-cart-button" onClick={handleCartClearance}>Clear cart</button>
+           
+          
           )}
         </div>
         {cartItems.length === 0 && (
@@ -95,7 +99,7 @@ const Cart = ({
               </div>
             </div>
             <div className="checkout">
-              <Link to="/checkout">
+              <Link to="/checkoutform">
                 <button
                   hidden={state}
                   type="submit"

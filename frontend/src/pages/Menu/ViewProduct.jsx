@@ -106,7 +106,7 @@ export default function ViewProduct(productItems, handleProduct) {
           </button>
         </form>
 
-        
+
       </div>
     </>
   );

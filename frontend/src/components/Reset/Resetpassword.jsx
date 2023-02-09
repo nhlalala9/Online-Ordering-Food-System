@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { useSearchParams } from 'react-router-dom';
 import axios from "axios";
 import Form from 'react-bootstrap/Form';
-import './resetPassword.css';
+import "./Resetpassword.css";
 import { useNavigate } from "react-router-dom";
 
 const Resetpassword = () => {

@@ -3,7 +3,7 @@ import axios from "axios";
 import { TextField, Grid } from "@mui/material";
 import NavBar from "../../components/NavBar/NavBar";
 import "./cart.css";
-import Dropdown from 'react-bootstrap/Dropdown';
+
 function Checkout(cartItems) {
   // const [cartItems, setCartItems] = useState([], () => {
   //   const localData = localStorage.getItem(cartItems);

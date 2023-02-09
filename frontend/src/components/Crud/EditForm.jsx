@@ -1,41 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams} from "react-router";
+import { useLocation, useParams } from "react-router";
 import "./Crud.css";
 import Form from 'react-bootstrap/Form';
-import   {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { fetchData } from "../../utils/utils";
 
 function EditForm() {
-  const { id } = useParams();
-  const [prodId, setProdId] = useState(id);
+  const id  = useLocation();
+  const [prodId, setProdId] = useState(id.state);
   const navigate = useNavigate();
-
+  const [data, setData] = useState({});
+  const [formData, setFormData] = useState({name:"", description:"",price:"", Price:""});
+  const [loading, setLoading] = useState(true);
   const handleClick = () => {
     // 👇️ navigate programmatically
     navigate('/crud');
   };
 
-  const [formData, setFormData] = useState({
-    name: "",
-    description: "",
-    price: "",
-    Picture: "",
-  });
+  console.log(id.state.params);
+
+  // code for displaying data
+  useEffect(() => {
+    fetchData(`api/products/${id.state.params}`)
+      .then((res) => {
+        console.log(res.attributes);
+        setData(res.attributes)
+        setLoading(false);
+      })
+      .catch(error => console.log(error))
+  }, [])
+
+  if (loading)
+    console.log("loading");
+  else
+    console.log(formData)
+
 
   const handleChange = (event) => {
-    event.preventDefault();
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-    console.log(formData);
+    const {name, value} = event.target;
+    setFormData(preventData => ({ ...preventData, [name]:value}));
   };
 
   const editId = (id, e) => {
     e.preventDefault();
-    
+
     axios
-      .put(`http://localhost:1337/api/products/${id}`, { data:  formData  })
+      .put(`http://localhost:1337/api/products/${id}`, { data: formData })
       .then((response) => {
         setProdId(id);
         navigate('/crud');
@@ -48,35 +59,37 @@ function EditForm() {
   return (
     <div className="edit_form">
       <form onSubmit={(e) => editId(prodId, e)}>
-      <Form.Group className="mb-3" >
-        <Form.Label>Name</Form.Label>
-        <Form.Control  name="name"
-            value={formData.name}
+        <Form.Group className="mb-3" >
+          <Form.Label>Name</Form.Label>
+          <Form.Control name="name"
+            value={formData.name || data.name}
             onChange={handleChange} type="text" />
-      </Form.Group>
-      <Form.Group className="mb-3" >
-        <Form.Label>Description</Form.Label>
-        <Form.Control  name="description"
-            value={formData.description} 
+        </Form.Group>
+        <Form.Group className="mb-3" >
+          <Form.Label>Description</Form.Label>
+          <Form.Control name="description"
+            value={formData.description || data.description}
             onChange={handleChange} type="text" />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Price</Form.Label>
-        <Form.Control  name="price"
-            value={formData.price}
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Price</Form.Label>
+          <Form.Control name="price"
+            value={formData.price || data.price}
             onChange={handleChange} type="text" />
-      </Form.Group>
-      <Form.Group className="mb-3" >
-        <Form.Label>Picture</Form.Label>
-        <Form.Control className="try"  name="Picture"
-            value={formData.Picture}
-            onChange={handleChange} type="text" />
-      </Form.Group>
-       
+        </Form.Group>
+        <Form.Group className="mb-3" >
+          
+          <Form.Label>Picture</Form.Label>
+          <img src={data.Picture } />
+          <Form.Control className="try" name="Picture"
+            value={formData.Picture || data.Picture }
+            onChange={handleChange} type=""  />
+        </Form.Group>
+
         <div className="btns">
           <button onClick={handleClick} className="cancel" type="text">Cancel</button>
-          <button  className="save" type="submit">Submit</button>
-          
+          <button onClick={handleClick} className="save" type="submit">Submit</button>
+
         </div>
       </form>
     </div>

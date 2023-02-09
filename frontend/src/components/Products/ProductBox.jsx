@@ -8,85 +8,85 @@ import Products from "./Products";
 
 function ProductBox(handleProduct,) {
 
-    const [show, setShow] = useState(true);
-    const [cart, setCart] = useState([]);
-  
-    const [orders, setOrders] = useState([]);
-    const [selectedOrder, setSelectedOrder] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
-  
-    useEffect(() => {
-      axios.get('http://localhost:1337/api/products')
-        .then(response => {
-          setIsLoading(true);
-          setOrders(response.data.data)
-          console.log(response.data.data)
-        })
-        .catch(err => console.log(err));
-    }, []);
-  
-    const handleClick = (item) => {
-      if (cart.indexOf(item) !== -1) return;
-      setCart([...cart, item]);
-    };
-  
-    const handleChange = (item, d) => {
-      const ind = cart.indexOf(item);
-      const arr = cart;
-      arr[ind].attributes.unit += d;
-  
-      if (arr[ind].attributes.unit === 0) arr[ind].attributes.unit = 1;
-      setCart([...arr]);
-    };
-    const [price, setPrice] = useState(0);
-    const handleRemove = (id) => {
-      const arr = cart.filter((item) => item.id !== id);
-      setCart(arr);
-      handlePrice();
-    };
-  
-    const handlePrice = () => {
-      let ans = 0;
-      cart.map((item) => (ans += item.attributes.unit * item.attributes.price));
-      setPrice(ans);
-    };
-  
-    useEffect(() => {
-      handlePrice()
-    });
-  
-   
+  const [show, setShow] = useState(true);
+  const [cart, setCart] = useState([]);
 
-    return (
+  const [orders, setOrders] = useState([]);
+  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-        <>
-            <NavBar setShow={setShow} size={cart.length} />
-            {show ? (<><div className="prod">
-                {orders.map((row) => (
-                    
-                    <div className="a-box" key={row.id}>
+  useEffect(() => {
+    axios.get('http://localhost:1337/api/products')
+      .then(response => {
+        setIsLoading(true);
+        setOrders(response.data.data)
+        console.log(response.data.data)
+      })
+      .catch(err => console.log(err));
+  }, []);
 
-                        <div className="a-b-img">
-                            <img src={row.attributes.Picture} alt="" />
-                        </div>
+  const handleClick = (item) => {
+    if (cart.indexOf(item) !== -1) return;
+    setCart([...cart, item]);
+  };
 
-                        <div className="a-b-text">
-                            {/* <h2> {row.attributes.name}</h2> */}
-                            <p>{row.attributes.name}</p>
-                            <p>Price - R{row.attributes.price}</p>
-                            <Link key={row.id} to={`/view/${row.id}`}>
-                            <button className="productbox-button" onClick={() => handleProduct(row)}>Add to Cart</button>
-</Link>
-                        </div>
+  const handleChange = (item, d) => {
+    const ind = cart.indexOf(item);
+    const arr = cart;
+    arr[ind].attributes.unit += d;
 
-                    </div>
-                ))}
-            </div></>) : (<></>)}
+    if (arr[ind].attributes.unit === 0) arr[ind].attributes.unit = 1;
+    setCart([...arr]);
+  };
+  const [price, setPrice] = useState(0);
+  const handleRemove = (id) => {
+    const arr = cart.filter((item) => item.id !== id);
+    setCart(arr);
+    handlePrice();
+  };
+
+  const handlePrice = () => {
+    let ans = 0;
+    cart.map((item) => (ans += item.attributes.unit * item.attributes.price));
+    setPrice(ans);
+  };
+
+  useEffect(() => {
+    handlePrice()
+  });
 
 
-        </>
-    )
+
+  return (
+
+    <>
+      <NavBar setShow={setShow} size={cart.length} />
+      {show ? (<><div className="prod">
+        {orders.map((row) => (
+
+          <div className="a-box" key={row.id}>
+
+            <div className="a-b-img">
+              <img src={row.attributes.Picture.data.attributes.url} alt="" />
+            </div>
+
+            <div className="a-b-text">
+              {/* <h2> {row.attributes.name}</h2> */}
+              <p>{row.attributes.name}</p>
+              <p>Price - R{row.attributes.price}</p>
+              <Link key={row.id} to={`/view/${row.id}`}>
+                <button className="productbox-button" onClick={() => handleProduct(row)}>Add to Cart</button>
+              </Link>
+            </div>
+
+          </div>
+        ))}
+      </div></>) : (<></>)}
+
+
+    </>
+  )
 }
 
 export default ProductBox

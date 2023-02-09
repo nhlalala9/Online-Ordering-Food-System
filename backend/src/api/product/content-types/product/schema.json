@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -21,27 +21,19 @@
     "description": {
       "type": "text"
     },
-    "Picture": {
-      "type": "text"
-    },
     "quantity": {
       "type": "integer"
     },
     "Total_Price": {
       "type": "integer"
     },
-    "order_lists": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::order-list.order-list",
-      "mappedBy": "products"
-    },
-    "image": {
+    "pictures": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

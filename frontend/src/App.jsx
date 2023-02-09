@@ -62,6 +62,7 @@ const App = () => {
     // console.log(cartItems, "try local storage")
     // console.log(localNum)
    
+    // console.log(items)
   };
 
   const handleRemoveProduct = (product) => {
@@ -87,9 +88,10 @@ const App = () => {
   return (
     <div className="App">
       {/* <NavBar /> */}
+     
+      
       <AppRoutes
         productItems={productItems}
-        // items={items}
         cartItems={cartItems}
         HandleProduct={HandleProduct}
         handleRemoveProduct={handleRemoveProduct}

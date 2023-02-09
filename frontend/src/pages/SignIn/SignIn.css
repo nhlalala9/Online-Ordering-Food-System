@@ -1,5 +1,5 @@
 .container{
-  background: linear-gradient(135deg,#850c62, #f80759);
+  /* background: linear-gradient(135deg,#850c62, #f80759); */
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -73,4 +73,22 @@
 
 .error{
   color: red;
+}
+
+@media screen and (max-width:1200px){
+  .container{
+    width: 170%;
+    margin-top: 2rem;
+  }
+  
+}
+@media screen and (max-width: 768px){
+  .container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 23rem;
+  }
+  
 }

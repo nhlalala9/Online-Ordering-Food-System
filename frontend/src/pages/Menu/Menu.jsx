@@ -56,6 +56,7 @@ function Menu({ productItems, HandleProduct }) {
     }
   }, [query]);
 
+console.log( productItems,"seeeee")
   return (
     <>
       {loading ? (
@@ -86,13 +87,9 @@ function Menu({ productItems, HandleProduct }) {
                       />
                     </Link>
                     <CCardBody>
-                      <CCardTitle style={{ fontSize: "24px" }}>
-                        {productItem.attributes.name}
-                      </CCardTitle>
-                      <CCardText style={{ fontSize: "16px" }}>
-                        {" "}
-                        R{productItem.attributes.price}
-                      </CCardText>
+                      <CCardTitle style={{fontSize:"24px"}}>{productItem.attributes.name}</CCardTitle>
+                      <CCardText style={{ fontSize:"16px"}}> R{productItem.attributes.price.toFixed(2)}</CCardText>
+                     
                       {/* <CCardText> R {productItem.attributes.description}</CCardText> */}
                       <CButton
                         style={{ width: "17rem", height: "50px" }}
