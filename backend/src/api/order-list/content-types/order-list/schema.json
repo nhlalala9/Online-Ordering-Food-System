@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "DishName": {
-      "type": "string"
-    },
     "Picture": {
       "type": "text"
     },
@@ -42,16 +39,21 @@
         "Voucher"
       ]
     },
-    "Acquire": {
-      "type": "enumeration",
-      "enum": [
-        "Delivery",
-        "Pickup",
-        "Sit-in"
-      ]
-    },
     "TotalPrice": {
       "type": "integer"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "inversedBy": "order_lists"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

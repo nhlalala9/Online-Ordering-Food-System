@@ -29,6 +29,19 @@
     },
     "Total_Price": {
       "type": "integer"
+    },
+    "order_lists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::order-list.order-list",
+      "mappedBy": "products"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

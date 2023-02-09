@@ -46,7 +46,7 @@ function Menu({ productItems, HandleProduct }) {
           productItems = response.data.data;
           console.log(response.data.data);
           // productItems = {cards};
-          console.log(productItems, "sdfghj");
+          console.log(productItems, "search console");
         })
         .catch((err) => {
           console.log(err);

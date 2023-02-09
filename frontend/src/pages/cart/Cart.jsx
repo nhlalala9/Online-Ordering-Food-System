@@ -16,16 +16,20 @@ const Cart = ({
     
   const [state, setState] = useState(true);
 
-  useEffect(() => {
+  useEffect((e) => {
+    // e.preventDefault()
     // localStorage.setItem("Cart Items", JSON.stringify(cartItems));
-
-    // if (cartItems.length >= 1) {
-    //   setState(false);
-    // }
-    // if (cartItems.length === 0) {
-    //   setState(true);
-    // }
+    if (cartItems.length >= 1) {
+      setState(false);
+      console.log(cartItems)
+    }
+    if (cartItems.length === 0) {
+      setState(true);
+    }
   }, []);
+
+  console.log(cartItems[0].quantity)
+  // console.log(cartItems[0].attributes.price, "price")
 
   return (
     <div className="main_cart">
@@ -78,6 +82,9 @@ const Cart = ({
 
                 <div className="cart-items-price">
                   {item.quantity} * R{item.attributes.price.toFixed(2)}
+                </div>
+                <div tot>
+                  R {item.quantity*item.attributes.price.toFixed(2)}
                 </div>
               </div>
             ))}
