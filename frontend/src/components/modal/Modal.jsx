@@ -76,7 +76,7 @@ function Modal({ setOpenModal }) {
     // formData.append(“refId”, eventId);
     // formData.append(“field”, “image”);
     axios
-      .post("http://localhost:1337/api/products/populate=*", {data: formData})
+      .post("http://localhost:1337/api/products", {data: formData})
       .then((response) => {
         const formData = new FormData();
         formData.append("files", picture);
@@ -149,15 +149,7 @@ function Modal({ setOpenModal }) {
               value={formData.Picture}
               onChange={(e) => setPicture(e.target.files[0])}
             />
-               <label>image:</label>
-            <input
-              className="modal_input"
-              type="file"
-              name="image"
               
-              value={selectedFile}
-              onChange={handleChange}
-            />
             <div className="modal_footer">
               <button  className="bt1"
                 onClick={() => {
