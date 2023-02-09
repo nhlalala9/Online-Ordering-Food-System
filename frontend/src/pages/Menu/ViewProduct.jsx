@@ -7,19 +7,8 @@ import { useParams } from "react-router-dom";
 
 export default function ViewProduct(productItems, handleProduct) {
   let { id } = useParams();
-  const [formData, setFormData] = useState({
-    CustomerName: "",
-    Rate: "",
-    Comment: "",
-  });
 
-  const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-    console.log(formData);
-  };
+
   const [cards, setCards] = useState([]);
   useEffect(() => {
     axios
@@ -31,17 +20,7 @@ export default function ViewProduct(productItems, handleProduct) {
       .catch((err) => console.log(err));
   }, []);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    axios
-      .post("http://localhost:1337/api/reviews", { data: formData })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+
 
   return (
     <>

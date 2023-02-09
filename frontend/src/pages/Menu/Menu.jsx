@@ -12,9 +12,13 @@ import NavBar from "../../components/NavBar/NavBar";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
+import { useSelector, useDispatch } from "react-redux";
 
 function Menu({ productItems, HandleProduct }) {
   let { id } = useParams();
+  const cart = useSelector((state)=>state)
+  console.log(cart);
+  const dispatch = useDispatch();
   // const card = cards.find(card => card.id === id);
   // const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState();
@@ -77,7 +81,9 @@ console.log( productItems,"seeeee")
             </div>
 
             <div className="menu_items">
-              {productItems.map((productItem) => (
+              {productItems.map((productItem) => {
+               productItem.quantity = 1;
+               return (
                 <div key={productItem.id} className="see">
                   <CCard style={{ width: "20rem" }}>
                     <Link key={productItem.id} to={`/view/${productItem.id}`}>
@@ -93,14 +99,16 @@ console.log( productItems,"seeeee")
                       {/* <CCardText> R {productItem.attributes.description}</CCardText> */}
                       <CButton
                         style={{ width: "17rem", height: "50px" }}
-                        onClick={() => HandleProduct(productItem)}
+                        // onClick={() => HandleProduct(productItem)}
+                        onClick={() => dispatch({type: "ADD", payload: productItem})}
                       >
                         Add to cart
                       </CButton>
                     </CCardBody>
                   </CCard>
                 </div>
-              ))}
+               )
+                } )}
             </div>
           </div>
         </Box>

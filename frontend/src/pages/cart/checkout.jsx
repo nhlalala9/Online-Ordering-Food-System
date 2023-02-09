@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { TextField, Grid } from "@mui/material";
-import NavBar from "../../components/NavBar/NavBar";
-import "./cart.css";
+
+import React,{ useState , useEffect}  from 'react'
+import axios from 'axios';
+import { TextField, Grid } from '@mui/material';
+import NavBar from '../../components/NavBar/NavBar';
+import "./cart.css"
+import { useSelector, useDispatch } from "react-redux";
 
 function Checkout(cartItems) {
   // const [cartItems, setCartItems] = useState([], () => {
@@ -62,6 +64,51 @@ console.log(DishName, "Dish name")
       .post("http://localhost:1337/api/order-lists",cartData)
       .then((response) => {
         console.log(response);
+  const [addInfo, setAddInfo] = useState([])
+    const [formData, setFormData] = useState({
+        first_Name: "",
+        last_Name: "",
+        phone_number: "",
+        email:"",
+        line1:"",
+        line2:"",
+        zip_code:"",
+        city:"",
+        province:"",
+        country:"",
+        });
+      }
+
+const cart = useSelector((state) => state);
+  console.log(cart ,"products");
+console.log(cartItems, "checkout") 
+
+    const handleChange = (event) => {
+        setFormData({
+          ...formData,
+          [event.target.name]: event.target.value,
+        });
+        console.log(formData);
+      };
+
+    const HandleSubmit = (event) => {
+        event.preventDefault();
+        axios
+           .post("http://localhost:1337/api/order-lists", { data: formData })
+           .then((response) => {
+             console.log(response);
+           })
+           .catch((error) => {
+             console.log(error);
+           });
+      };
+
+      useEffect (() => {
+        setAddInfo(localStorage.setItem("Form data", JSON.stringify(formData)))
+       } , [formData]); 
+     
+       useEffect(()=>{
+        console.log(localStorage.getItem('Cart Items'))
       })
       .catch((error) => {
         console.log(error);
