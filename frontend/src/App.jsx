@@ -11,7 +11,7 @@ const App = () => {
   const data = [];
 
   async function fetchData() {
-    const response = await axios.get("http://localhost:1337/api/products");
+    const response = await axios.get("http://localhost:1337/api/products?populate=*");
     const productItems = await response.data.data;
     data.push(...productItems);
     console.log(productItems, "ProductItems working");
@@ -22,20 +22,7 @@ const App = () => {
 
   const [cartItems, setCartItems] = useState([]);
 
-  /*,() => {
-    const localData = localStorage.getItem(cartItems)
-    return localData;
-  }*/
 
-  // const [items, setItems] = useState(() => {
-  //   if(JSON.parse(localStorage.getItem('cartItems')) == null){
-  //     return [];
-  //   }else{
-  //     return JSON.parse(localStorage.getItem('cartItems'))
-  //   }
-  // })
-
-  // console.log(cartItems[0].attributes.price, "cart items");
   
   const HandleProduct = (product) => {
     const ProductExist = cartItems.find((item) => item.id === product.id);

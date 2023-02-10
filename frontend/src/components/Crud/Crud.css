@@ -42,15 +42,14 @@
     height: 200px;
 }
 .card-text{
-    height: 150px;
+    height: 100px;
 }
 
 .card {
-    margin-left: 30PX;
+    left: 50PX;
     border: 0.5px solid;
     padding: 5px;
-    /* width: 200px; */
-    width: 22rem;
+    width: 100%;  
   }
 
 .move{

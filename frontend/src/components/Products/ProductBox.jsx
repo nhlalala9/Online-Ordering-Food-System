@@ -17,7 +17,7 @@ function ProductBox(handleProduct,) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:1337/api/products')
+    axios.get('http://localhost:1337/api/products?populate=*')
       .then(response => {
         setIsLoading(true);
         setOrders(response.data.data)
@@ -68,7 +68,7 @@ function ProductBox(handleProduct,) {
           <div className="a-box" key={row.id}>
 
             <div className="a-b-img">
-              <img src={row.attributes.Picture.data.attributes.url} alt="" />
+              <img src={row.attributes.pictures.data.attributes.url} alt="" />
             </div>
 
             <div className="a-b-text">

@@ -13,11 +13,12 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
 import { useSelector, useDispatch } from "react-redux";
+import Loader from "../../components/Loader/Loader";
 
 function Menu({ productItems, HandleProduct }) {
   let { id } = useParams();
   const cart = useSelector((state)=>state)
-  console.log(cart);
+  // console.log(cart);
   const dispatch = useDispatch();
   // const card = cards.find(card => card.id === id);
   // const [cards, setCards] = useState([]);
@@ -26,7 +27,7 @@ function Menu({ productItems, HandleProduct }) {
 
   const getFood = async () => {
     axios
-      .get("http://localhost:1337/api/products")
+      .get("http://localhost:1337/api/products?populate=*")
       .then((response) => {
         setLoading(true);
         productItems = response.data.data;
@@ -88,13 +89,14 @@ console.log( productItems,"seeeee")
                   <CCard style={{ width: "20rem" }}>
                     <Link key={productItem.id} to={`/view/${productItem.id}`}>
                       <CCardImage
-                        style={{ height: "15rem" }}
-                        src={productItem.attributes.Picture}
+                        style={{ height: "15rem", marginBottom:"5px"}}
+                        src={productItem.attributes.pictures.data.attributes.url}
                       />
                     </Link>
                     <CCardBody>
                       <CCardTitle style={{fontSize:"24px"}}>{productItem.attributes.name}</CCardTitle>
-                      <CCardText style={{ fontSize:"16px"}}> R{productItem.attributes.price.toFixed(2)}</CCardText>
+                      <CCardText style={{ fontSize:"16px", height:"30px", fontWeight:"bold" , fontSize:"20px"}}>
+                        R{productItem.attributes.price.toFixed(2)}</CCardText>
                      
                       {/* <CCardText> R {productItem.attributes.description}</CCardText> */}
                       <CButton
@@ -122,7 +124,7 @@ console.log( productItems,"seeeee")
       >
       
       </Backdrop> */}
-          Loading...
+        <Loader />
           {/* <CircularProgress color="blue" /> */}
         </>
       )}

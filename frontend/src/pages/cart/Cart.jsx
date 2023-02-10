@@ -5,29 +5,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 
-// const Cart = ({
-//   cartItems,
-//   HandleProduct,
-//   handleRemoveProduct,
-//   handleCartClearance,
-// }) => {
-//   const totalPrice = cartItems.reduce(
-//     (price, item) => price + item.quantity * item.attributes.price,
-//     0
-//   );
-// const Cart = ({
-//   cartItems,
-//   HandleProduct,
-//   handleRemoveProduct,
-//   handleCartClearance,
-// }) => {
-//   const totalPrice = cartItems.reduce(
-//     (price, item) => price + item.quantity * item.attributes.price,
-//     0
-//   );
-
-
-const Cart = () => {
+const Cart = (cartItems,handleCartClearance) => {
   const cart = useSelector((state) => state);
   console.log(cart ,"products");
   const dispatch = useDispatch();
@@ -42,17 +20,17 @@ const Cart = () => {
   useEffect((e) => {
     // e.preventDefault()
     // localStorage.setItem("Cart Items", JSON.stringify(cartItems));
-    if (cartItems.length >= 1) {
+    if (cart.length >= 1) {
       setState(false);
       console.log(cartItems)
     }
    
-    if (cartItems.length === 0) {
+    if (cart.length === 0) {
       setState(true);
     }
   }, []);
 
-  console.log(cartItems[0].quantity)
+  // console.log(cartItems[0].quantity)
   // console.log(cartItems[0].attributes.price, "price")
 
   
@@ -62,7 +40,7 @@ const Cart = () => {
       <div className="cart_item">
         <h1 className="card-items-header">Cart Items</h1>
         <div className="clear-cart">
-          {cartItems.length >= 1 && (
+          {cart.length >= 1 && (
             <button className="clear-cart-button" onClick={handleCartClearance}>Clear cart</button>
            
           
@@ -91,7 +69,7 @@ const Cart = () => {
               <div key={item.id} className="cart-items-list">
                 <img
                   className="cart-items-image"
-                  src={item.attributes.Picture}
+                  src={item.attributes.pictures.data.attributes.url}
                   alt=""
                 />
                 <div className="cart-items-name">{item.attributes.name}</div>
