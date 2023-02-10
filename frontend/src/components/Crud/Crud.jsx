@@ -37,7 +37,7 @@ function CRUD() {
       .then((response) => {
         setLoading(false);
         setCards(response.data.data);
-        console.log(response.data.data);
+        // console.log("Map test",response.data.data.map((dat)=>dat.attributes.pictures.data.attributes.url));
       })
       .catch((err) => console.log(err));
   };
@@ -97,8 +97,8 @@ function CRUD() {
         </div>
         <div className="row mb-5">
           {loading ? <Loader /> : cards.map((card) => (
-            <div className="col-md-3">
-              <div className="card" key={card.id}>
+            <div className="col-md-3 d-flex" key={card.id}>
+              <div className="card"  >
                 <img className="card-img-top" src={card.attributes.pictures.data.attributes.url} alt="Card image cap" />
                 <div className="card-body">
                   <h5 className="card-title">{card.attributes.name}</h5>

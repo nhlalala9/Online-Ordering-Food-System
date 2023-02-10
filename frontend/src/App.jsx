@@ -1,41 +1,28 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { Col, Layout, Row } from "antd";
-import AppHeader from "./components/AppHeader/Appheader";
 import AppRoutes from "./Routes";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar";
 
 const App = () => {
   const navigate = useNavigate();
   const data = [];
 
   async function fetchData() {
-    const response = await axios.get("http://localhost:1337/api/products");
+    const response = await axios.get("http://localhost:1337/api/products?populate=*");
     const productItems = await response.data.data;
     data.push(...productItems);
-    console.log(productItems, "working");
+    console.log(productItems, "ProductItems working");
   }
   fetchData();
 
   const productItems = data;
 
+  const [cartItems, setCartItems] = useState([]);
 
-  const [cartItems, setCartItems] = useState([]/*,() => {
-    const localData = localStorage.getItem(cartItems)
-    return localData;
-  }*/);
 
-  const [items, setItems] = useState(() => {
-    if(JSON.parse(localStorage.getItem('cartItems')) == null){
-      return [];
-    }else{
-      return JSON.parse(localStorage.getItem('cartItems'))
-    }
-  })
-
-  // console.log(cartItems[0].attributes.price, "cart items");
   
   const HandleProduct = (product) => {
     const ProductExist = cartItems.find((item) => item.id === product.id);
@@ -59,6 +46,9 @@ const App = () => {
     // let localNum = items;
     // localNum.push(product);
     // localStorage.setItem("cartItems",  JSON.stringify(localNum) )
+    // console.log(cartItems, "try local storage")
+    // console.log(localNum)
+   
     // console.log(items)
   };
 
@@ -84,6 +74,8 @@ const App = () => {
 
   return (
     <div className="App">
+      {/* <NavBar /> */}
+     
       
       <AppRoutes
         productItems={productItems}

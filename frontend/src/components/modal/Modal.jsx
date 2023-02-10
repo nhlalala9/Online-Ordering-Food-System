@@ -2,15 +2,61 @@ import React, { useState } from "react";
 import "./Modal.css";
 import axios from "axios";
 import   {useNavigate} from "react-router-dom"
+import { UpdatesData } from "../Data/Data";
 import Loader from "../Loader/Loader";
 
 function Modal({ setOpenModal }) {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [fileId, setfileId] = useState(null);
+
+
+
+//   let formData = new FormData();
+//     formData.append("name", name);
+//     formData.append("description", description);
+//     formData.append("price", price);
+//     formData.append("Picture", Picture);
+//     // formData.append("team", phone);
+//     formData.append("files", selectedFile);
+//     // formData.append("message", message);
+
+// axios.post("http://localhost:1337/upload",file)
+//       .then((response) => {
+//         const fileId = response.data[0].id
+
+//         axios({
+//             method: "post",
+//             url: "http://localhost:1337/api/products",
+//             data:{
+//                     name: name,
+//                     description: description,
+//                     price: price,
+//                     Picture: Picture,
+//                     // team: team,
+//                     Image: fileId,
+//                     // message: message,
+//                 }
+//             })
+//         .then(({ data }) => {
+//             setResponse(data);
+//         })
+//         .catch((error) => {
+//         //handle error
+//         });
+
+//         })
+//         .catch((error)=>{
+//         //handle error
+//     })
+
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  
   const [formData, setFormData] = useState({
     name: "",
     description: "",
     price: "",
+  
   });
 
   const [picture, setPicture] = useState()
@@ -23,7 +69,7 @@ function Modal({ setOpenModal }) {
     console.log(formData);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
     setLoading(true)
     // formData.append(“files”, image);
@@ -48,6 +94,7 @@ function Modal({ setOpenModal }) {
       .catch((error) => {
         console.log(error);
       });
+          
   };
 
   return (
@@ -104,6 +151,7 @@ function Modal({ setOpenModal }) {
               value={formData.Picture}
               onChange={(e) => setPicture(e.target.files[0])}
             />
+              
             <div className="modal_footer">
               <button  className="bt1"
                 onClick={() => {

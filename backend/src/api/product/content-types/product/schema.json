@@ -21,12 +21,6 @@
     "description": {
       "type": "text"
     },
-    "quantity": {
-      "type": "integer"
-    },
-    "Total_Price": {
-      "type": "integer"
-    },
     "pictures": {
       "type": "media",
       "multiple": false,

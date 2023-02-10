@@ -45,7 +45,6 @@ function EditForm() {
   const editId = (prodId, e) => {
 
     e.preventDefault();
-
     axios
       .put(`http://localhost:1337/api/products/${prodId}`, { data: formData })
       .then((response) => {

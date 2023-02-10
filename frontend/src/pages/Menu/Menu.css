@@ -1,28 +1,29 @@
 .myMenu{
-    /* background-color: red; */
    padding: 30px;
- 
 }
 
 .reviewForm{
   display: flex;
   justify-content: center;
-  /* border: solid 2px red; */
 }
+
 .form_input{
 padding: 5px;
 width: 100rem;
 height: 40px;
 }
+
 .heading{
     text-align: center;
     font-family: 'Alfa Slab One';
     margin-bottom: 20px;
 }
+
 .label{
     font-weight: bold;
     color: black;
 }
+
 .sub_btn{
     background-color: blue;
     width: 10%;
@@ -36,8 +37,7 @@ height: 40px;
    margin: 15rem 30rem;
     display: flex;
     align-items: center;
-   gap:5rem;
-  
+   gap:5rem; 
 }
 .picture{
     width: 50%;                     
@@ -50,12 +50,7 @@ height: 40px;
     border-radius: 5px;
   
 }
-/* h3{
-    color: red;
-    font-weight: bold;
-} */
 
-  
   
 .details{
     margin-right: 15rem;
@@ -66,10 +61,9 @@ a{
 
 .menu_items{
     margin-top: 5rem;
-    /* margin-left: 1rem; */
     display: flex;
     flex-wrap: wrap;
-    /* gap: 10px; */
+    /* background-color: yellow; */
 }
 
 .searc{
@@ -87,5 +81,10 @@ a{
 .img{
     /* border: solid 2px red; */
     width: 30rem;
+}
+
+.see{
+    display: flex;
+    flex-wrap: wrap;
 }
 

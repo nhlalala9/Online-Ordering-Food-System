@@ -6,11 +6,8 @@ import { getToken } from "./helpers";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import ForgotPassword from "./components/Forgot/forgotPassword"
-
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Crud from "./components/Crud/Crud";
-
-// import MainDash from "./components/MainDash/MainDash"
 import OrderList from "./components/OderList/OrderList";
 import Admin from "./components/Admin/Admin";
 import Ratings from "./components/Ratings/Ratings";
@@ -33,6 +30,8 @@ import Delivery from "./components/Delivery/Delivery";
 import CheckoutForm from "./pages/cart/checkout";
 import NavBar from "./components/NavBar/NavBar";
   
+import OrderHiststory from "./pages/OrderHistory/OrderHistory";
+import RatingsModal from "./components/Ratings/RatingsModal"
 
 
 const AppRoutes = ({productItems, cartItems, HandleProduct, handleRemoveProduct,handleCartClearance}) => {
@@ -56,6 +55,7 @@ const AppRoutes = ({productItems, cartItems, HandleProduct, handleRemoveProduct,
     
         
       
+    <Route path="orders" element={<OrderHiststory/>}/>
       <Route path="dash" element={<Admin/>}/>
       <Route path="orderlist" element={<OrderList/>}/>
       <Route path="ratings" element={<Ratings/>}/>
@@ -71,6 +71,8 @@ const AppRoutes = ({productItems, cartItems, HandleProduct, handleRemoveProduct,
      <Route path="delivery" element={<Delivery/>}/>
      
       <Route path="checkoutform" element={<CheckoutForm  cartItems={cartItems} />}/>
+      <Route path="checkout" element={<Checkout cartItems={cartItems} />}/>
+      <Route path="rate" element={<RatingsModal/>}/>
     </Routes>
   );
 };
