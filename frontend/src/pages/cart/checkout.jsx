@@ -65,18 +65,18 @@ console.log(DishName, "Dish name")
       .then((response) => {
         console.log(response);
   // const [addInfo, setAddInfo] = useState([])
-    const [formData, setFormData] = useState({
-        first_Name: "",
-        last_Name: "",
-        phone_number: "",
-        email:"",
-        line1:"",
-        line2:"",
-        zip_code:"",
-        city:"",
-        province:"",
-        country:"",
-      });
+    // const [formData, setFormData] = useState({
+    //     first_Name: "",
+    //     last_Name: "",
+    //     phone_number: "",
+    //     email:"",
+    //     line1:"",
+    //     line2:"",
+    //     zip_code:"",
+    //     city:"",
+    //     province:"",
+    //     country:"",
+    //   });
       })
 
 const cart = useSelector((state) => state);
