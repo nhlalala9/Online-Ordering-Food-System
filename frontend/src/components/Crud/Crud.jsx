@@ -33,7 +33,7 @@ function CRUD() {
   //get all from strapi
   const getMenu = async () => {
     axios
-      .get("http://localhost:1337/api/products")
+      .get("http://localhost:1337/api/products?populate=*")
       .then((response) => {
         setLoading(false);
         setCards(response.data.data);
@@ -99,10 +99,10 @@ function CRUD() {
           {loading ? <Loader /> : cards.map((card) => (
             <div className="col-md-3">
               <div className="card" key={card.id}>
-                <img className="card-img-top" src={card.attributes.Picture} alt="Card image cap" />
+                <img className="card-img-top" src={card.attributes.pictures.data.attributes.url} alt="Card image cap" />
                 <div className="card-body">
                   <h5 className="card-title">{card.attributes.name}</h5>
-                  <p className="price">R {card.attributes.price}.00</p>
+                  <p className="price">R {card.attributes.price}</p>
                   <div className="card-text">
                     <p >{card.attributes.description}</p>
                   </div>
