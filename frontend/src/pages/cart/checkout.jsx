@@ -64,7 +64,7 @@ console.log(DishName, "Dish name")
       .post("http://localhost:1337/api/order-lists",cartData)
       .then((response) => {
         console.log(response);
-  const [addInfo, setAddInfo] = useState([])
+  // const [addInfo, setAddInfo] = useState([])
     const [formData, setFormData] = useState({
         first_Name: "",
         last_Name: "",
@@ -76,8 +76,8 @@ console.log(DishName, "Dish name")
         city:"",
         province:"",
         country:"",
-        });
-      }
+      });
+      })
 
 const cart = useSelector((state) => state);
   console.log(cart ,"products");
@@ -103,9 +103,9 @@ console.log(cartItems, "checkout")
            });
       };
 
-      useEffect (() => {
-        setAddInfo(localStorage.setItem("Form data", JSON.stringify(formData)))
-       } , [formData]); 
+      // useEffect (() => {
+      //   setAddInfo(localStorage.setItem("Form data", JSON.stringify(formData)))
+      //  } , [formData]); 
      
        useEffect(()=>{
         console.log(localStorage.getItem('Cart Items'))
