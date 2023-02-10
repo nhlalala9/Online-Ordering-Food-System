@@ -85,8 +85,8 @@ console.log( productItems,"seeeee")
               {productItems.map((productItem) => {
                productItem.quantity = 1;
                return (
-                <div key={productItem.id} className="see">
-                  <CCard style={{ width: "20rem" }}>
+                <div key={productItem.id} className="see ">
+                  <CCard style={{ width: "20rem", gap:"5px" }}>
                     <Link key={productItem.id} to={`/view/${productItem.id}`}>
                       <CCardImage
                         style={{ height: "15rem", marginBottom:"5px"}}

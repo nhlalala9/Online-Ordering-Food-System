@@ -86,5 +86,7 @@ a{
 .see{
     display: flex;
     flex-wrap: wrap;
+    gap:25px;
+    background-color: red;
 }
 
