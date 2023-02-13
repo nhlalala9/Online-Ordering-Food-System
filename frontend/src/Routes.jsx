@@ -34,7 +34,7 @@ import OrderHiststory from "./pages/OrderHistory/OrderHistory";
 import RatingsModal from "./components/Ratings/RatingsModal"
 
 
-const AppRoutes = ({productItems, cartItems, HandleProduct, handleRemoveProduct,handleCartClearance}) => {
+const AppRoutes = ({productItems, cartItems, HandleProduct, handleRemoveProduct,handleCartClearance, cart}) => {
   return (
     <Routes>
       

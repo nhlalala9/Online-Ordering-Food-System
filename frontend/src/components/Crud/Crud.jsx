@@ -15,6 +15,7 @@ function CRUD() {
   const [id, setId] = useState("");
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+
   function getId(id) {
     setId(id);
     console.log(id);
@@ -50,7 +51,7 @@ function CRUD() {
     if (query) {
       axios
         .get(
-          `http://localhost:1337/api/products?filters[name][$containsi]=${query}`
+          `http://localhost:1337/api/products?populate=*?filters[name][$containsi]=${query}`
         )
         .then((response) => {
           setCards(response.data.data);
@@ -95,27 +96,28 @@ function CRUD() {
             </span>
           </div>
         </div>
-        <div className="row mb-5">
+
+        <div className="row mb-5 gap-5 mt-5">
           {loading ? <Loader /> : cards.map((card) => (
-            <div className="col-md-3 d-flex" key={card.id}>
-              <div className="card"  >
+            <div className=" card col-md-3 d-flex " key={card.id}>
+      
                 <img className="card-img-top" src={card.attributes.pictures.data.attributes.url} alt="Card image cap" />
                 <div className="card-body">
-                  <h5 className="card-title">{card.attributes.name}</h5>
-                  <p className="price">R {card.attributes.price}.00</p>
-                  <div className="card-text">
+                  <h4 className="card-title " >{card.attributes.name}</h4>
+                  <p className="price "style={{ fontSize:"18px", fontWeight:"bold" }}>R {card.attributes.price.toFixed(2)}</p>
+                 
                     <p >{card.attributes.description}</p>
-                  </div>
-                  <div className="buttons">
+                  
 
+                  
+                </div>
+                <div className="buttons">
                     <button className="btn_t" onClick={() => edit(card.id)}>Edit</button>
-
                     <button className="btnRed " onClick={() => getId(card.id)}>
                       Delete
                     </button>
                   </div>
-                </div>
-              </div>
+            
             </div>
           ))}
         </div>

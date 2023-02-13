@@ -85,8 +85,8 @@ console.log( productItems,"seeeee")
               {productItems.map((productItem) => {
                productItem.quantity = 1;
                return (
-                <div key={productItem.id} className="see">
-                  <CCard style={{ width: "20rem" }}>
+                <div key={productItem.id} className="col-md-2 d-flex ">
+                  <CCard style={{ width: "20rem", gap:"5px" }}>
                     <Link key={productItem.id} to={`/view/${productItem.id}`}>
                       <CCardImage
                         style={{ height: "15rem", marginBottom:"5px"}}
@@ -116,16 +116,7 @@ console.log( productItems,"seeeee")
         </Box>
       ) : (
         <>
-          {/* <Backdrop
-        sx={{ color: '#red', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={open}
-        onClick={handleClose}
-
-      >
-      
-      </Backdrop> */}
         <Loader />
-          {/* <CircularProgress color="blue" /> */}
         </>
       )}
     </>
