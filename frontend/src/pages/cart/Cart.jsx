@@ -114,7 +114,7 @@ const Cart = (cartItems,handleCartClearance) => {
               Total
               <div className="cart-items-total-price">
                 {/* R {totalPrice.toFixed(2)} */}
-                {total > 0 && <h2>{total.toFixed(2)}</h2>}
+                {total > 0 && <h3>R{total.toFixed(2)}</h3>}
               </div>
             </div>
             <div className="checkout">

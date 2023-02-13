@@ -15,6 +15,7 @@ function CRUD() {
   const [id, setId] = useState("");
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+
   function getId(id) {
     setId(id);
     console.log(id);
@@ -50,7 +51,7 @@ function CRUD() {
     if (query) {
       axios
         .get(
-          `http://localhost:1337/api/products?filters[name][$containsi]=${query}`
+          `http://localhost:1337/api/products?populate=*?filters[name][$containsi]=${query}`
         )
         .then((response) => {
           setCards(response.data.data);
@@ -102,8 +103,8 @@ function CRUD() {
       
                 <img className="card-img-top" src={card.attributes.pictures.data.attributes.url} alt="Card image cap" />
                 <div className="card-body">
-                  <h4 className="card-title fw-bold " >{card.attributes.name}</h4>
-                  <p className="price ">R {card.attributes.price.toFixed(2)}</p>
+                  <h4 className="card-title " >{card.attributes.name}</h4>
+                  <p className="price "style={{ fontSize:"18px", fontWeight:"bold" }}>R {card.attributes.price.toFixed(2)}</p>
                  
                     <p >{card.attributes.description}</p>
                   
