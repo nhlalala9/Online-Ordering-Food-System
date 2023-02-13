@@ -35,7 +35,7 @@ import RatingsModal from "./components/Ratings/RatingsModal"
 import Reservation from "./components/Reservation/Reservation";
 
 
-const AppRoutes = ({productItems, cartItems, HandleProduct, handleRemoveProduct,handleCartClearance}) => {
+const AppRoutes = ({productItems, cartItems, HandleProduct, handleRemoveProduct,handleCartClearance, cart}) => {
   return (
     <Routes>
       

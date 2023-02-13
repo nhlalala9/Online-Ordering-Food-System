@@ -23,8 +23,8 @@
 .buttons{
     display: flex;
     flex-direction: row;
-    gap: 5px;
-    justify-content: space-between
+    justify-content: space-between;
+    margin: 10px;
 }
 .btnRed{
     width: 60px;
@@ -49,8 +49,10 @@
     left: 50PX;
     border: 0.5px solid;
     padding: 5px;
-    width: 100%;  
+   width: 20%;
+    /* height: 100%; */
   }
+  
 
 .move{
     margin-left: 25px;
@@ -61,21 +63,13 @@
 }
 
 .modal-overlay{
-    /* background-color: red; */
+
     width: 50%;
     height: 50%;
     display: flex;
     align-items: center;
 }
 
-/* .edit_form{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 100%;
-    width: 100%;
-} */
 
 .btns{
     display: flex;
@@ -91,8 +85,8 @@
     width: 10%;
     border-radius:5px;
 }
+
 .try{
-   
     width: 50rem;
 }
 

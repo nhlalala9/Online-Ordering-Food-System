@@ -17,7 +17,7 @@ function Products() {
   //get all 
   useEffect(() => {
     axios
-      .get("http://localhost:1337/api/products")
+      .get("http://localhost:1337/api/products?populate=*")
       .then((response) => {
         setIsLoading(true);
         setOrders(response.data.data);
@@ -36,10 +36,7 @@ function Products() {
              accusamus consectetur exercitationem eius vitae.
         </p>
         <div className="a-container">
-            <ProductBox image={pimage1} title="Luger Burger"/>
-            {/* <ProductBox image={pimage1} title="Luger Burger"/> */}
-            {/* <ProductBox image={pimage1} title="Luger Burger"/> */}
-            {/* <ProductBox image={pimage1} title="Luger Burger"/> */}
+            <ProductBox/>
         </div>
 
     </div>

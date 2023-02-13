@@ -10,23 +10,25 @@ const Cart = (cartItems,handleCartClearance) => {
   console.log(cart ,"products");
   const dispatch = useDispatch();
   const addition = (acc, currentvalue) => {
-    return acc + currentvalue.price * currentvalue.quantity;
+     return acc + currentvalue.attributes.price * currentvalue.quantity;
   };
   const total = cart.reduce(addition, 0);
-  console.log("total", total)
+  // console.log("total : ", total,"addition : ", cart.reduce(addition, 0),)
     
   const [state, setState] = useState(true);
+  const [price, setPrice] = useState(0);
 
   useEffect((e) => {
     // e.preventDefault()
     // localStorage.setItem("Cart Items", JSON.stringify(cartItems));
     if (cart.length >= 1) {
       setState(false);
-      console.log(cartItems)
+      console.log(cartItems,price)
     }
    
     if (cart.length === 0) {
       setState(true);
+
     }
   }, []);
 
@@ -78,6 +80,7 @@ const Cart = (cartItems,handleCartClearance) => {
                     className="cart-items-add"
                     // onClick={() => HandleProduct(item)}
                     onClick={() => dispatch({ type: "INCREASE", payload: item })}
+                    
                   >
                     +
                   </button>
@@ -87,6 +90,7 @@ const Cart = (cartItems,handleCartClearance) => {
                     onClick={() => {
                       if (item.quantity > 1) {
                         dispatch({ type: "DECREASE", payload: item });
+                        
                       } else {
                         dispatch({ type: "REMOVE", payload: item });
                       }
@@ -102,6 +106,7 @@ const Cart = (cartItems,handleCartClearance) => {
                 </div>
                 <div tot>
                   R {item.quantity*item.attributes.price.toFixed(2)}
+                  {/* R {price} */}
                 </div>
               </div>
             ))}
@@ -109,7 +114,7 @@ const Cart = (cartItems,handleCartClearance) => {
               Total
               <div className="cart-items-total-price">
                 {/* R {totalPrice.toFixed(2)} */}
-                {total > 0 && <h2>total:{total}</h2>}
+                {total > 0 && <h3>R{total.toFixed(2)}</h3>}
               </div>
             </div>
             <div className="checkout">
