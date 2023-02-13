@@ -95,27 +95,28 @@ function CRUD() {
             </span>
           </div>
         </div>
-        <div className="row mb-5">
+
+        <div className="row mb-5 gap-5 mt-5">
           {loading ? <Loader /> : cards.map((card) => (
-            <div className="col-md-3 d-flex" key={card.id}>
-              <div className="cards"  >
+            <div className=" card col-md-3 d-flex " key={card.id}>
+      
                 <img className="card-img-top" src={card.attributes.pictures.data.attributes.url} alt="Card image cap" />
                 <div className="card-body">
-                  <h5 className="card-title">{card.attributes.name}</h5>
-                  <p className="price">R {card.attributes.price}.00</p>
-                  <div className="card-text">
+                  <h4 className="card-title fw-bold " >{card.attributes.name}</h4>
+                  <p className="price ">R {card.attributes.price.toFixed(2)}</p>
+                 
                     <p >{card.attributes.description}</p>
-                  </div>
-                  <div className="buttons">
+                  
 
+                  
+                </div>
+                <div className="buttons">
                     <button className="btn_t" onClick={() => edit(card.id)}>Edit</button>
-
                     <button className="btnRed " onClick={() => getId(card.id)}>
                       Delete
                     </button>
                   </div>
-                </div>
-              </div>
+            
             </div>
           ))}
         </div>
