@@ -4,13 +4,15 @@ import axios from "axios";
 import NavBar from "../NavBar/NavBar";
 import { Link } from "react-router-dom";
 import Products from "./Products";
-
+import { useSelector, useDispatch } from "react-redux";
 
 function ProductBox(handleProduct,) {
 
   const [show, setShow] = useState(true);
-  const [cart, setCart] = useState([]);
+  const [carts, setCart] = useState([]);
+  const cart = useSelector((state)=>state)
 
+  const dispatch = useDispatch();
   const [orders, setOrders] = useState([]);
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -58,6 +60,7 @@ function ProductBox(handleProduct,) {
 
 
 
+
   return (
 
     <>
@@ -76,7 +79,7 @@ function ProductBox(handleProduct,) {
               <p>{row.attributes.name}</p>
               <p>Price - R{row.attributes.price}</p>
               <Link key={row.id} to={`/view/${row.id}`}>
-                <button className="productbox-button" onClick={() => handleProduct(row)}>Add to Cart</button>
+                <button className="productbox-button" onClick={()=> dispatch({type: "ADD", payload: cart})}>Add to Cart</button>
               </Link>
             </div>
 
