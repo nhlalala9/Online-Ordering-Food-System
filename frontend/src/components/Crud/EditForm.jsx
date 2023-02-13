@@ -58,7 +58,9 @@ function EditForm() {
   };
 
   return (
+    <div className="container">
     <div className="edit_form">
+      
       <form onSubmit={(e) => editId(prodId, e)}>
         <Form.Group className="mb-3" >
           <Form.Label>Name</Form.Label>
@@ -83,7 +85,7 @@ function EditForm() {
           <Form.Label>Picture</Form.Label>
           <img src={data.Picture } />
           <Form.Control className="try" name="Picture"
-            value={formData.Picture || data.Picture }
+            value={formData.pictures || data.pictures }
             onChange={handleChange} type=""  />
         </Form.Group>
 
@@ -93,6 +95,7 @@ function EditForm() {
 
         </div>
       </form>
+    </div>
     </div>
   );
 }

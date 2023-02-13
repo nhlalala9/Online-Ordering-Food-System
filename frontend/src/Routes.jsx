@@ -32,6 +32,7 @@ import NavBar from "./components/NavBar/NavBar";
   
 import OrderHiststory from "./pages/OrderHistory/OrderHistory";
 import RatingsModal from "./components/Ratings/RatingsModal"
+import Reservation from "./components/Reservation/Reservation";
 
 
 const AppRoutes = ({productItems, cartItems, HandleProduct, handleRemoveProduct,handleCartClearance}) => {
@@ -73,6 +74,7 @@ const AppRoutes = ({productItems, cartItems, HandleProduct, handleRemoveProduct,
       <Route path="checkoutform" element={<CheckoutForm  cartItems={cartItems} />}/>
       <Route path="checkout" element={<Checkout cartItems={cartItems} />}/>
       <Route path="rate" element={<RatingsModal/>}/>
+      <Route path="/reservation" element={<Reservation/>}/>
     </Routes>
   );
 };
