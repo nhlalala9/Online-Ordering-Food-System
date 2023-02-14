@@ -1,8 +1,29 @@
-const Reducer = (cart = [], action) => {
+const Reducer = (cart = [], action,state) => {
+
+    //  const sumItems = (productItem) => {
+    //     Storage(productItem);
+    //     let itemCount = productItem.reduce(
+    //       (total, productItem) => total + productItem.quantity,
+    //       0
+    //     );
+    //     let total = productItem
+    //       .reduce((total, product) => total + product.price * product.quantity, 0)
+    //       .toFixed(2);
+    //     return { itemCount, total };
+    //   };
+
+    //   if (!state.productItem.find((item) => item.id === action.payload.id)) {
+    //     state.productItem.push({
+    //       ...action.payload,
+    //       quantity: 1,
+    //     });
+    //   }
+
     if (action.type === "ADD") {
       let tempcart = cart.filter((productItem) => productItem.id === action.payload.id);
-      if (tempcart < 1) {
+      if (tempcart > 1) {
         return [...cart, action.payload];
+        
       } else {
         return cart;
       }
@@ -31,3 +52,4 @@ const Reducer = (cart = [], action) => {
     return cart;
   };
   export default Reducer;
+

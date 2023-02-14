@@ -4,7 +4,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-const Cart = (productItem) => {
+const Cart = (productItems) => {
   const cart = useSelector((state) => state);
 
   const dispatch = useDispatch();

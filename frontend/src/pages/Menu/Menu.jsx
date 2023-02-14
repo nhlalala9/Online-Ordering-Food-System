@@ -97,8 +97,8 @@ function Menu({ productItems }) {
                       <CButton
                         style={{ width: "17rem", height: "50px" }}
             
-                        onClick={() => dispatch({type: "ADD", payload: productItem})}
-                      >
+                        onClick={() => dispatch({type: "ADD", payload: productItems})}
+                      > 
                         Add to cart
                       </CButton>
                     </CCardBody>
