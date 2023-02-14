@@ -15,7 +15,7 @@ import Box from "@mui/material/Box";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../../components/Loader/Loader";
 
-function Menu({ productItems, HandleProduct }) {
+function Menu({ productItems }) {
   let { id } = useParams();
   
   const cart = useSelector((state)=>state)
@@ -59,7 +59,7 @@ function Menu({ productItems, HandleProduct }) {
     } 
   }, [query]);
 
-
+  console.log(cart, "cart")
   return (
     <>
       {loading ? (

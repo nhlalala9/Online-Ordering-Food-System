@@ -78,9 +78,9 @@ function ProductBox(handleProduct,) {
               {/* <h2> {row.attributes.name}</h2> */}
               <p>{row.attributes.name}</p>
               <p>Price - R{row.attributes.price}</p>
-              <Link key={row.id} to={`/view/${row.id}`}>
-                <button className="productbox-button" onClick={()=> dispatch({type: "ADD", payload: cart})}>Add to Cart</button>
-              </Link>
+              {/* <Link key={row.id} to={`/view/${row.id}`}> */}
+                <button className="productbox-button" onClick={()=> dispatch({type: "ADD", payload: row})}>Add to Cart</button>
+              {/* </Link> */}
             </div>
 
           </div>

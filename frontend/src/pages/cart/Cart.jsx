@@ -4,7 +4,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-const Cart = () => {
+const Cart = (productItem) => {
   const cart = useSelector((state) => state);
 
   const dispatch = useDispatch();
@@ -17,17 +17,20 @@ const Cart = () => {
   const [items, setitems] = useState([]);
 
   console.log(cart, "I am cart on Cart Page");
+
     useEffect (() => {
     localStorage.setItem("My Cart Items", JSON.stringify(cart))
      } , [cart]);
 
     let localNum = items;
-    // localNum.push(items);
+    localNum.push(cart);
     localStorage.setItem("cartItems",  JSON.stringify(cart) )
     console.log(cart, "try local storage")
     console.log(localNum)
    
-    // console.log(items, "items")
+    console.log(localNum, "items")
+
+    console.log(cart, "cart")
 
   useEffect((e) => {
     if (cart.length >= 1) {

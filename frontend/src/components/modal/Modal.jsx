@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 import "./Modal.css";
 import axios from "axios";
-import   {useNavigate} from "react-router-dom"
-import { UpdatesData } from "../Data/Data";
 import Loader from "../Loader/Loader";
 
 function Modal({ setOpenModal }) {
-  // const [selectedFile, setSelectedFile] = useState(null);
-  // const [fileId, setfileId] = useState(null);
-
-
-  // const navigate = useNavigate();
+ 
   const [loading, setLoading] = useState(false);
   
   const [formData, setFormData] = useState({
