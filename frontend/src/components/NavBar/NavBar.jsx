@@ -4,9 +4,12 @@ import { removeToken } from "../../helpers";
 import logo from "../../images/logo1.png";
 import "./NavBar.css";
 import Badge from '@mui/material/Badge';
+import { useSelector, useDispatch } from "react-redux";
 
+function NavBar() {
 
-function NavBar(cartItems) {
+    const cart = useSelector((state)=>state)
+
     const [nav, setnav] = useState(false);
     const navigate = useNavigate();
 
@@ -23,20 +26,17 @@ function NavBar(cartItems) {
             setnav(false)
         }
     }
-
-    // window.addEventListener('scroll', changeBackground)
+    console.log(cart, "`ora")
+    window.addEventListener('scroll', changeBackground)
 
 
     return (
 
         <nav className={nav ? "nav active" : "nav"}>
-            <Link to='main' className="logo" smooth={true} duration={2000}>
+            <Link to='main' className="logo">
                 <img src={logo} alt="" />
             </Link>
-            {/* <input type="checkbox" className="menu-btn" id="menu-btn" />
-            <label for="menu-btn" className="menu-icon">
-                <span className="nav-icon"></span>
-            </label> */}
+          
 
             <ul className="menu flex flex-row">
 
@@ -46,13 +46,13 @@ function NavBar(cartItems) {
                 <li><Link to="/booking" >booking</Link></li>
                        <li><Link to="/orders" >Orders</Link></li>
                 {/* <li><Link to="/cart" className="auth_button_signUp" onClick={() => setShow(true)}>{size === 0? '': size} Cart</Link></li> */}
-                <li><Link to="/cart">Cart<Badge badgeContent={cartItems.length} color="primary">
+                <li><Link to="/cart">Cart<Badge badgeContent={cart.length} color="primary">
 
                 </Badge></Link></li>
-                {/* <li><Link to="" smooth={true} duration={2000}onClick={handleLogout}> logout</Link></li> */}
-                <li 
+               
+                <li className="auth_button_signUp" 
                     type="primary"
-                    onClick={handleLogout} >logout</li>
+                    onClick={handleLogout} ><Link>logout</Link></li>
 
             </ul>
         </nav>

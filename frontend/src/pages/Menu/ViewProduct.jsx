@@ -3,11 +3,38 @@ import axios from "axios";
 import NavBar from "../../components/NavBar/NavBar";
 import "./Menu.css";
 import { useParams } from "react-router-dom";
-
+import { useSelector, useDispatch } from "react-redux";
 
 export default function ViewProduct(productItems, handleProduct) {
   let { id } = useParams();
+  const [formData, setFormData] = useState({
+    name: "",
+    description: "",
+    price: "",
+  
+  });
 
+  const handleChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+    console.log(formData);
+  };
+
+
+  const handleSubmit = async(event) => {
+    event.preventDefault();
+    axios
+      .post("http://localhost:1337/api/products", {data: formData})
+      .then((response) => {
+    console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+          
+  };
 
   const [cards, setCards] = useState([]);
   useEffect(() => {
@@ -19,8 +46,10 @@ export default function ViewProduct(productItems, handleProduct) {
       })
       .catch((err) => console.log(err));
   }, []);
+console.log(cards.attributes.name,"is me")
+  const cart = useSelector((state)=>state)
 
-
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -32,16 +61,17 @@ export default function ViewProduct(productItems, handleProduct) {
         </div>
 
         <div className="details">
-          <h1>{cards?.attributes?.name}</h1>
+          <h1>{cards.attributes.name}</h1>
           <h4> {cards?.attributes?.description}</h4>
           <h3>R {cards?.attributes?.price}</h3>
           <button className="add_btn">
-            <a href="#" onClick={()=> {handleProduct(productItems)}}>Add to cart </a>
+            <a href="#" onClick={()=> dispatch({type: "ADD", payload: cards})}
+                      >Add to cart </a>
           </button>
         </div>
       </div>
 
-      <h1 className="heading">Reviews</h1>
+      {/* <h1 className="heading">Reviews</h1>
       <div className="reviewForm">
         <form onSubmit={handleSubmit}>
           <div className="password">
@@ -86,7 +116,7 @@ export default function ViewProduct(productItems, handleProduct) {
         </form>
 
 
-      </div>
+      </div> */}
     </>
   );
 }
