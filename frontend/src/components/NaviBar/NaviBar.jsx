@@ -6,8 +6,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import "./NaviBar.css"
 import { FaBell } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import addNotification from 'react-push-notification';
-import { Notifications } from 'react-push-notification';
+// import addNotification from 'react-push-notification';
+// import { Notifications } from 'react-push-notification';
 
 const NaviBar = () => {
   // const [searchValue, setSearchValue] = useState('');
@@ -15,13 +15,13 @@ const NaviBar = () => {
   // const handleSearch = e => {
   //   setSearchValue(e.target.value);
   // };
-  function buttonOnClick() {
-    addNotification({
-      title: 'Warning',
-      native: true,
-    });
+  // function buttonOnClick() {
+  //   addNotification({
+  //     title: 'Warning',
+  //     native: true,
+  //   });
 
-  }
+  // }
   return (
 
     <div className='navigation'>
@@ -46,11 +46,11 @@ const NaviBar = () => {
         <ul>
 
           <li>
-            <Notifications />
-          
+            {/* <Notifications /> */}
+{/*           
             <button onClick={buttonOnClick}>
               Push Notification
-            </button>
+            </button> */}
             < FaBell className="bell" />
 
           </li>

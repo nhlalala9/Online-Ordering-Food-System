@@ -18,19 +18,19 @@ const Cart = (productItem) => {
 
   console.log(cart, "I am cart on Cart Page");
 
-    useEffect (() => {
-    localStorage.setItem("My Cart Items", JSON.stringify(cart))
-     } , [cart]);
+  useEffect(() => {
+    localStorage.setItem("My Cart Items", JSON.stringify(cart));
+  }, [cart]);
 
-    let localNum = items;
-    localNum.push(cart);
-    localStorage.setItem("cartItems",  JSON.stringify(cart) )
-    console.log(cart, "try local storage")
-    console.log(localNum)
-   
-    console.log(localNum, "items")
+  let localNum = items;
+  localNum.push(cart);
+  localStorage.setItem("cartItems", JSON.stringify(cart));
+  console.log(cart, "try local storage");
+  console.log(localNum);
 
-    console.log(cart, "cart")
+  console.log(localNum, "items");
+
+  console.log(cart, "cart");
 
   useEffect((e) => {
     if (cart.length >= 1) {
@@ -52,7 +52,7 @@ const Cart = (productItem) => {
           {cart.length >= 1 && (
             <button
               className="clear-cart-button"
-              onClick={() => dispatch({ type: "INCREASE", payload: cart })}
+              onClick={() => dispatch({ type: "REMOVE", payload: cart })}
             >
               Clear cart
             </button>
@@ -84,7 +84,6 @@ const Cart = (productItem) => {
                 <div className="cart-items-functions">
                   <button
                     className="cart-items-add"
-                 
                     onClick={() =>
                       dispatch({ type: "INCREASE", payload: item })
                     }
@@ -93,7 +92,6 @@ const Cart = (productItem) => {
                   </button>
                   <button
                     className="cart-items-remove"
-          
                     onClick={() => {
                       if (item.quantity > 1) {
                         dispatch({ type: "DECREASE", payload: item });
