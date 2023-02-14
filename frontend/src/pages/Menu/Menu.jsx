@@ -76,7 +76,7 @@ function Menu({ productItems }) {
               />
             </div>
 
-            <div className="menu_items">
+            <div className="menu_items" >
               {productItems.map((productItem) => {
                productItem.quantity = 1;
                return (

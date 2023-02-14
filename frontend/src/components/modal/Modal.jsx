@@ -35,6 +35,7 @@ function Modal({ setOpenModal }) {
         formData.append("ref","api::product.product");
         formData.append("field","pictures")
         formData.append("refId",response.data.data.id);
+        console.log(response);
         axios.post("http://localhost:1337/api/upload", formData).then((res) => {
         ("uploaded");
         setLoading(false);

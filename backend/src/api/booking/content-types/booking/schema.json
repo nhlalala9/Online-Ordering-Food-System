@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookings",
+  "info": {
+    "singularName": "booking",
+    "pluralName": "bookings",
+    "displayName": "Booking"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "first_name": {
+      "type": "string"
+    },
+    "number": {
+      "type": "string"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "guess": {
+      "type": "integer"
+    },
+    "email": {
+      "type": "email"
+    },
+    "request": {
+      "type": "richtext"
+    },
+    "last_name": {
+      "type": "string"
+    }
+  }
+}

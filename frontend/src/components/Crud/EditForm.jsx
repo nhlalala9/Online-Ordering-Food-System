@@ -8,7 +8,7 @@ import { fetchData } from "../../utils/utils";
 
 function EditForm() {
   const id  = useLocation();
-  const [prodId, setProdId] = useState(id.state);
+  const [prodId, setProdId] = useState(id.state.params);
   const navigate = useNavigate();
   const [data, setData] = useState({});
   const [formData, setFormData] = useState({name:"", description:"",price:"", Price:""});
@@ -18,7 +18,7 @@ function EditForm() {
     navigate('/crud');
   };
 
-  console.log(id.state.params);
+  console.log(prodId,"wesrdtfyguhjk");
 
   // code for displaying data
   useEffect(() => {
@@ -42,13 +42,15 @@ function EditForm() {
     setFormData(preventData => ({ ...preventData, [name]:value}));
   };
 
-  const editId = (id, e) => {
+  const editId = (prodId, e) => {
+
     e.preventDefault();
     axios
-      .put(`http://localhost:1337/api/products/${id}`, { data: formData })
+      .put(`http://localhost:1337/api/products/${prodId}`, { data: formData })
       .then((response) => {
-        setProdId(id);
+        setProdId(prodId);
         navigate('/crud');
+        console.log(response,"im posted");
       })
       .catch((error) => {
         console.log(error);
@@ -56,7 +58,9 @@ function EditForm() {
   };
 
   return (
+    <div className="container">
     <div className="edit_form">
+      
       <form onSubmit={(e) => editId(prodId, e)}>
         <Form.Group className="mb-3" >
           <Form.Label>Name</Form.Label>
@@ -81,16 +85,17 @@ function EditForm() {
           <Form.Label>Picture</Form.Label>
           <img src={data.Picture } />
           <Form.Control className="try" name="Picture"
-            value={formData.Picture || data.Picture }
+            value={formData.pictures || data.pictures }
             onChange={handleChange} type=""  />
         </Form.Group>
 
         <div className="btns">
           <button onClick={handleClick} className="cancel" type="text">Cancel</button>
-          <button onClick={handleClick} className="save" type="submit">Submit</button>
+          <button onClick={(e) =>editId(prodId, e)} className="save" type="submit">Submit</button>
 
         </div>
       </form>
+    </div>
     </div>
   );
 }
