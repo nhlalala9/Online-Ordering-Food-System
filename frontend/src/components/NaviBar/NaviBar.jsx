@@ -1,11 +1,11 @@
-import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import "./NaviBar.css"
-import { FaBell } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React from "react";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import "./NaviBar.css";
+import { FaBell } from "react-icons/fa";
+import { Link } from "react-router-dom";
 // import addNotification from 'react-push-notification';
 // import { Notifications } from 'react-push-notification';
 
@@ -23,9 +23,7 @@ const NaviBar = () => {
 
   // }
   return (
-
-    <div className='navigation'>
-
+    <div className="navigation">
       <button className="hamburger">
         {/* icon from heroicons.com */}
         <svg
@@ -41,27 +39,20 @@ const NaviBar = () => {
           />
         </svg>
       </button>
-      <div
-        className="navigation-menu">
+      <div className="navigation-menu">
         <ul>
-
           <li>
             {/* <Notifications /> */}
-{/*           
+            {/*           
             <button onClick={buttonOnClick}>
               Push Notification
             </button> */}
-            < FaBell className="bell" />
-
+            <FaBell className="bell" />
           </li>
-
         </ul>
       </div>
     </div>
+  );
+};
 
-
-
-  )
-}
-
-export default NaviBar
+export default NaviBar;
