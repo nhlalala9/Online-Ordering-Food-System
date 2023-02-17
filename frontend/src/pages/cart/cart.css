@@ -152,3 +152,7 @@ h1{
     background: var(--pink);
    
 }
+
+input{
+    width: 100%;
+}

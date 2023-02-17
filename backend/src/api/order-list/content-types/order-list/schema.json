@@ -21,37 +21,11 @@
     "Price": {
       "type": "decimal"
     },
-    "Date": {
-      "type": "datetime"
-    },
-    "CustomerName": {
-      "type": "text"
-    },
-    "Address": {
-      "type": "text"
-    },
-    "Quantity": {
-      "type": "integer"
-    },
-    "PaymentMethod": {
-      "type": "enumeration",
-      "enum": [
-        "Card Payment",
-        "EFT",
-        "Cash",
-        "Voucher"
-      ]
-    },
-    "Acquire": {
-      "type": "enumeration",
-      "enum": [
-        "Delivery",
-        "Pickup",
-        "Sit-in"
-      ]
-    },
-    "TotalPrice": {
-      "type": "integer"
+    "order_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order.order",
+      "inversedBy": "order_lists"
     }
   }
 }

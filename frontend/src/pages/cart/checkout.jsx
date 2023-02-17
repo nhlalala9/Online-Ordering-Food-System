@@ -5,308 +5,173 @@ import { TextField, Grid } from '@mui/material';
 import NavBar from '../../components/NavBar/NavBar';
 import "./cart.css"
 import { useSelector, useDispatch } from "react-redux";
+import { API } from '../../constant';
+import {ToastContainer} from "react-toastify";
+import {Error, Success } from "../../toaster";
 
-function Checkout(cartItems) {
-  // const [cartItems, setCartItems] = useState([], () => {
-  //   const localData = localStorage.getItem(cartItems);
-  //   return localData ? JSON.parse(localData) : []
-  //   });
-  // const addInfo = [];
-  // const [addInfo, setAddInfo] = useState([])
+function Checkout(props) {
+  const cart = useSelector((state) => state);
 
-  const [formData, setFormData] = useState({
-    first_Name: "",
-    last_Name: "",
-    phone_number: "",
-    email: "",
-    line1: "",
-    line2: "",
-    zip_code: "",
-    city: "",
-    province: "",
-    country: "",
-
-    Date: "",
-    PaymentMethod: "",
-  });
-
-  const [items, setItems] = useState();
-  const [DishName, setDishName] = useState(cartItems.cartItems.map((item)=>item.attributes.name));
-  const [Picture, SetPicture ] = useState(cartItems.cartItems.map((item)=>item.attributes.Picture));
-   const [Price,setPrice] =useState(cartItems.cartItems.map((item)=>item.attributes.Price));
-   const [Quantity,setQuantity] = useState(cartItems.cartItems.map((item)=>item.Quantity));
-   const [TotalPrice,setTotalPrice] = useState(cartItems.cartItems.map((item)=>item.TotalPrice));
-
-  // setItems(cartItems.cartItems.map((item)=>item.attributes));
-  const cartData = {
-    // cartItems.cartItems.map((item)=>item.attributes)
-    data: {
-    DishName : DishName,
-    Picture: Picture,
-    Price: Price,
-    Quantity: Quantity,
-    TotalPrice: TotalPrice
-      
-  }
-  };
-console.log(DishName, "Dish name")
-  console.log(cartItems.cartItems[0].attributes.price)
-  // console.log(cartItems[0].attributes.price, "price")
-  // console.log(cartData, "sfghj")
-  // console.log("====================================");
-  // console.log(cartItems.cartItems.map((item)=>item.attributes));
-  // console.log("====================================");
-
-  const HandleCartItems = (cartData) => {
-
-    // event.preventDefault();
-    axios
-      .post("http://localhost:1337/api/order-lists",cartData)
-      .then((response) => {
-        console.log(response);
-  // const [addInfo, setAddInfo] = useState([])
-    // const [formData, setFormData] = useState({
-    //     first_Name: "",
-    //     last_Name: "",
-    //     phone_number: "",
-    //     email:"",
-    //     line1:"",
-    //     line2:"",
-    //     zip_code:"",
-    //     city:"",
-    //     province:"",
-    //     country:"",
-    //   });
-      })
-
-const cart = useSelector((state) => state);
-  console.log(cart ,"products");
-console.log(cartItems, "checkout") 
-
-    const handleChange = (event) => {
-        setFormData({
-          ...formData,
-          [event.target.name]: event.target.value,
-        });
-        console.log(formData);
-      };
-
-    const HandleSubmit = (event) => {
-        event.preventDefault();
-        axios
-           .post("http://localhost:1337/api/order-lists", { data: formData })
-           .then((response) => {
-             console.log(response);
-           })
-           .catch((error) => {
-             console.log(error);
-           });
-      };
-
-      // useEffect (() => {
-      //   setAddInfo(localStorage.setItem("Form data", JSON.stringify(formData)))
-      //  } , [formData]); 
-     
-       useEffect(()=>{
-        console.log(localStorage.getItem('Cart Items'))
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-    //  const data = localStorage.setItem('address', JSON.stringify(formData));
-    //  console.log(data, "what")
-  };
-  const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  
-    // console.log(formData);
+  const addition = (acc, currentvalue) => {
+    return acc + currentvalue.attributes.price * currentvalue.quantity;
   };
 
-  const HandleAddress = (event) => {
-    event.preventDefault();
-    axios
-      .post("http://localhost:1337/api/order-lists", { data: formData })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-    //  const data = localStorage.setItem('address', JSON.stringify(formData));
-    //  console.log(data, "what")
+  const qty = (acc, currentvalue) => {
+    return acc + currentvalue.quantity;
   };
 
-  const HandleSubmit = (event) => {
-    event.preventDefault();
-    let hold = [];
+  const total = cart.reduce(addition, 0);
+  const quantity = cart.reduce(qty, 0);
 
-    cartItems.cartItems.forEach(element => {
-      console.log(element.name)
-      hold = [...hold, element.attributes.price];
-   
-    });
-    console.log(hold);
-  
+  console.log(quantity);
+  console.log(total);
 
-    const data ={
-      product: hold,
-      
+  const [first_Name, setCustomer] = useState("");
+  const [phone_number, setPhone] = useState("");
+  const [Street_address, setAddress] = useState("");
+  const [Suburb, setSuburb] = useState("");
+  const [City, setCity] = useState("");
+  const [Zipcode, setZip]= useState("");
+
+ 
+
+function pay(){
+  let order={
+    data:{
+      Name: first_Name,
+      Phone: phone_number,
+      Street_address: Street_address,
+      suburb: Suburb,
+      city: City,
+      zipcode: Zipcode,
+      Qty: quantity,
+      Total_Price:total,
     }
-    console.log(data)
+  }
 
-    // axios
-    //   .post("http://localhost:1337/api/order-lists", { data: data })
-    //   .then((response) => {
-    //     console.log(response);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+  console.log(order);
 
-    //  const data = localStorage.setItem('address', JSON.stringify(formData));
-    //  console.log(data, "what")
-  };
+  //post to orders
+  axios.post(`${API}/orders`, order).then((response) => {
+    console.log(response.data.data.id);
 
-  // useEffect(()=>
-  // {
-  //   console.log(cartItems.cartItems)
+    cart.map((results) => {
+      let order_list={
+        data:{
+          Picture:results.attributes.pictures.data.attributes.url,
+          DishName: results.attributes.name,
+          Price:results.attributes.price,
+          order_id: response.data.data.id
+        }
+      }
+      //post to orderlist
+      axios.post(`${API}/order-lists`, order_list)
+    })
+    console.log(response);
+    Success("order was successful")
+  }).catch((error) => {
+      console.log(error)
+     Error('Unable to order items')
+  })
+  
+}
 
-  // },[])
-
-
-
-
-  // useEffect (() => {
-  //   setAddInfo(localStorage.setItem("Form data", JSON.stringify(formData)))
-  //  } , [formData]);
-
-  // useEffect(()=>{
-  //   console.log(localStorage.getItem('address', "testing"))
-  // })
 
   return (
     <>
       <NavBar />
+      <ToastContainer />
 
       <div className="container">
         <div className="checkout_form">
-          <form onSubmit={HandleSubmit}  noValidate autoComplete="off">
+         
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  label="First Name"
+                  label="Customer Name"
                   variant="outlined"
                   fullWidth
-                  name="first_Name"
-                  value={formData.first_Name}
-                  onChange={handleChange}
+                  name="Customer Name"
+                  value={first_Name}
+                  onChange={(e) => setCustomer(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  label="Last Name"
-                  variant="outlined"
-                  fullWidth
-                  name="last_Name"
-                  value={formData.last_Name}
-                  onChange={handleChange}
-                />
-              </Grid>
+
               <Grid item xs={12} sm={6}>
                 <TextField
                   label="Phone number"
                   variant="outlined"
                   fullWidth
                   name="phone_number"
-                  value={formData.phone_number}
-                  onChange={handleChange}
+                  type="number"
+                  onKeyDown={(e) => { 
+                    if(e.shiftKey === true)e.preventDefault(); 
+                    if(e.key === 'Minus' )e.preventDefault();
+                    if(e.key === 'e' )e.preventDefault();
+                  }}
+                  value={phone_number}
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  label="Email address"
-                  variant="outlined"
-                  fullWidth
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   label="Address line 1"
                   variant="outlined"
                   fullWidth
-                  name="line1"
-                  value={formData.line1}
-                  onChange={handleChange}
+                  name="street_address"
+                  value={Street_address}
+                  onChange={(e) => setAddress(e.target.value)}
                 />
               </Grid>
+
               <Grid item xs={12}>
                 <TextField
-                  label="Address line 2"
+                  label="Surbub"
                   variant="outlined"
                   fullWidth
-                  name="line2"
-                  value={formData.line2}
-                  onChange={handleChange}
+                  name="Surbub"
+                  value={Suburb}
+                  onChange={(e) => setSuburb(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  label="Postal/Zip Code"
-                  variant="outlined"
-                  fullWidth
-                  name="zip_code"
-                  value={formData.zip_code}
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={8} sm={8}>
                 <TextField
                   label="City"
                   variant="outlined"
                   fullWidth
-                  name="city"
-                  value={formData.city}
-                  onChange={handleChange}
+                  name="City"
+                  value={City}
+                  onChange={(e) => setCity(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+
+              <Grid item xs={4} sm={4}>
                 <TextField
-                  label="Province/State"
+                  label="Zip Code"
                   variant="outlined"
                   fullWidth
-                  name="province"
-                  value={formData.province}
-                  onChange={handleChange}
+                  name="zip"
+                  type="number"
+                  onKeyDown={(e) => { 
+                    if(e.shiftKey === true)e.preventDefault(); 
+                    if(e.key === 'Minus' )e.preventDefault();
+                    if(e.key === 'e' )e.preventDefault();
+                  }}
+                  value={Zipcode}
+                  onChange={(e) => setZip(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  label="Country"
-                  variant="outlined"
-                  fullWidth
-                  name="country"
-                  value={formData.country}
-                  onChange={handleChange}
-                />
-              </Grid>
-           
+          
             </Grid>
 
             <div className="pay_now">
-              <button type="submit" className="pay_btn">
+              <button className="pay_btn" onClick={pay}>
                 Pay now
               </button>
          
             </div>
-          </form>
+     
         </div>
       </div>
     </>
