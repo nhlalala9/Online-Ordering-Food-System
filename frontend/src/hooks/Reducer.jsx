@@ -28,6 +28,10 @@ const Reducer = (cart = [], action) => {
       });
       return tempcart;
     }
+    if (action.type === "CLEAR"){
+      return window.location.reload()
+    }
+   
     return cart;
   };
   export default Reducer;

@@ -4,11 +4,12 @@ import NavBar from "../../components/NavBar/NavBar";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-const Cart = (productItem) => {
+const Cart = () => {
   const cart = useSelector((state) => state);
 
   const dispatch = useDispatch();
   const addition = (acc, currentvalue) => {
+    
     return acc + currentvalue.attributes.price * currentvalue.quantity;
   };
   const total = cart.reduce(addition, 0);
@@ -16,21 +17,16 @@ const Cart = (productItem) => {
   const [state, setState] = useState(true);
   const [items, setitems] = useState([]);
 
-  console.log(cart, "I am cart on Cart Page");
 
   useEffect(() => {
     localStorage.setItem("My Cart Items", JSON.stringify(cart));
   }, [cart]);
 
   let localNum = items;
-  localNum.push(cart);
-  localStorage.setItem("cartItems", JSON.stringify(cart));
-  console.log(cart, "try local storage");
+  // localNum.push(cart);
   console.log(localNum);
+  localStorage.setItem("cartItems", JSON.stringify(cart));
 
-  console.log(localNum, "items");
-
-  console.log(cart, "cart");
 
   useEffect((e) => {
     if (cart.length >= 1) {
@@ -42,6 +38,11 @@ const Cart = (productItem) => {
     }
   }, []);
 
+  function readData(data){
+    console.log(data);
+  }
+
+
   return (
     <div className="main_cart">
       <NavBar />
@@ -52,7 +53,7 @@ const Cart = (productItem) => {
           {cart.length >= 1 && (
             <button
               className="clear-cart-button"
-              onClick={() => dispatch({ type: "REMOVE", payload: cart })}
+              onClick={() => dispatch({ type: "CLEAR"})}
             >
               Clear cart
             </button>
@@ -74,7 +75,7 @@ const Cart = (productItem) => {
         {
           <div>
             {cart.map((item) => (
-              <div key={item.id} className="cart-items-list">
+              <div key={item.id} className="cart-items-list" onClick={readData(item)}>
                 <img
                   className="cart-items-image"
                   src={item.attributes.pictures.data.attributes.url}
