@@ -49,9 +49,9 @@ const NaviBar = () => {
             <Notifications />
           
             <button onClick={buttonOnClick}>
-              Push Notification
-            </button>
             < FaBell className="bell" />
+            </button>
+           
 
           </li>
 

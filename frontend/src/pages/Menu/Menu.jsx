@@ -80,7 +80,7 @@ function Menu({ productItems }) {
               {productItems.map((productItem) => {
                productItem.quantity = 1;
                return (
-                <div key={productItem.id} className="col-md-2 d-flex ">
+                <div key={productItem.id} className="col-md-3 d-flex ">
                   <CCard style={{ width: "20rem", gap:"5px" }}>
                     <Link key={productItem.id} to={`/view/${productItem.id}`}>
                       <CCardImage
@@ -93,11 +93,10 @@ function Menu({ productItems }) {
                       <CCardText style={{ fontSize:"16px", height:"30px", fontWeight:"bold" , fontSize:"20px"}}>
                         R{productItem.attributes.price.toFixed(2)}</CCardText>
                      
-                   
                       <CButton
-                        style={{ width: "17rem", height: "50px" }}
+                        style={{ width: "16rem", height: "50px" }}
             
-                        onClick={() => dispatch({type: "ADD", payload: productItems})}
+                        onClick={() => dispatch({type: "ADD", payload: productItem})}
                       > 
                         Add to cart
                       </CButton>
