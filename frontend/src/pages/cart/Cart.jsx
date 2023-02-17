@@ -4,11 +4,12 @@ import NavBar from "../../components/NavBar/NavBar";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-const Cart = (productItems) => {
+const Cart = () => {
   const cart = useSelector((state) => state);
 
   const dispatch = useDispatch();
   const addition = (acc, currentvalue) => {
+    
     return acc + currentvalue.attributes.price * currentvalue.quantity;
   };
   const total = cart.reduce(addition, 0);
@@ -16,21 +17,16 @@ const Cart = (productItems) => {
   const [state, setState] = useState(true);
   const [items, setitems] = useState([]);
 
-  console.log(cart, "I am cart on Cart Page");
 
-    useEffect (() => {
-    localStorage.setItem("My Cart Items", JSON.stringify(cart))
-     } , [cart]);
+  useEffect(() => {
+    localStorage.setItem("My Cart Items", JSON.stringify(cart));
+  }, [cart]);
 
-    let localNum = items;
-    localNum.push(cart);
-    localStorage.setItem("cartItems",  JSON.stringify(cart) )
-    console.log(cart, "try local storage")
-    console.log(localNum)
-   
-    console.log(localNum, "items")
+  let localNum = items;
+  // localNum.push(cart);
+  console.log(localNum);
+  localStorage.setItem("cartItems", JSON.stringify(cart));
 
-    console.log(cart, "cart")
 
   useEffect((e) => {
     if (cart.length >= 1) {
@@ -42,6 +38,11 @@ const Cart = (productItems) => {
     }
   }, []);
 
+  function readData(data){
+    console.log(data);
+  }
+
+
   return (
     <div className="main_cart">
       <NavBar />
@@ -52,7 +53,7 @@ const Cart = (productItems) => {
           {cart.length >= 1 && (
             <button
               className="clear-cart-button"
-              onClick={() => dispatch({ type: "INCREASE", payload: cart })}
+              onClick={() => dispatch({ type: "CLEAR"})}
             >
               Clear cart
             </button>
@@ -74,7 +75,7 @@ const Cart = (productItems) => {
         {
           <div>
             {cart.map((item) => (
-              <div key={item.id} className="cart-items-list">
+              <div key={item.id} className="cart-items-list" onClick={readData(item)}>
                 <img
                   className="cart-items-image"
                   src={item.attributes.pictures.data.attributes.url}
@@ -84,7 +85,6 @@ const Cart = (productItems) => {
                 <div className="cart-items-functions">
                   <button
                     className="cart-items-add"
-                 
                     onClick={() =>
                       dispatch({ type: "INCREASE", payload: item })
                     }
@@ -93,7 +93,6 @@ const Cart = (productItems) => {
                   </button>
                   <button
                     className="cart-items-remove"
-          
                     onClick={() => {
                       if (item.quantity > 1) {
                         dispatch({ type: "DECREASE", payload: item });
