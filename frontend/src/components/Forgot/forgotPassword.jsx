@@ -48,8 +48,8 @@ const Forgot = () => {
     console.log('my ', data);
     if (isValid) {
 
-    
-    
+
+
       await axios
         .post(
           "http://localhost:1337/api/auth/forgot-password",
@@ -61,7 +61,7 @@ const Forgot = () => {
             },
           }
         )
-        
+
         .then((response) => {
           // Handle success.
           alert("Message Sent with reset link sent to your email.");
@@ -79,47 +79,47 @@ const Forgot = () => {
 
 
   return (
-    
+
     // <div className="outer">
     // <div className="inner">
-      
-    <div className="inner">
-        <Form ref={forms} onSubmit={tries}>
 
-          <div >
-            <FontAwesomeIcon icon="fa-solid fa-lock" />
-            <h1 className="b py-3">Forgot password</h1>
-            <i class="fa-solid fa-lock"></i>
-            <div className="card-body ">
-              <Form.Group className="" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="text"
-                  ref={emailInputRefs}
-                  name="email"
-                  placeholder="email"
-                  value={fields.email}
-                  onChange={form.handleChangeEvent}
-                  onBlur={form.handleBlurEvent}
-                  className="input input-bordered" />
-                <Form.Text className="text-muted">
-                  <label className="error ">
-                    {errors.email ? errors.email : ""}
-                  </label>
-                </Form.Text>
-              </Form.Group>
-              <div className="log-btn">
+    <div className="inner">
+      <Form ref={forms} onSubmit={tries}>
+
+        <div >
+          <FontAwesomeIcon icon="fa-solid fa-lock" />
+          <h1 className="b py-3">Forgot password</h1>
+          <i class="fa-solid fa-lock"></i>
+          <div className="card-body ">
+            <Form.Group className="" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="text"
+                ref={emailInputRefs}
+                name="email"
+                placeholder="email"
+                value={fields.email}
+                onChange={form.handleChangeEvent}
+                onBlur={form.handleBlurEvent}
+                className="input input-bordered" />
+              <Form.Text className="text-muted">
+                <label className="error ">
+                  {errors.email ? errors.email : ""}
+                </label>
+              </Form.Text>
+            </Form.Group>
+            <div className="log-btn">
               <Button className="submit_btn" variant="primary" type="submit" size="md" >
                 Submit
               </Button>
-              </div>
-
             </div>
+
           </div>
-        </Form>
         </div>
-        
-      
-   
+      </Form>
+    </div>
+
+
+
   );
 }
 

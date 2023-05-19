@@ -42,6 +42,7 @@ function NavBar() {
           <Link to="/menu">Menu</Link>
         </li>
         <li>
+          
           <Link to="/contact">Notifications</Link>
         </li>
         <li>
